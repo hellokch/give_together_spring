@@ -9,8 +9,6 @@ import javax.servlet.http.HttpSession;
 
 import dao.UserMybatisDao;
 
-import kic.mskim.MskimRequestMapping;
-import kic.mskim.RequestMapping;
 import model.Board;
 import model.Usergroup;
 import model.Userperson;

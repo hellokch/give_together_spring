@@ -9,7 +9,6 @@ import org.apache.ibatis.session.SqlSession;
 import model.Board;
 import model.Usergroup;
 import model.Userperson;
-import mybatis.MybatisConnection;
 
 public class UserMybatisDao {
 	private static final String ns = "userperson.";
