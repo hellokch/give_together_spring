@@ -7,6 +7,8 @@
 <title>Give 같이 하는 가치</title>
 
 </head>
+
+<body>
 <link rel="stylesheet" href = "${pageContext.request.contextPath}/resource/css/bootstrap.min.css">
 <style>
 div{
@@ -35,8 +37,6 @@ a{
 }
 
 </style>
-
-<body>
 
 <div class="container">
 	<a href="${pageContext.request.contextPath}/giveTogether/donation">

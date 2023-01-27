@@ -7,64 +7,83 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import dao.UserMybatisDao;
 
 import model.Board;
 import model.Usergroup;
 import model.Userperson;
 
-@WebServlet("/giveTogether/*")
-public class GiveTogetherController extends MskimRequestMapping{
-	UserMybatisDao userdao = new UserMybatisDao();
+@Controller
+@RequestMapping("/giveTogether/")
+public class GiveTogetherController {
+	@Autowired
+	UserMybatisDao userdao;
+	
+	Model m;
+	HttpSession session;
+	HttpServletRequest request;
+	
+	@ModelAttribute
+	void init(HttpServletRequest request, Model m) {
+		this.request = request;
+		this.m=m;
+		session = request.getSession();
+	}
 	
 	@RequestMapping("main")
-	public String main(HttpServletRequest request, HttpServletResponse response){
+	public String main(){
 		System.out.println("request ok");
-		return "/view/mainPage.jsp";
+		return "/mainPage";
 	}
 	
 	@RequestMapping("donation")
-	public String donation(HttpServletRequest request, HttpServletResponse response)  throws Exception {
-System.out.println("To donationPage");
+	public String donation()  throws Exception {
+		System.out.println("To donationPage");
 		/*
 		List<Board> list=userdao.giveBoard();
 		System.out.println("@@@"+list);
 		*/
-		return "/view/donationPage.jsp";
+		return "/donationPage";
 	}
 	
 	@RequestMapping("funding")
-	public String funding(HttpServletRequest request, HttpServletResponse response){
+	public String funding(){
 		System.out.println("To fundingPage");
-		return "/view/fundingPage.jsp";
+		return "/fundingPage";
 	}
 	
 	@RequestMapping("volunteer")
-	public String voluteer(HttpServletRequest request, HttpServletResponse response){
+	public String voluteer(){
 		System.out.println("To voluteerPage");
-		return "/view/volunteer/volunteerForm.jsp";
+		return "/volunteer/volunteerForm";
 	}
 	
 	@RequestMapping("loginForm")
-	public String loginForm(HttpServletRequest request, HttpServletResponse response){
+	public String loginForm(){
 		System.out.println("To loginForm");
-		return "/view/user/loginForm.jsp";
+		return "/user/loginForm";
 	}
 	
 	@RequestMapping("joinForm")
-	public String joinForm(HttpServletRequest request, HttpServletResponse response){
+	public String joinForm(){
 		System.out.println("To joinForm");
-		return "/view/user/joinForPerson.jsp";
+		return "/user/joinForPerson";
 	}
 	
 	@RequestMapping("joinForGroup")
-	public String joinForGroup(HttpServletRequest request, HttpServletResponse response){
+	public String joinForGroup(){
 		System.out.println("To joinFormForGroup");
-		return "/view/user/joinForGroup.jsp";
+		return "/user/joinForGroup";
 	}
 	
 	@RequestMapping("joinUserGroupPro")
-	public String joinUserGroupPro(HttpServletRequest request, HttpServletResponse response)throws Exception {
+	public String joinUserGroupPro()throws Exception {
 		
 		System.out.println("joinUserGroupPro");	
 		
@@ -87,24 +106,24 @@ System.out.println("To donationPage");
 		
 		if(count>0) {
 			msg = group.getP_name() + "님의 가입이 완료되었습니다.";
-			url = "/view/user/loginForm";
+			url = "/user/loginForm";
 		}else {
 			msg = "회원가입에 실패 했습니다.";
-			url = "/view/user/joinForGroup";			
+			url = "/user/joinForGroup";			
 		}
 		request.setAttribute("msg", msg);
 		request.setAttribute("url", url);
-		return "/view/alert.jsp";
+		return "/alert";
 	}
 	
 	@RequestMapping("joinForPerson")
-	public String joinForPerson(HttpServletRequest request, HttpServletResponse response){
+	public String joinForPerson(){
 		System.out.println("To joinFormForPerson");
-		return "/view/user/joinForPerson.jsp";
+		return "/user/joinForPerson";
 	}
 	
 	@RequestMapping("joinUserPersonPro")
-	public String joinUserPersonPro(HttpServletRequest request, HttpServletResponse response)throws Exception {
+	public String joinUserPersonPro()throws Exception {
 		System.out.println("joinUserPersonPro");
 		
 		Userperson person = new Userperson();
@@ -132,13 +151,13 @@ System.out.println("To donationPage");
 		}
 		request.setAttribute("msg", msg);
 		request.setAttribute("url", url);
-		return "/view/alert.jsp";
+		return "/alert";
 	}
 	
 	@RequestMapping("userPersonInfo")
-	public String userPersonInfo(HttpServletRequest request, HttpServletResponse response){
+	public String userPersonInfo(){
 		System.out.println("To joinFormForPerson");
-		return "/view/mypage/userPersonInfo.jsp";
+		return "/mypage/userPersonInfo";
 	}
 	
 }

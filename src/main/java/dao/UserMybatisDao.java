@@ -5,32 +5,40 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import model.Board;
 import model.Usergroup;
 import model.Userperson;
 
+@Repository
 public class UserMybatisDao {
+	@Autowired
+	SqlSessionTemplate session;
+	
 	private static final String ns = "userperson.";
-	private Map map = new HashMap();
+	private static final String ns1 = "usergroup.";
+	
+
 	
 	public int insertUserperson(Userperson person) {
-		SqlSession session = MybatisConnection.getConnection();
 		int num = session.insert(ns + "insertUserperson", person);
-		MybatisConnection.close(session);
 		return num;
 				
 	}
-	private static final String ns1 = "usergroup.";
-	private Map map1 = new HashMap();
 	
 	public int insertUsergroup(Usergroup group) {
-		SqlSession session = MybatisConnection.getConnection();
-		int num = session.insert(ns + "insertUsergroup", group);
-		MybatisConnection.close(session);
+		
+		int num = session.insert(ns1 + "insertUsergroup", group);
+		
 		return num;	
 }	
-
+	
+/*
+  private Map map = new HashMap();
+	private Map map1 = new HashMap();
 	public List<Board> giveBoard() {
 		System.out.println("To 11111");
 		SqlSession session = MybatisConnection.getConnection();
@@ -42,5 +50,5 @@ public class UserMybatisDao {
 		System.out.println("To 444444");
 		return list;
 		
-	}
+	}*/
 }

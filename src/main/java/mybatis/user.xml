@@ -7,12 +7,6 @@
 	(#{id}, #{kinds}, #{pass}, #{tel}, #{name}, #{email}, #{location}, #{location1}, #{nickname}, #{gender})
 </insert>
 
-<select id="giveBoardList"  parameterType="userperson" resultType="int"  >
-	select
-		title
-	from
-		giveboard
-</select>
 
 
 </mapper>
