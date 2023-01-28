@@ -121,7 +121,7 @@
 <br>
 <input class="form-control form-control-sm" type="text" name="location" id="sample6_address" placeholder="주소"><br>
 <input class="form-control form-control-sm" type="text" name="location1" id="sample6_detailAddress" placeholder="상세주소">
-<input class="form-control form-control-sm" type="text" id="sample6_extraAddress" placeholder="참고항목">
+
  
 <%--주소 코드 --%>    
    
