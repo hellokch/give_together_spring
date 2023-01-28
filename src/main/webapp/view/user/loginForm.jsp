@@ -22,28 +22,19 @@ input{
 }
 </style>
 
-<script>
-function aaa(){
-	const checked = document.getElementById('flexCheckDefault');
-	const is_check = checked.checked
-	aa
-	if(is_check){
-		return aa = '2';
-	}else{
-		return aa = '1';
-	}
-}
-</script>
+
 <form action ="${pageContext.request.contextPath}/giveTogether/loginPro" method ="post">
 <ul class="list-group">
   <li class="list-group-item d-flex justify-content-between align-items-center">
        <div class="form-check">      
-        <input class="form-check-input" type="checkbox" id="flexCheckDefault" onclick="aaa" style="min-width : 1rem">
+<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+  <input type="radio" class="btn-check" id="btnradio1" checked name="kinds" value ="1">
+  <label class="btn btn-outline-primary" for="btnradio1">개인 회원</label>
+  <input type="radio" class="btn-check" id="btnradio2" name="kinds" value ="2">
+  <label class="btn btn-outline-primary" for="btnradio2">단체 회원</label>
+</div>
         <label class="form-check-label" for="flexCheckDefault">
-          단체회원입니다.
-          ${aa}
-       
-       <input name="kinds" value= "1"> 
+        
        
         </label>
       </div>
