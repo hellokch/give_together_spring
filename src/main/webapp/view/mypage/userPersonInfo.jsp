@@ -8,78 +8,68 @@
 </head>
 <body>
 <link rel="stylesheet" href = "${pageContext.request.contextPath}/resource/css/bootstrap.min.css">
+<style>
+.wrap{
+	width : 45rem;
+}
+.bnt-group{
+	width : 30rem;
+	display: inline-flex;
+	justify-content: space-evenly;
+	margin : 0 auto;
+}
+</style>
 
+<div class = "wrap">
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Type</th>
-      <th scope="col">Column heading</th>
-      <th scope="col">Column heading</th>
-      <th scope="col">Column heading</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
-    <tr class="table-active">
-      <th scope="row">Active</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-    <tr>
-      <th scope="row">Default</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
+    
+    <tr class="table-primary">
+      <th scope="row">아이디</th>
+      
+      <td>${per.id}</td>
     </tr>
     <tr class="table-primary">
-      <th scope="row">Primary</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
+      <th scope="row">이름</th>      
+      <td>${per.name}</td>
     </tr>
-    <tr class="table-secondary">
-      <th scope="row">Secondary</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
+    <tr class="table-primary">
+      <th scope="row">별명</th>      
+      <td>${per.nickname}</td>
     </tr>
-    <tr class="table-success">
-      <th scope="row">Success</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
+	<tr class="table-primary">
+      <th scope="row">성별</th>      
+      <td>${per.gender == 1 ? "남자" : "여자"}</td>
     </tr>
-    <tr class="table-danger">
-      <th scope="row">Danger</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
+    <tr class="table-primary">
+      <th scope="row">전화번호</th>      
+      <td>${per.tel}</td>
     </tr>
-    <tr class="table-warning">
-      <th scope="row">Warning</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
+        <tr class="table-primary">
+      <th scope="row">이메일</th>      
+      <td>${per.email}</td>
     </tr>
-    <tr class="table-info">
-      <th scope="row">Info</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-    <tr class="table-light">
-      <th scope="row">Light</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-    <tr class="table-dark">
-      <th scope="row">Dark</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
+        <tr class="table-primary">
+      <th scope="row">주소</th>      
+      <td>${per.location}</td>
+    </tr>    
+    <tr class="table-primary">
+      <th scope="row">상세주소</th>      
+      <td>${per.location1}</td>
     </tr>
   </tbody>
 </table>
+<div class="bnt-group">
+<button type="button" class="btn btn-primary btn-sm">정보 수정</button>
+<button type="button" class="btn btn-primary btn-sm">비밀번호 수정</button>
+<button type="button" class="btn btn-primary btn-sm">회원 탈퇴</button>
+</div>
+</div>
 </body>
 </html>

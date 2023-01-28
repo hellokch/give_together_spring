@@ -22,6 +22,7 @@
     <div id="collapseOne" class="accordion-collapse collapse bg-light" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
       <div class="accordion-body">
         <br>
+        <a href="${pageContext.request.contextPath}/giveTogether/userPersonInfo" class="list-group-item list-group-item-action">내정보</a><br>
         <a href="#" class="list-group-item list-group-item-action">내정보수정</a><br>
         <a href="#" class="list-group-item list-group-item-action">비밀번호수정</a><br>
         <a href="#" class="list-group-item list-group-item-action">회원탈퇴</a><br>

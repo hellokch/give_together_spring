@@ -154,9 +154,13 @@ public class GiveTogetherController {
 		return "/alert";
 	}
 	
+	
+	
 	@RequestMapping("userPersonInfo")
 	public String userPersonInfo(){
-		System.out.println("To joinFormForPerson");
+		String login = (String) session.getAttribute("id");
+		Userperson per = userdao.selectOneP(login);
+		m.addAttribute("per", per);
 		return "/mypage/userPersonInfo";
 	}
 	
