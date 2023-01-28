@@ -44,22 +44,22 @@ li{
         </li>
         </c:if>
         
-        <c:if test="${sessionScope.id != null }">
-	        <c:if test="${sessionScope.kinds == '1'}">
+        <c:if test="${sessionScope.id != null and sessionScope.kinds eq 1}">
 	        <li class="nav-item">
 	          <a class="nav-link active" href="${pageContext.request.contextPath}/giveTogether/userPersonInfo">&nbsp;&nbsp;&nbsp;마이페이지(개인)</a>
 	        </li>
 	        </c:if>
-	        <c:if test="${sessionScope.kinds == '2'}">
-	         <li class="nav-item">
-	          <a class="nav-link active" href="${pageContext.request.contextPath}/giveTogether/userPersonInfo">&nbsp;&nbsp;&nbsp;마이페이지(단체)</a>
+	     <c:if test="${sessionScope.id != null and sessionScope.kinds eq '2'}">
+	        <li class="nav-item">
+	         <a class="nav-link active" href="${pageContext.request.contextPath}/giveTogether/userPersonInfo">&nbsp;&nbsp;&nbsp;마이페이지(단체)</a>
 	        </li>
 	        </c:if>
+	        
+	      <c:if test="${sessionScope.id != null}">   
 	        <li class="nav-item">
-	          <a class="nav-link active" href="#">&nbsp;&nbsp;&nbsp;로그아웃</a>
+	          <a class="nav-link active" href="${pageContext.request.contextPath}/giveTogether/logout">&nbsp;&nbsp;&nbsp;로그아웃</a>
 	        </li>
-        </c:if>
-        
+       	 </c:if>
       </ul>
         
         </div>

@@ -172,7 +172,8 @@ public class GiveTogetherController {
 				if(pass.equals(per.getPass())) {
 					//개인회원 로그인 성공
 					request.getSession().setAttribute("id", id);
-					msg = per.getName() + "님이 로그인 하셨습니다.";
+					request.getSession().setAttribute("kinds", kinds);
+					msg = "개인회원" + per.getName() + "님이 로그인 하셨습니다.";
 					url = "/giveTogether/main";	
 				}else {
 					msg = "비밀번호를 확인해 주세요.";
@@ -180,7 +181,8 @@ public class GiveTogetherController {
 			}else {
 				if(pass.equals(gro.getPass())) {
 					request.getSession().setAttribute("id", id);
-					msg = gro.getName() + "님이 로그인 하셨습니다.";
+					request.getSession().setAttribute("kinds", kinds);
+					msg = "단체회원" + gro.getName() + "님이 로그인 하셨습니다.";
 					url = "/giveTogether/main";	
 				}else {
 					msg = "비밀번호를 확인해 주세요.";
@@ -199,7 +201,7 @@ public class GiveTogetherController {
 		String login = (String) session.getAttribute("id");
 		session.invalidate();
 		String msg = login + "님이 로그아웃 되었습니다.";
-		String url = "/user/loginForm";
+		String url = "/giveTogether/main";
 		
 		m.addAttribute("msg", msg);
 		m.addAttribute("url", url);
