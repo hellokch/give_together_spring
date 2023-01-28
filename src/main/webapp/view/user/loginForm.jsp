@@ -20,11 +20,13 @@ input{
 	min-width : 18rem;
 }
 </style>
-
+<form action ="${pageContext.request.contextPath}/giveTogether/loginPro" method ="post">
 <ul class="list-group">
   <li class="list-group-item d-flex justify-content-between align-items-center">
-       <div class="form-check">
+       <div class="form-check">      
         <input class="form-check-input" type="checkbox" name="kinds" value="1" id="flexCheckDefault" style="min-width : 1rem">
+        
+        
         <label class="form-check-label" for="flexCheckDefault">
           단체회원입니다.
         </label>
@@ -33,8 +35,8 @@ input{
   <li class="list-group-item d-flex justify-content-between align-items-center">
 
     <div class="form-group">
-      <label for="exampleInputEmail1" class="form-label mt-4">아이디</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="ID를 입력해 주세요." >
+      <label for="inputid" class="form-label mt-4">아이디</label>
+      <input type="text" class="form-control" id="inputid" placeholder="ID를 입력해 주세요." >
     </div>
   </li>
 
@@ -52,7 +54,7 @@ input{
     <button type="submit" class="btn btn-primary">로그인</button></a>
   </li>
 </ul>
-
+</form>
 
 </body>
 </html>

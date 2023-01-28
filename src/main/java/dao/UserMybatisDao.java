@@ -18,8 +18,7 @@ public class UserMybatisDao {
 	@Autowired
 	SqlSessionTemplate session;
 	
-	private static final String ns = "userperson.";
-	private static final String ns1 = "usergroup.";
+	private static final String ns = "user.";
 	
 
 	
@@ -31,11 +30,19 @@ public class UserMybatisDao {
 	
 	public int insertUsergroup(Usergroup group) {
 		
-		int num = session.insert(ns1 + "insertUsergroup", group);
+		int num = session.insert(ns + "insertUsergroup", group);
 		
 		return num;	
-}	
-	
+	}	
+	public Userperson  selectOneP(String id) {
+		Userperson person = session.selectOne(ns + "selectOneP", id);
+		return person;				
+	}
+
+	public Usergroup  selectOneG(String id) {
+		Usergroup group = session.selectOne(ns + "selectOneG", id);
+		return group;				
+	}
 /*
   private Map map = new HashMap();
 	private Map map1 = new HashMap();

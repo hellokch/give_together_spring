@@ -160,4 +160,45 @@ public class GiveTogetherController {
 		return "/mypage/userPersonInfo";
 	}
 	
+	@RequestMapping("loginPro")
+	public String loginPro(String id, String pass, String kinds) {
+		String msg="아이디를 확인하세요";
+		String url="/user/loginForm";
+		Userperson per = userdao.selectOneP(id);
+		Usergroup gro = userdao.selectOneG(id);		
+		//per에 id가 있는지 확인
+		if(per != null) {
+			//개인/단체 확인
+			if(kinds.equals(per.getKinds())) {
+				if(pass.equals(per.getPass())) {
+					//개인회원 로그인 성공
+					request.getSession().setAttribute("id", id);
+					msg = per.getName() + "님이 로그인 하셨습니다.";
+					url = "/user/index";	
+				}else {
+					msg = "비밀번호를 확인해 주세요.";
+				}
+			}else {
+				msg = "단체 회원으로 로그인 해주세요.";
+			}
+		}else {
+		//per에 없으면 gro 에 아이디 탐색
+			if(gro != null) {
+				if(kinds.equals(gro.getKinds())) {
+					if(pass.equals(gro.getPass())) {
+						request.getSession().setAttribute("id", id);
+						msg = gro.getName() + "님이 로그인하셨습니다.";
+						url = "/user/index";
+					}else {
+						msg = "비밀번호를 확인해 주세요.";
+					}
+				}else {
+					msg = "개인 회원으로 로그인 해주세요.";
+				}				
+			}
+		}
+		//id가 어디에도 없음 : msg : id를 확인해주세요
+		return "/alert";
+	}
+	
 }
