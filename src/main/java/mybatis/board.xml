@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 매퍼 변수 설정 -->
+<mapper namespace="board">
+	<insert id="insertBoard" parameterType="board">
+		insert into giveboard values
+		(giveboardseq.nextval, #{id}, sysdate, null, #{title}, #{context},
+		#{p_type}, #{end_date}, #{picture}, #{goal}, #{raised}, #{reword}, #{location}, #{act_time}, #{day}, #{v_start}, #{v_end},
+		#{v_type}, #{field}, #{boardid})
+	</insert>
+	
+	<select id="boardCount" parameterType="string" resultType="int">
+		select count(*) from board where boardid = #{boardid}
+	</select>
+	
+	<select id="boardList" parameterType="map" resultType="board">
+		select * from(
+		select rownum rnum, a.* from
+		(select * from board where boardid = #{boardid} order by ref desc, refstep) a)
+		where rnum between #{start} and #{end}
+	</select>
+	
+	<select id="boardOne" parameterType="int" resultType="board">
+		select * from board where num = #{num}
+	</select>
+	
+	<insert id="insertReply" parameterType="board">
+		insert into board values
+		(boardseq.nextval, #{name}, #{pass}, #{subject}, #{content}, #{file1},
+		sysdate, 0, #{ref}, #{reflevel}, #{refstep}, #{boardid})		
+	</insert>
+	
+	<update id="refStepAdd" parameterType="map">
+		update board set refstep = refstep + 1
+		where ref = #{ref} and refstep > #{refstep}
+	</update>
+	
+	<delete id="deleteBoard" parameterType="map">
+		delete from board where num = #{num}
+		and pass = #{pass}
+	</delete>
+	
+</mapper>
