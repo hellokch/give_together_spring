@@ -165,7 +165,7 @@ public class GiveTogetherController {
 		String msg="아이디를 확인하세요";
 		String url="/user/loginForm";
 		Userperson per = userdao.selectOneP(id);
-		Usergroup gro = userdao.selectOneG(id);		
+		Usergroup gro = userdao.selectOneG(id);
 		//per에 id가 있는지 확인
 		if(per != null) {
 			//개인/단체 확인
@@ -198,6 +198,8 @@ public class GiveTogetherController {
 			}
 		}
 		//id가 어디에도 없음 : msg : id를 확인해주세요
+		m.addAttribute("msg", msg);
+		m.addAttribute("url", url);
 		return "/alert";
 	}
 	

@@ -7,10 +7,10 @@
 	(#{id}, #{kinds}, #{pass}, #{tel}, #{name}, #{email}, #{location}, #{location1}, #{nickname}, #{gender})
 </insert>
 <select id="selectOneP" resultType="userperson" parameterType="String">
-	select * from userperson where id #{value}
+	select * from userperson where id=#{value}
 </select>
 <select id="selectOneG" resultType="usergroup" parameterType="String">
-	select * from usergroup where id #{value}
+	select * from usergroup where id=#{value}
 </select>
 
 </mapper>
