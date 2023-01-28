@@ -212,4 +212,12 @@ public class GiveTogetherController {
 		return "/alert";
 	}
 	
+	@RequestMapping("userPersonUpdateForm")
+	public String userPersonUpdateForm() {
+		String login = (String) session.getAttribute("id");
+		Userperson per = userdao.selectOneP(login);
+		m.addAttribute("per",per);
+		return "/mypage/userPersonUpdateForm";
+	}
+	
 }

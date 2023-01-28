@@ -4,6 +4,7 @@
 	<mapping path="/giveTogether/*" decorator="/layout/layout.jsp"/>
 	<mapping path="/board/*" decorator="/layout/layout.jsp"/>
 	<mapping path="*/userPersonInfo" decorator = "/layout/side.jsp"/>
+	<mapping path="*/userPersonUpdateForm" decorator = "/layout/side.jsp"/>
 	<mapping path="*/pictureimgForm" exclude="true"/>
 	<mapping path="*/picturePro" exclude="true"/>
 </sitemesh>
