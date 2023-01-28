@@ -8,47 +8,8 @@
 </head>
 <body>
 <link rel="stylesheet" href = "${pageContext.request.contextPath}/resource/css/bootstrap.min.css">
-<style>
-.container{
-	margin : 0 auto;
-	max-width : 80rem;
-	background-color : green;
-	display: flex;
-	justify-content: center;	
-}
-.menu{
-	width : 15rem;
-	background-color : skyblue;
-}
-.contents{
-	width : 60rem;
-	background-color : blue;
-}
-</style>
 
-<div class="container">
-	<div class="menu">
-		<ul>
-			<li>
-			회원정보
-			</li>
-			<li>
-			회원정보 수정
-			</li>
-			<li>
-			비밀번호 수정
-			</li>
-			<li>
-			회원 탈퇴
-			</li>
-			
-		</ul>
-	</div>
-
-
-
-	<div class="contents">
-		<table class="table table-hover">
+<table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">Type</th>
@@ -120,8 +81,5 @@
     </tr>
   </tbody>
 </table>
-	</div>
-</div>
-
 </body>
 </html>
