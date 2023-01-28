@@ -13,8 +13,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
-<%-- 경로 예시로 잡아둔것 수정예정 --%>
-<form action="${pageContext.request.contextPath}/member/loginPro" method="post" >
+
 
 <%-- 주소 코드 --%>
 
@@ -71,6 +70,10 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 <%-- 주소코드 여기까지 --%>
+<%-- 경로 예시로 잡아둔것 수정예정 --%>
+<form action="${pageContext.request.contextPath}/giveTogether/joinUserGroupPro" method="post" >
+
+
 
   <fieldset>
    <li class="list-group-item d-flex justify-content-center align-items-center">
@@ -80,16 +83,16 @@
 		<h6 align="right" style = "margin-right:5rem"><a href="${pageContext.request.contextPath}/giveTogether/joinForPerson">개인회원 가입</a></h6>
 	</li>
            
-    
+    <input type="text" name="kinds" value="2" style = "display : none">
     
     <div class="form-group">
-      <label for="InputEmail1" class="form-label mt-4">Email을 입력하세요.(id칸을 별개로 만드는게 맞을지 고민)</label>
-      <input type="text" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <label for="InputEmail1" class="form-label mt-4">ID를 입력하세요.</label>
+      <input type="text" class="form-control" id="InputID" aria-describedby="emailHelp" placeholder="Enter email" name="id">
     </div>
     
     <div class="form-group">
       <label for="InputPassword1" class="form-label mt-4">비밀번호</label>
-      <input type="password" class="form-control" id="InputPassword1" placeholder="비밀번호를 입력하세요.">
+      <input type="password" class="form-control" id="InputPassword1" placeholder="비밀번호를 입력하세요." name="pass">
     </div>
     
        <div class="form-group">
@@ -100,33 +103,61 @@
     
       <div class="form-group">
       <label for="InputTEL" class="form-label mt-4">연락처 입력</label>
-      <input type="text" class="form-control" id="InputTEL" placeholder="-없이 입력하세요.">
+      <input type="text" class="form-control" id="InputTEL" placeholder="-없이 입력하세요." name="tel">
     </div>
     
      <div class="form-group">
       <label for="InputNAME" class="form-label mt-4">단체명 입력</label>
-      <input type="text" class="form-control" id="InputP.NAME" placeholder="단체명을 입력하세요.">
+      <input type="text" class="form-control" id="InputP.NAME" placeholder="단체명을 입력하세요." name="p_name">
     </div>
     
      <div class="form-group">
       <label for="InputNAME" class="form-label mt-4">대표자명 입력</label>
-      <input type="text" class="form-control" id="InputNAME" placeholder="성함을 입력하세요.">
+      <input type="text" class="form-control" id="InputNAME" placeholder="성함을 입력하세요." name="name">
     </div>
 
+ 	<div class="form-group">
+      <label for="InputIntro" class="form-label mt-4">소개 입력</label>
+      <input type="text" class="form-control" id="InputIntro" placeholder="단체 소개를 입력하세요." name="intro">
+    </div>
+    
+    <div class="form-group">
+      <label for="Inputpicture" class="form-label mt-4">소개 입력</label>
+      <input type="text" class="form-control" id="Inputpicture" placeholder="단체 소개를 입력하세요." name="picture">
+    </div>
+    
+
+
+
 <%--주소 코드 --%>        
-<label for="Select1" class="form-label mt-4">주소입력</label>
-
-   <input class="form-control-sm" style = "min-width : 3rem; display : none;" type="text" id="sample6_postcode" placeholder="우편번호">
+<label class="col-form-label col-form-label-sm mt-4" for="adress">주소</label><br>
+<div class = "wrap" id = "adress">  
+<input class="form-control-sm form-control" style = "max-width : 5rem; " type="text" id="sample6_postcode" placeholder="우편번호">
 <input class="btn btn-primary btn-sm" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-<br>
-<input class="form-control form-control-sm" type="text" name="location" id="sample6_address" placeholder="주소"><br>
-<input class="form-control form-control-sm" type="text" name="location1" id="sample6_detailAddress" placeholder="상세주소">
+</div>
 
- 
-<%--주소 코드 --%>    
-   
+<br>
+<input class="form-control form-control-sm" type="text" name="location" id="sample6_address" placeholder="주소">
+<div class = "wrap">  
+<input class="form-control form-control-sm" style = "max-width : 15rem; " type="text" name="location1" id="sample6_detailAddress" placeholder="상세주소">
+<input class="form-control form-control-sm" style = "max-width : 15rem; " type="text" id="sample6_extraAddress" placeholder="참고항목">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    <li class="list-group-item d-flex justify-content-between align-items-center" style="margin : 0 auto">
-   <p></p>
+   
    <button type="submit" class="btn btn-primary">회원가입 완료</button>
     
   </fieldset>
