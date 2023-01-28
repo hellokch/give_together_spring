@@ -162,7 +162,7 @@ public class GiveTogetherController {
 	
 	@RequestMapping("loginPro")
 	public String loginPro(String id, String pass, String kinds) {
-		String msg="아이디를 확인하세요";
+		String msg="아이디 혹은 회원 분류를 확인하세요";
 		String url="/giveTogether/loginForm";
 		Userperson per = userdao.selectOneP(id);
 		Usergroup gro = userdao.selectOneG(id);
