@@ -37,17 +37,28 @@ li{
        <li class="nav-item">
           <a class="nav-link active" href="#">&nbsp;&nbsp;&nbsp;소식</a>
         </li>
+        
+        <c:if test="${sessionScope.id == null }">
         <li class="nav-item">
           <a class="nav-link active" href="${pageContext.request.contextPath}/giveTogether/loginForm">&nbsp;&nbsp;&nbsp;로그인</a>
         </li>
+        </c:if>
         
-        <li class="nav-item">
-          <a class="nav-link active" href="${pageContext.request.contextPath}/giveTogether/userPersonInfo">&nbsp;&nbsp;&nbsp;마이페이지</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">&nbsp;&nbsp;&nbsp;로그아웃</a>
-        </li>
-        
+        <c:if test="${sessionScope.id != null }">
+	        <c:if test="${sessionScope.kinds == '1'}">
+	        <li class="nav-item">
+	          <a class="nav-link active" href="${pageContext.request.contextPath}/giveTogether/userPersonInfo">&nbsp;&nbsp;&nbsp;마이페이지(개인)</a>
+	        </li>
+	        </c:if>
+	        <c:if test="${sessionScope.kinds == '2'}">
+	         <li class="nav-item">
+	          <a class="nav-link active" href="${pageContext.request.contextPath}/giveTogether/userPersonInfo">&nbsp;&nbsp;&nbsp;마이페이지(단체)</a>
+	        </li>
+	        </c:if>
+	        <li class="nav-item">
+	          <a class="nav-link active" href="#">&nbsp;&nbsp;&nbsp;로그아웃</a>
+	        </li>
+        </c:if>
         
       </ul>
         

@@ -71,18 +71,18 @@
 		<property name="maxUploadSize" value="104854600" />
 		<property name="maxInMemorySize" value="10485460" />
 	</bean>
-	<!-- <mvc:interceptors>
+	 <mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/member/memberInfo"/>
-			<mvc:mapping path="/member/memberUpdateForm"/>
-			<mvc:mapping path="/member/memberDelete"/>
+			<mvc:mapping path="/mypage/userPersonInfoInfo"/>
+			<!--<mvc:mapping path="/member/memberUpdateForm"/>
+			<mvc:mapping path="/member/memberDelete"/>-->
 			<bean class="dao.LoginInterceptor" />
 		</mvc:interceptor>
-		
+		<!--
 		<mvc:interceptor>
 			<mvc:mapping path="/member/memberList"/>
 			<bean class="dao.AdminInterceptor"/>
-		</mvc:interceptor>
-	</mvc:interceptors> -->
+		</mvc:interceptor> -->
+	</mvc:interceptors>
 	
 </beans>

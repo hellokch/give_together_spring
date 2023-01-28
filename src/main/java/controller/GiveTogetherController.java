@@ -194,4 +194,16 @@ public class GiveTogetherController {
 		return "/alert";
 	}
 	
+	@RequestMapping("logout")
+	public String logout() {
+		String login = (String) session.getAttribute("id");
+		session.invalidate();
+		String msg = login + "님이 로그아웃 되었습니다.";
+		String url = "/user/loginForm";
+		
+		m.addAttribute("msg", msg);
+		m.addAttribute("url", url);
+		return "/alert";
+	}
+	
 }
