@@ -67,7 +67,7 @@
     </script>
 <br>
 <div class="w3-container">
-<form class="w3-container w3-card-4" action = "${pageContext.request.contextPath}/funding/fundingPro" method="post">
+<form class="w3-container w3-card-4" action = "${pageContext.request.contextPath}/giveTogether/volunteerPro" method="post">
 <h3   class="w3-center">봉사활동 등록</h3>
 <br>
 
