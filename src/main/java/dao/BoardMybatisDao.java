@@ -5,12 +5,16 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import model.Board;
 import mybatis.MybatisConnection;
 
+@Repository
 public class BoardMybatisDao {
 
+	@Autowired
 	private static final String ns = "board.";
 	private Map map = new HashMap();
 
