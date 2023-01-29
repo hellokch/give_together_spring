@@ -23,7 +23,7 @@
       <div class="accordion-body">
         <br>
         <a href="${pageContext.request.contextPath}/giveTogether/userPersonInfo" class="list-group-item list-group-item-action">내정보</a><br>
-        <a href="#" class="list-group-item list-group-item-action">내정보수정</a><br>
+        <a href="${pageContext.request.contextPath}/giveTogether/userPersonUpdateForm" class="list-group-item list-group-item-action">내정보수정</a><br>
         <a href="#" class="list-group-item list-group-item-action">비밀번호변경</a><br>
         <a href="#" class="list-group-item list-group-item-action">회원탈퇴</a><br>
       </div>

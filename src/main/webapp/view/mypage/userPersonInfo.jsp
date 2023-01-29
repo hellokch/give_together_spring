@@ -25,6 +25,10 @@ th{
 </style>
 
 <div class = "wrap">
+<ul class="list-group" style = "max-width : 50rem; margin : 0 auto; list-style : none;">
+<li class="list-group-item d-flex justify-content-center align-items-center">
+		<h3 class="form-label mt-4">내 정보</h3>		
+	</li>
 <table class="table table-hover">
   <tbody> 
     <tr >
@@ -64,11 +68,7 @@ th{
     </tr>
   </tbody>
 </table>
-<div class="bnt-group">
-<button type="button" class="btn btn-primary btn-sm">정보 수정</button>
-<button type="button" class="btn btn-primary btn-sm">비밀번호 변경</button>
-<button type="button" class="btn btn-primary btn-sm">회원 탈퇴</button>
-</div>
+</ul>
 </div>
 </body>
 </html>
