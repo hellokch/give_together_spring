@@ -17,6 +17,13 @@
 	select * from usergroup where id=#{value}
 </select>
 
+<update id="updateUserPerson" parameterType="userperson">
+	update userperson set
+	 kinds=#{kinds}, tel=#{tel}, name=#{name}, email=#{email}, location=#{location}, location1=#{location1}, nickname=#{nickname}, gender=#{gender}
+	where id = #{id} and pass =#{pass}
+</update>
+
+
 </mapper>
 
 

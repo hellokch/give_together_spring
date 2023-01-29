@@ -43,6 +43,11 @@ public class UserMybatisDao {
 		Usergroup group = session.selectOne(ns + "selectOneG", id);
 		return group;				
 	}
+	
+	public int updateUserPerson(Userperson person) {
+		int num = session.update(ns + "updateUserPerson",person);
+		return num;
+	}
 /*
   private Map map = new HashMap();
 	private Map map1 = new HashMap();

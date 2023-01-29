@@ -79,7 +79,7 @@ a{
 }
 </style>
 <br>
-<form name="f" method="post" action="#">
+<form name="f" method="post" action="${pageContext.request.contextPath}/giveTogether/userPersonUpdatePro">
 <div>
 <ul class="list-group" style = "max-width : 50rem; margin : 0 auto; list-style : none;">
 
@@ -91,9 +91,11 @@ a{
 	
   <li class="list-group-item d-flex justify-content-center align-items-center">
   <div class="form-group">
-  <label class="col-form-label col-form-label-sm mt-4" for="inputSmall1">아이디</label>
-  <input class="form-control form-control-sm" type="text" placeholder="아이디를 입력해주세요." id="inputSmall1" name="id" value ="${per.id}">
-  <input type="text" name="kinds" value="1" style = "display : none">
+  <label class="col-form-label col-form-label-sm mt-4" for="disabledInput">아이디</label>
+  <input class="form-control form-control-sm" type="text" placeholder="아이디를 입력해주세요." id="disabledInput" name="id" value ="${per.id}" readonly="" >
+
+  <input class="form-control form-control-sm" type="text" placeholder="아이디를 입력해주세요." id="disabledInput" name="pass" value ="${per.pass}"  style = "display : none">
+  <input class="form-control form-control-sm" type="text" placeholder="아이디를 입력해주세요." id="disabledInput" name="kinds" value ="${per.kinds}"  style = "display : none" >
 
   <label class="col-form-label col-form-label-sm mt-4" for="inputSmall4">이름</label>
   <input class="form-control form-control-sm" type="text" placeholder="이름 입력해주세요." id="inputSmall4" name="name" value ="${per.name}">
