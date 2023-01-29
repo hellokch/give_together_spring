@@ -122,7 +122,7 @@ public class GiveTogetherController {
 	
 	@RequestMapping("pictureimgForm")
 	public String pictureimgForm() {
-		/* 1) upload folder 만든다 /webapp/member/picture
+		/* 1) upload folder 만든다 /webapp/user/picture
 		 * 2) @RequestMapping("picturePro") 이미지를 폴더에 저장 한다.
 		 */
 		return "/user/pictureimgForm";

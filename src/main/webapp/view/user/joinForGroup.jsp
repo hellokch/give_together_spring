@@ -95,6 +95,22 @@
       <input type="password" class="form-control" id="InputPassword2" placeholder="비밀번호를 한번 더 입력하세요.">
     </div>
     
+       <div class="form-group">
+      <label for="InputPicture" class="form-label mt-4">단체 사진 등록</label>
+    <input type="hidden"  name="picture"  >
+		<table class="w3-table-all">			
+			
+				<td rowspan="4" valign="bottom" width="100px" class="w3-border">
+				<img src=""
+					width="100" height="120" id="picture"><br> <font size="3">
+					<a  class="w3-button w3-blue" 
+						href="javascript:win_upload()">사진등록</a></font></td>
+       </table></div>
+
+    
+    
+    
+    
     
       <div class="form-group">
       <label for="InputTEL" class="form-label mt-4">연락처 입력</label>
@@ -131,20 +147,7 @@
 <input class="form-control form-control-sm" style = "max-width : 15rem; " type="text" id="sample6_extraAddress" placeholder="참고항목">
 </div>
 
-    <div class="form-group">
-      <label for="InputIntro" class="form-label mt-4">단체 사진 등록</label>
-    <input type="hidden"  name="picture"  >
-		<table class="w3-table-all">			
-			
-				<td rowspan="4" valign="bottom" width="100px" class="w3-border">
-				<img src=""
-					width="100" height="120" id="picture"><br> <font size="1">
-					<a  class="w3-button w3-green" 
-						href="javascript:win_upload()">사진등록</a></font></td>
-
-
-
-
+ 
   
 
 
