@@ -19,7 +19,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import dao.UserMybatisDao;
 
-import model.Board;
 import model.Usergroup;
 import model.Userperson;
 
@@ -258,13 +257,14 @@ public class GiveTogetherController {
 		m.addAttribute("per",per);
 		return "/mypage/userPersonUpdateForm";
 	}
+	
 	@RequestMapping("userPersonUpdatePassCheck")
 	public String userPersonUpdatePassCheck() {
 		return "/mypage/userPersonUpdatePassCheck";
 	}
 	
 	@RequestMapping("userPersonUpdatePassCheckPro")
-	public String userPersonUpdatePassCheck(String pass) {
+	public String userPersonUpdatePassCheckPro(String pass) {
 		String login = (String) session.getAttribute("id");
 		Userperson per = userdao.selectOneP(login);
 		String msg="비밀번호가 일치합니다.";
@@ -272,11 +272,56 @@ public class GiveTogetherController {
 		if(pass.equals(per.getPass())) {
 			url = "/giveTogether/userPersonUpdateForm";
 		}else {
-			msg = per.getName() + "님의 비밀번호가 틀렸습니다.";
+			msg = "비밀번호가 틀렸습니다.";
 			url = "/giveTogether/userPersonUpdatePassCheck";
 		}
 		m.addAttribute("msg", msg);
 		m.addAttribute("url", url);
 		return "/alert";
 	}
+	
+	@RequestMapping("userPersonUpdatePro")
+	public String userPersonUpdatePro(Userperson person)throws Exception {
+		String login = (String) session.getAttribute("id");
+		person.setId(login);
+		String msg="회원 자료가 없습니다.";
+		String url="/member/loginForm";
+		Userperson olduser = userdao.selectOneP(login);
+		if(olduser != null ) {
+			int num = userdao.updateUserPerson(person);
+			if(num > 0) {
+				msg = person.getName()+"님의 정보가 수정되었습니다.";
+				url = "/giveTogether/userPersonInfo";
+			}else {
+				msg = "정보 수정에 실패했습니다.";
+				url = "/giveTogether/userPersonUpdateForm";
+			}
+			
+		}
+		m.addAttribute("msg", msg);
+		m.addAttribute("url", url);
+		return "/alert";
+	}
+	@RequestMapping("userPersonUpdatePassCheck2")
+	public String userPersonUpdatePassCheck2() {
+		return "/mypage/userPersonUpdatePassCheck2";
+	}
+	
+	@RequestMapping("userPersonUpdatePassCheckPro2")
+	public String userPersonUpdatePassCheckPro2(String pass) {
+		String login = (String) session.getAttribute("id");
+		Userperson per = userdao.selectOneP(login);
+		String msg="비밀번호가 일치합니다.";
+		String url="/giveTogether/userPersonInfo";
+		if(pass.equals(per.getPass())) {
+			url = "/giveTogether/#";
+		}else {
+			msg = "비밀번호가 틀렸습니다.";
+			url = "/giveTogether/userPersonUpdatePassCheck2";
+		}
+		m.addAttribute("msg", msg);
+		m.addAttribute("url", url);
+		return "/alert";
+	}
+	
 }
