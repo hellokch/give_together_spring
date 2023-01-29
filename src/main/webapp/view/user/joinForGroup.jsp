@@ -62,6 +62,13 @@
             }
         }).open();
     }
+    
+    function win_upload(){
+        var op = "width=500, heigth=150, left=50, top=150";
+        open("${pageContext.request.contextPath}/user/pictureimgForm", "", op);
+    }
+    
+    
 </script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <%-- 주소코드 여기까지 --%>
