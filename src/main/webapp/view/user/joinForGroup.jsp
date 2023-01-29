@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>단체 회원 가입</title>
 </head>
 <body>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/bootstrap.min.css">
@@ -13,10 +13,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
-
-
 <%-- 주소 코드 --%>
-
 <script>
     function sample6_execDaumPostcode() {
         new daum.Postcode({
@@ -66,13 +63,11 @@
         }).open();
     }
 </script>
-
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
 <%-- 주소코드 여기까지 --%>
+
 <%-- 경로 예시로 잡아둔것 수정예정 --%>
 <form action="${pageContext.request.contextPath}/giveTogether/joinUserGroupPro" method="post" >
-
 
 
   <fieldset>
@@ -121,13 +116,7 @@
       <input type="text" class="form-control" id="InputIntro" placeholder="단체 소개를 입력하세요." name="intro">
     </div>
     
-    <div class="form-group">
-      <label for="Inputpicture" class="form-label mt-4">소개 입력</label>
-      <input type="text" class="form-control" id="Inputpicture" placeholder="단체 소개를 입력하세요." name="picture">
-    </div>
     
-
-
 
 <%--주소 코드 --%>        
 <label class="col-form-label col-form-label-sm mt-4" for="adress">주소</label><br>
@@ -135,7 +124,6 @@
 <input class="form-control-sm form-control" style = "max-width : 5rem; " type="text" id="sample6_postcode" placeholder="우편번호">
 <input class="btn btn-primary btn-sm" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 </div>
-
 <br>
 <input class="form-control form-control-sm" type="text" name="location" id="sample6_address" placeholder="주소">
 <div class = "wrap">  
@@ -143,6 +131,16 @@
 <input class="form-control form-control-sm" style = "max-width : 15rem; " type="text" id="sample6_extraAddress" placeholder="참고항목">
 </div>
 
+    <div class="form-group">
+      <label for="InputIntro" class="form-label mt-4">단체 사진 등록</label>
+    <input type="hidden"  name="picture"  >
+		<table class="w3-table-all">			
+			
+				<td rowspan="4" valign="bottom" width="100px" class="w3-border">
+				<img src=""
+					width="100" height="120" id="picture"><br> <font size="1">
+					<a  class="w3-button w3-green" 
+						href="javascript:win_upload()">사진등록</a></font></td>
 
 
 
@@ -150,36 +148,9 @@
 
 
 
-
-
-
-
-
-
-   <li class="list-group-item d-flex justify-content-between align-items-center" style="margin : 0 auto">
-   
-   <button type="submit" class="btn btn-primary">회원가입 완료</button>
-    
+   <li class="list-group-item d-flex justify-content-between align-items-center" style="margin : 0 auto"> 
+   <button type="submit" class="btn btn-primary">회원가입 완료</button>   
   </fieldset>
 </form> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
