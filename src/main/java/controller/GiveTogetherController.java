@@ -118,7 +118,6 @@ public class GiveTogetherController {
 	
 	@RequestMapping("joinForPerson")
 	public String joinForPerson(){
-		System.out.println("To joinFormForPerson");
 		return "/user/joinForPerson";
 	}
 	
@@ -219,5 +218,25 @@ public class GiveTogetherController {
 		m.addAttribute("per",per);
 		return "/mypage/userPersonUpdateForm";
 	}
+	@RequestMapping("userPersonUpdatePassCheck")
+	public String userPersonUpdatePassCheck() {
+		return "/mypage/userPersonUpdatePassCheck";
+	}
 	
+	@RequestMapping("userPersonUpdatePassCheckPro")
+	public String userPersonUpdatePassCheck(String pass) {
+		String login = (String) session.getAttribute("id");
+		Userperson per = userdao.selectOneP(login);
+		String msg="비밀번호가 일치합니다.";
+		String url="/giveTogether/userPersonInfo";
+		if(pass.equals(per.getPass())) {
+			url = "/giveTogether/userPersonUpdateForm";
+		}else {
+			msg = per.getName() + "님의 비밀번호가 틀렸습니다.";
+			url = "/giveTogether/userPersonUpdatePassCheck";
+		}
+		m.addAttribute("msg", msg);
+		m.addAttribute("url", url);
+		return "/alert";
+	}
 }
