@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import dao.UserMybatisDao;
 
@@ -114,6 +118,42 @@ public class GiveTogetherController {
 		request.setAttribute("url", url);
 		return "/alert";
 	}
+	
+	@RequestMapping("pictureimgForm")
+	public String pictureimgForm() {
+		/* 1) upload folder 만든다 /webapp/member/picture
+		 * 2) @RequestMapping("picturePro") 이미지를 폴더에 저장 한다.
+		 */
+		return "/user/pictureimgForm";
+}
+	
+	@RequestMapping("picturePro")
+	//<input class="w3-input" type="file" name="picture">
+	public String picturePro(@RequestParam("picture") MultipartFile multipartFile) {
+		String path = 
+					request.getServletContext().getRealPath("/")+"view/user/picture";
+		System.out.println(path);
+		String filename=null;
+		
+		
+		if (!multipartFile.isEmpty()) {
+			File file = new File(path, multipartFile.getOriginalFilename());
+			filename = multipartFile.getOriginalFilename();						
+		try {
+		   multipartFile.transferTo(file);
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}				}
+		System.out.println(filename);
+		m.addAttribute("filename", filename);	
+		return "/user/picturePro";
+}
+	
+	
 	
 	@RequestMapping("joinForPerson")
 	public String joinForPerson(){

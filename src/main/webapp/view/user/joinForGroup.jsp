@@ -145,12 +145,12 @@
 
 
 
-
+  
 
 
    <li class="list-group-item d-flex justify-content-between align-items-center" style="margin : 0 auto"> 
    <button type="submit" class="btn btn-primary">회원가입 완료</button>   
-  </fieldset>
+ </fieldset>
 </form> 
 </body>
 </html>
