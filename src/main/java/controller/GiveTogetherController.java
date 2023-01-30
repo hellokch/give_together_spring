@@ -306,10 +306,6 @@ public class GiveTogetherController {
 		m.addAttribute("url", url);
 		return "/alert";
 	}
-	@RequestMapping("userPersonUpdatePassCheck2")
-	public String userPersonUpdatePassCheck2() {
-		return "/mypage/userPersonUpdatePassCheck2";
-	}
 	
 	@RequestMapping("userPersonUpdatePassCheckPro2")
 	public String userPersonUpdatePassCheckPro2(String pass) {
@@ -374,5 +370,16 @@ public class GiveTogetherController {
 		
 		return "/alert";
 	}
+	
+	@RequestMapping("userPassChgPassCheck")
+	public String userPassChgPassCheck(){
+		return "/user/userPassChgPassCheck";
+	}
+	
+	@RequestMapping("userPassChg")
+	public String userPassChg(){
+		return "/user/userPassChg";
+	}
+	
 	
 }
