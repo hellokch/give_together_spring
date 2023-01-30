@@ -2,6 +2,8 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
@@ -327,52 +329,4 @@ public class GiveTogetherController {
 		m.addAttribute("url", url);
 		return "/alert";
 	}
-	
-	@RequestMapping("volunteerPro")
-	public String volunteerPro(@RequestParam("uploadfile") MultipartFile multipartfile, Board board) {
-		
-		System.out.println("request ok");
-		
-		String path = request.getServletContext().getRealPath("/") + "view/volunteer/img/";
-		String filename = null;
-		
-		if(!multipartfile.isEmpty()) {
-			File file = new File(path, multipartfile.getOriginalFilename());
-			filename = multipartfile.getOriginalFilename();
-			try {
-				multipartfile.transferTo(file);
-			} catch (IllegalStateException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-		board.setPicture(filename);
-		
-		
-		String msg = "게시글 등록 실패";
-		String url = "/giveTogether/main";
-		
-		String boardid = (String) session.getAttribute("boardid");  //1:공지사항, 2:자유게시판, 3:QnA
-		if(boardid == null) boardid = "1";
-		
-		board.setBoardid(boardid);//우선 공지사항
-		System.out.println(board);
-		int num = bd.insertBoard(board);
-		if(num > 0) {
-			msg = "게시물 등록 성공";
-			url = "/giveTogether/main";
-		}
-		
-		System.out.println(board);
-		
-		m.addAttribute("msg", msg);
-		m.addAttribute("url", url);
-		
-		return "/alert";
-	}
-	
 }

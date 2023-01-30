@@ -23,7 +23,21 @@ public class Board {
 	String v_type;
 	String field;
 	String boardid;
+	String end_t;
+	String start_t;
 	
+	public String getEnd_t() {
+		return end_t;
+	}
+	public void setEnd_t(String end_t) {
+		this.end_t = end_t;
+	}
+	public String getStart_t() {
+		return start_t;
+	}
+	public void setStart_t(String start_t) {
+		this.start_t = start_t;
+	}
 	public int getIndex() {
 		return index;
 	}
@@ -143,6 +157,14 @@ public class Board {
 	}
 	public void setBoardid(String boardid) {
 		this.boardid = boardid;
+	}
+	@Override
+	public String toString() {
+		return "Board [index=" + index + ", id=" + id + ", not_date=" + not_date + ", mod_date=" + mod_date + ", title="
+				+ title + ", context=" + context + ", p_type=" + p_type + ", end_date=" + end_date + ", picture="
+				+ picture + ", goal=" + goal + ", raised=" + raised + ", reword=" + reword + ", location=" + location
+				+ ", act_time=" + act_time + ", day=" + day + ", v_start=" + v_start + ", v_end=" + v_end + ", v_type="
+				+ v_type + ", field=" + field + ", boardid=" + boardid + "]";
 	}
 	
 	
