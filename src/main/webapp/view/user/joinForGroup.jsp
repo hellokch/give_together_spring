@@ -62,6 +62,13 @@
             }
         }).open();
     }
+    <%-- 요기 에러 잡을것 --%>
+    function win_upload(){
+        var op = "width=500, heigth=150, left=50, top=150";
+        open("${pageContext.request.contextPath}/giveTogether/pictureimgForm", "", op);
+    }
+    
+    
 </script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <%-- 주소코드 여기까지 --%>
@@ -81,8 +88,13 @@
     <input type="text" name="kinds" value="2" style = "display : none">
     
     <div class="form-group">
-      <label for="InputEmail1" class="form-label mt-4">ID를 입력하세요.</label>
-      <input type="text" class="form-control" id="InputID" aria-describedby="emailHelp" placeholder="Enter email" name="id">
+      <label for="InputID1" class="form-label mt-4">ID를 입력하세요.</label>
+      <input type="text" class="form-control" id="InputID" aria-describedby="emailHelp" placeholder="아이디를 입력하세요" name="id">
+    </div>
+    
+     <div class="form-group">
+      <label for="InputEmail1" class="form-label mt-4">EMAIL을 입력하세요.</label>
+      <input type="text" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="이메일을 입력하세요" name="email">
     </div>
     
     <div class="form-group">
@@ -94,6 +106,20 @@
       <label for="InputPassword1" class="form-label mt-4">비밀번호 확인</label>
       <input type="password" class="form-control" id="InputPassword2" placeholder="비밀번호를 한번 더 입력하세요.">
     </div>
+    
+       <div class="form-group">
+      <label for="InputPicture" class="form-label mt-4">단체 사진 등록</label>
+    <input type="hidden"  name="picture"  >
+		<table class="w3-table-all">			
+			
+				<td rowspan="4" valign="bottom" width="100px" class="w3-border">
+				<img src=""
+					width="100" height="120" id="picture"><br> <font size="3">
+					<a  class="w3-button w3-green" 
+						href="javascript:win_upload()">사진등록</a></font></td>
+       </table></div>
+
+     
     
     
       <div class="form-group">
@@ -131,20 +157,7 @@
 <input class="form-control form-control-sm" style = "max-width : 15rem; " type="text" id="sample6_extraAddress" placeholder="참고항목">
 </div>
 
-    <div class="form-group">
-      <label for="InputIntro" class="form-label mt-4">단체 사진 등록</label>
-    <input type="hidden"  name="picture"  >
-		<table class="w3-table-all">			
-			
-				<td rowspan="4" valign="bottom" width="100px" class="w3-border">
-				<img src=""
-					width="100" height="120" id="picture"><br> <font size="1">
-					<a  class="w3-button w3-green" 
-						href="javascript:win_upload()">사진등록</a></font></td>
-
-
-
-
+ 
   
 
 

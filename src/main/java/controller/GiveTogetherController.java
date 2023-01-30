@@ -23,6 +23,10 @@ import model.Board;
 import model.Usergroup;
 import model.Userperson;
 
+
+
+
+
 @Controller
 @RequestMapping("/giveTogether/")
 public class GiveTogetherController {
@@ -89,6 +93,7 @@ public class GiveTogetherController {
 		return "/user/joinForGroup";
 	}
 	
+	
 	@RequestMapping("joinUserGroupPro")
 	public String joinUserGroupPro()throws Exception {
 		
@@ -113,10 +118,10 @@ public class GiveTogetherController {
 		
 		if(count>0) {
 			msg = group.getP_name() + "님의 가입이 완료되었습니다.";
-			url = "/user/loginForm";
+			url = "/giveTogether/loginForm";
 		}else {
 			msg = "회원가입에 실패 했습니다.";
-			url = "/user/joinForGroup";			
+			url = "/giveTogether/joinForGroup";			
 		}
 		request.setAttribute("msg", msg);
 		request.setAttribute("url", url);
@@ -125,7 +130,7 @@ public class GiveTogetherController {
 	
 	@RequestMapping("pictureimgForm")
 	public String pictureimgForm() {
-		/* 1) upload folder 만든다 /webapp/member/picture
+		/* 1) upload folder 만든다 /webapp/user/picture
 		 * 2) @RequestMapping("picturePro") 이미지를 폴더에 저장 한다.
 		 */
 		return "/user/pictureimgForm";
