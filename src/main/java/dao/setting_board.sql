@@ -19,6 +19,9 @@ v_end date,
 v_type varchar(1),
 field varchar(2),
 boardid varchar(1)
+v_type varchar(20),
+field varchar(50),
+boardid varchar(1),
 );
 
 

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -15,13 +16,13 @@ import mybatis.MybatisConnection;
 public class BoardMybatisDao {
 
 	@Autowired
+	SqlSessionTemplate session;
+	
 	private static final String ns = "board.";
 	private Map map = new HashMap();
 
 	public int insertBoard(Board board) {
-		SqlSession session = MybatisConnection.getConnection();
 		int num = session.insert(ns+"insertBoard", board);
-		MybatisConnection.close(session);
 		
 		return num;
 	}

@@ -2,6 +2,8 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
@@ -328,6 +330,7 @@ public class GiveTogetherController {
 		m.addAttribute("url", url);
 		return "/alert";
 	}
+
 	
 	@RequestMapping("volunteerPro")
 	public String volunteerPro(@RequestParam("uploadfile") MultipartFile multipartfile, Board board) {
@@ -425,4 +428,5 @@ public class GiveTogetherController {
 		return "/alert";
 	}
 	
+
 }
