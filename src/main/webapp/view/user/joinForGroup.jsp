@@ -8,10 +8,21 @@
 <title>단체 회원 가입</title>
 </head>
 <body>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/bootstrap.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href = "${pageContext.request.contextPath}/resource/css/bootstrap.min.css">
+<style>
+.form-control {
+	width : 30rem;
+}
+.form-check-label{
+	font-size : 0.8rem;
+}
+.wrap{
+	display: inline-flex;
+}
+a{
 
+}
+</style>
 
 <%-- 주소 코드 --%>
 <script>
@@ -63,107 +74,97 @@
         }).open();
     }
     <%-- 요기 에러 잡을것 --%>
+    
+</script>
+<script>
     function win_upload(){
         var op = "width=500, heigth=150, left=50, top=150";
         open("${pageContext.request.contextPath}/giveTogether/pictureimgForm", "", op);
     }
-    
-    
 </script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <%-- 주소코드 여기까지 --%>
 
 <%-- 경로 예시로 잡아둔것 수정예정 --%>
+
+<br>
 <form action="${pageContext.request.contextPath}/giveTogether/joinUserGroupPro" method="post" >
-
-
-  <fieldset>
+<div>
+<ul class="list-group" style = "max-width : 50rem; margin : 0 auto; list-style : none;">
+   <br>
    <li class="list-group-item d-flex justify-content-center align-items-center">
-		<h3 for="exampleInputEmail1" class="form-label mt-4">단체 회원가입</h3>
+		<h3 class="form-label mt-4">단체 회원가입</h3>
 	</li>
     <li >
 		<h6 align="right" style = "margin-right:5rem"><a href="${pageContext.request.contextPath}/giveTogether/joinForPerson">개인회원 가입</a></h6>
 	</li>
-           
+  <li class="list-group-item d-flex justify-content-center align-items-center">
+  <div class="form-group">
     <input type="text" name="kinds" value="2" style = "display : none">
     
-    <div class="form-group">
-      <label for="InputID1" class="form-label mt-4">ID를 입력하세요.</label>
-      <input type="text" class="form-control" id="InputID" aria-describedby="emailHelp" placeholder="아이디를 입력하세요" name="id">
-    </div>
     
-     <div class="form-group">
-      <label for="InputEmail1" class="form-label mt-4">EMAIL을 입력하세요.</label>
-      <input type="text" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="이메일을 입력하세요" name="email">
-    </div>
+      <label class="col-form-label col-form-label-sm mt-4" for="inputSmall1">아이디</label>
+      <input type="text" class="form-control form-control-sm" id="InputID" placeholder="아이디를 입력하세요" name="id">
+      <label class="col-form-label col-form-label-sm mt-4" for="inputSmall1">비밀번호</label>
+      <input type="password" class="form-control form-control-sm" id="InputPassword1" placeholder="비밀번호를 입력하세요." name="pass">
+      <label class="col-form-label col-form-label-sm mt-4" for="inputSmall1">비밀번호 확인</label>
+      <input type="password" class="form-control form-control-sm" id="InputPassword2" placeholder="비밀번호를 한번 더 입력하세요.">
+   <br>
+    <div class="list-group" style = "padding : 1rem;"><br>
+    <h5 align="center">단체 정보</h5><br>
+	<div class="wrap">
+    <div style = "width : 15rem; flex-direction: column;">
+    <div>
+    <input type="hidden"  name="picture">
+	<img src="${pageContext.request.contextPath}/view/uesr/picture/${member.picture}" width="150" height="200" id="picture">
+	</div>
+	<div style = "margin-top : 1rem">
+	<a class="w3-button w3-green" href="javascript:win_upload()">
+	<button type="button" class="btn btn-primary btn-sm">사진등록</button></a>
+	</div>
+	</div>
+    <div style = "width : 15rem; flex-direction: column;">
+   <label class="col-form-label col-form-label-sm mt-4" for="InputP.NAME">단체명</label>
+   <input type="text" class="form-control form-control-sm" style = "max-width : 15em;" id="InputP.NAME" placeholder="단체명을 입력하세요." name="p_name">
+  
     
-    <div class="form-group">
-      <label for="InputPassword1" class="form-label mt-4">비밀번호</label>
-      <input type="password" class="form-control" id="InputPassword1" placeholder="비밀번호를 입력하세요." name="pass">
-    </div>
+   <label class="col-form-label col-form-label-sm mt-4" for="InputNAME">대표자명</label>
+   <input type="text" class="form-control form-control-sm" style = "max-width : 15em;" id="InputNAME" placeholder="성함을 입력하세요." name="name">
+  
+   <label class="col-form-label col-form-label-sm mt-4" for="InputTEL">연락처</label>
+    <input type="text" class="form-control form-control-sm" style = "max-width : 15em;" id="InputTEL" placeholder="-없이 입력하세요." name="tel">
+   </div>
+   </div>
+    <label class="col-form-label col-form-label-sm mt-4" for="inputSmall1">이메일</label>
+      <input type="text" class="form-control form-control-sm" id="InputEmail" aria-describedby="emailHelp" placeholder="example@email.com" name="email">
     
-       <div class="form-group">
-      <label for="InputPassword1" class="form-label mt-4">비밀번호 확인</label>
-      <input type="password" class="form-control" id="InputPassword2" placeholder="비밀번호를 한번 더 입력하세요.">
-    </div>
-    
-       <div class="form-group">
-      <label for="InputPicture" class="form-label mt-4">단체 사진 등록</label>
-    <input type="hidden"  name="picture"  >
-		<table class="w3-table-all">			
-			
-				<td rowspan="4" valign="bottom" width="100px" class="w3-border">
-				<img src=""
-					width="100" height="120" id="picture"><br> <font size="3">
-					<a  class="w3-button w3-green" 
-						href="javascript:win_upload()">사진등록</a></font></td>
-       </table></div>
-
-     
-    
-    
-      <div class="form-group">
-      <label for="InputTEL" class="form-label mt-4">연락처 입력</label>
-      <input type="text" class="form-control" id="InputTEL" placeholder="-없이 입력하세요." name="tel">
-    </div>
-    
-     <div class="form-group">
-      <label for="InputNAME" class="form-label mt-4">단체명 입력</label>
-      <input type="text" class="form-control" id="InputP.NAME" placeholder="단체명을 입력하세요." name="p_name">
-    </div>
-    
-     <div class="form-group">
-      <label for="InputNAME" class="form-label mt-4">대표자명 입력</label>
-      <input type="text" class="form-control" id="InputNAME" placeholder="성함을 입력하세요." name="name">
-    </div>
-
- 	<div class="form-group">
-      <label for="InputIntro" class="form-label mt-4">소개 입력</label>
-      <input type="text" class="form-control" id="InputIntro" placeholder="단체 소개를 입력하세요." name="intro">
-    </div>
-    
+ 	<label for="introarea" class="col-form-label col-form-label-sm mt-4">단체를 소개해 주세요</label>
+      <textarea class="form-control" id="introarea" rows="3" name="intro"></textarea>
     
 
 <%--주소 코드 --%>        
-<label class="col-form-label col-form-label-sm mt-4" for="adress">주소</label><br>
+<label class="col-form-label col-form-label-sm mt-4" for="adress">주소</label>
 <div class = "wrap" id = "adress">  
 <input class="form-control-sm form-control" style = "max-width : 5rem; " type="text" id="sample6_postcode" placeholder="우편번호">
-<input class="btn btn-primary btn-sm" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+<input class="btn btn-primary btn-sm" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
 </div>
-<br>
 <input class="form-control form-control-sm" type="text" name="location" id="sample6_address" placeholder="주소">
 <div class = "wrap">  
-<input class="form-control form-control-sm" style = "max-width : 15rem; " type="text" name="location1" id="sample6_detailAddress" placeholder="상세주소">
-<input class="form-control form-control-sm" style = "max-width : 15rem; " type="text" id="sample6_extraAddress" placeholder="참고항목">
+<input class="form-control form-control-sm" style = "max-width : 15rem;" type="text" name="location1" id="sample6_detailAddress" placeholder="상세주소">
+<input class="form-control form-control-sm" style = "max-width : 15rem;" type="text" id="sample6_extraAddress" placeholder="참고항목">
 </div>
-
+</div>
  
-  
-
-
-   <li class="list-group-item d-flex justify-content-between align-items-center" style="margin : 0 auto"> 
-   <button type="submit" class="btn btn-primary">회원가입 완료</button>   
- </fieldset>
+</div>
+  <li class="list-group-item d-flex justify-content-between align-items-center" style="margin : 0 auto">
+    
+    <button type="submit" class="btn btn-primary">회원가입</button>
+    </li>
+    </ul>
+ </div>
 </form> 
+
+
+<br><br><br>
 </body>
 </html>
