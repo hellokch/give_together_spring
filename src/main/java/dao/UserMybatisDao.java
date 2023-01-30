@@ -48,6 +48,22 @@ public class UserMybatisDao {
 		int num = session.update(ns + "updateUserPerson",person);
 		return num;
 	}
+	
+	public int changePassP(Userperson per,String pass) {
+		Map map = new HashMap();
+		map.put("id", per);
+		map.put("pass", pass);
+		int num = session.update(ns+"changePassP", map);
+		return num;
+	}
+	public int changePassG(Usergroup gro,String pass) {
+		Map map = new HashMap();
+		map.put("id", gro);
+		map.put("pass", pass);
+		int num = session.update(ns+"changePassG", map);
+		return num;
+	}
+	
 /*
   private Map map = new HashMap();
 	private Map map1 = new HashMap();

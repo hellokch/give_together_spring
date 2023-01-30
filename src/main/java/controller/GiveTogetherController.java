@@ -215,31 +215,31 @@ public class GiveTogetherController {
 	public String loginPro(String id, String pass, String kinds) {
 		String msg="아이디 혹은 회원 분류를 확인하세요";
 		String url="/giveTogether/loginForm";
-		Userperson per = userdao.selectOneP(id);
-		Usergroup gro = userdao.selectOneG(id);
 		//per에 id가 있는지 확인
-		if((per != null) && kinds.equals(per.getKinds())) {
-			//개인/단체 확인			
-				if(pass.equals(per.getPass())) {
-					//개인회원 로그인 성공
-					request.getSession().setAttribute("id", id);
-					request.getSession().setAttribute("kinds", kinds);
-					msg = "개인회원" + per.getName() + "님이 로그인 하셨습니다.";
-					url = "/giveTogether/main";	
-				}else {
-					msg = "비밀번호를 확인해 주세요.";
-				}
+		if(kinds.equals("1")) {
+			Userperson per = userdao.selectOneP(id);
+			if(pass.equals(per.getPass())) {
+				//개인회원 로그인 성공
+				request.getSession().setAttribute("id", id);
+				request.getSession().setAttribute("kinds", kinds);
+				msg = "개인회원" + per.getName() + "님이 로그인 하셨습니다.";
+				url = "/giveTogether/main";	
 			}else {
-				if(pass.equals(gro.getPass())) {
-					request.getSession().setAttribute("id", id);
-					request.getSession().setAttribute("kinds", kinds);
-					msg = "단체회원" + gro.getName() + "님이 로그인 하셨습니다.";
-					url = "/giveTogether/main";	
-				}else {
-					msg = "비밀번호를 확인해 주세요.";
-				}
-				
+				msg = "비밀번호를 확인해 주세요.";
 			}
+						
+		}
+		if(kinds.equals("2")) {
+			Usergroup gro = userdao.selectOneG(id);
+			if(pass.equals(gro.getPass())) {
+				request.getSession().setAttribute("id", id);
+				request.getSession().setAttribute("kinds", kinds);
+				msg = "단체회원" + gro.getName() + "님이 로그인 하셨습니다.";
+				url = "/giveTogether/main";	
+			}else {
+				msg = "비밀번호를 확인해 주세요.";
+			}
+		}
 		
 		//id가 어디에도 없음 : msg : id를 확인해주세요
 		m.addAttribute("msg", msg);
@@ -312,17 +312,17 @@ public class GiveTogetherController {
 		return "/alert";
 	}
 	
-	@RequestMapping("userPersonUpdatePassCheckPro2")
-	public String userPersonUpdatePassCheckPro2(String pass) {
+	@RequestMapping("userPassChgPassCheckPro")
+	public String userPassChgPassCheckPro(String pass) {
 		String login = (String) session.getAttribute("id");
 		Userperson per = userdao.selectOneP(login);
 		String msg="비밀번호가 일치합니다.";
 		String url="/giveTogether/userPersonInfo";
 		if(pass.equals(per.getPass())) {
-			url = "/giveTogether/#";
+			url = "/giveTogether/userPassChg";
 		}else {
 			msg = "비밀번호가 틀렸습니다.";
-			url = "/giveTogether/userPersonUpdatePassCheck2";
+			url = "/giveTogether/userPassChgPassCheck";
 		}
 		m.addAttribute("msg", msg);
 		m.addAttribute("url", url);
@@ -378,13 +378,51 @@ public class GiveTogetherController {
 	
 	@RequestMapping("userPassChgPassCheck")
 	public String userPassChgPassCheck(){
-		return "/user/userPassChgPassCheck";
+		return "/mypage/userPassChgPassCheck";
 	}
 	
 	@RequestMapping("userPassChg")
 	public String userPassChg(){
-		return "/user/userPassChg";
+		return "/mypage/userPassChg";
 	}
 	
+	@RequestMapping("userPassChgPro")
+	public String userPassChgPro(String passchg1, String passchg2)throws Exception{
+		String login = (String) session.getAttribute("id");
+		String login1 = (String) session.getAttribute("kinds");
+		
+		String msg=" ";
+		String url=" ";
+		
+		if (login1.equals("1")) {
+			Userperson per = userdao.selectOneP(login);
+			if (passchg1.equals(passchg2)) {
+				int num = userdao.changePassP(per,passchg1);
+				if(num>0) {
+					msg =per.getName() + "님의 비밀번호가 변경되었습니다.";
+					url = "/giveTogether/userPersonInfo";
+				}
+			}else {
+				msg="두 비밀번호가 다릅니다.";
+				url="/giveTogether/userPassChg";
+			}
+			
+		}else {
+			Usergroup gro = userdao.selectOneG(login);
+			if (passchg1.equals(passchg2)) {
+				int num = userdao.changePassG(gro,passchg1);
+				if(num>0) {
+					msg =gro.getName() + "님의 비밀번호가 변경되었습니다.";
+					url = "/giveTogether/userPersonInfo";
+				}
+			}else {
+				msg="두 비밀번호가 다릅니다.";
+				url="/giveTogether/userPassChg";
+			}
+		}
+		m.addAttribute("msg", msg);
+		m.addAttribute("url", url);
+		return "/alert";
+	}
 	
 }
