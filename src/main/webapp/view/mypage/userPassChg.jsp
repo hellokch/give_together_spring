@@ -23,7 +23,7 @@ a{
 }
 </style>
 <br>
-<form name="f" method="post" action="${pageContext.request.contextPath}/giveTogether/userPassChgPro">
+<form name="f" method="post" action="${pageContext.request.contextPath}/mypage/userPassChgPro">
 <div>
 <ul class="list-group" style = "max-width : 50rem; margin : 0 auto; list-style : none;">
 
@@ -35,7 +35,8 @@ a{
 	
   <li class="list-group-item d-flex justify-content-center align-items-center">
   <div class="form-group">
- 
+  <input name="id" value="${id}">
+ 	<input name="kinds" value="${kinds}">
   <label class="col-form-label col-form-label-sm mt-4" for="inputSmall2">비밀번호</label>
   <input class="form-control form-control-sm" type="password" placeholder="비밀번호를 입력해주세요." id="inputSmall2" name="passchg1">
   <label class="col-form-label col-form-label-sm mt-4" for="inputSmall2">비밀번호 확인</label>

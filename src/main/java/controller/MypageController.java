@@ -125,14 +125,12 @@ public class MypageController {
 	public String userPassChgPro(String passchg1, String passchg2)throws Exception{
 		String login = (String) session.getAttribute("id");
 		String login1 = (String) session.getAttribute("kinds");
-		
 		String msg=" ";
 		String url=" ";
-		
 		if (login1.equals("1")) {
 			Userperson per = userdao.selectOneP(login);
 			if (passchg1.equals(passchg2)) {
-				int num = userdao.changePassP(per,passchg1);
+				int num = userdao.changePassP(login, passchg1, login1);
 				if(num>0) {
 					msg =per.getName() + "님의 비밀번호가 변경되었습니다.";
 					url = "/mypage/userPersonInfo";
@@ -145,7 +143,7 @@ public class MypageController {
 		}else {
 			Usergroup gro = userdao.selectOneG(login);
 			if (passchg1.equals(passchg2)) {
-				int num = userdao.changePassG(gro,passchg1);
+				int num = userdao.changePassG(login, passchg1, login1);
 				if(num>0) {
 					msg =gro.getName() + "님의 비밀번호가 변경되었습니다.";
 					url = "/mypage/userPersonInfo";

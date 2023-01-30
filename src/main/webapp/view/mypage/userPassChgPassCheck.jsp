@@ -23,7 +23,7 @@ a{
 }
 </style>
 <br>
-<form name="f" method="post" action="${pageContext.request.contextPath}/giveTogether/userPassChg">
+<form name="f" method="post" action="${pageContext.request.contextPath}/mypage/userPassChgPassCheckPro">
 <div>
 <ul class="list-group" style = "max-width : 50rem; margin : 0 auto; list-style : none;">
 

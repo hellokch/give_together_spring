@@ -183,29 +183,33 @@ public class GiveTogetherController {
 	public String loginPro(String id, String pass, String kinds) {
 		String msg="아이디 혹은 회원 분류를 확인하세요";
 		String url="/giveTogether/loginForm";
-		//per에 id가 있는지 확인
+		
 		if(kinds.equals("1")) {
 			Userperson per = userdao.selectOneP(id);
-			if(pass.equals(per.getPass())) {
-				//개인회원 로그인 성공
-				request.getSession().setAttribute("id", id);
-				request.getSession().setAttribute("kinds", kinds);
-				msg = "개인회원" + per.getName() + "님이 로그인 하셨습니다.";
-				url = "/giveTogether/main";	
-			}else {
-				msg = "비밀번호를 확인해 주세요.";
+			if(per != null) {
+				if(pass.equals(per.getPass())) {
+					//개인회원 로그인 성공
+					request.getSession().setAttribute("id", id);
+					request.getSession().setAttribute("kinds", kinds);
+					msg = "개인회원" + per.getName() + "님이 로그인 하셨습니다.";
+					url = "/giveTogether/main";	
+				}else {
+					msg = "비밀번호를 확인해 주세요.";
+				}
+							
 			}
-						
 		}
 		if(kinds.equals("2")) {
 			Usergroup gro = userdao.selectOneG(id);
-			if(pass.equals(gro.getPass())) {
-				request.getSession().setAttribute("id", id);
-				request.getSession().setAttribute("kinds", kinds);
-				msg = "단체회원" + gro.getName() + "님이 로그인 하셨습니다.";
-				url = "/giveTogether/main";	
-			}else {
-				msg = "비밀번호를 확인해 주세요.";
+			if(gro != null) {
+				if(pass.equals(gro.getPass())) {
+					request.getSession().setAttribute("id", id);
+					request.getSession().setAttribute("kinds", kinds);
+					msg = "단체회원" + gro.getName() + "님이 로그인 하셨습니다.";
+					url = "/giveTogether/main";	
+				}else {
+					msg = "비밀번호를 확인해 주세요.";
+				}
 			}
 		}
 		

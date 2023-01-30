@@ -9,6 +9,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+
 import model.Board;
 import model.Usergroup;
 import model.Userperson;
@@ -49,17 +51,19 @@ public class UserMybatisDao {
 		return num;
 	}
 	
-	public int changePassP(Userperson per,String pass) {
+	public int changePassP(String id,String pass, String kinds) {
 		Map map = new HashMap();
-		map.put("id", per);
+		map.put("id", id);
 		map.put("pass", pass);
+		map.put("kinds", kinds);
 		int num = session.update(ns+"changePassP", map);
 		return num;
 	}
-	public int changePassG(Usergroup gro,String pass) {
+	public int changePassG(String id,String pass, String kinds) {
 		Map map = new HashMap();
-		map.put("id", gro);
+		map.put("id", id);
 		map.put("pass", pass);
+		map.put("kinds", kinds);
 		int num = session.update(ns+"changePassG", map);
 		return num;
 	}

@@ -23,10 +23,10 @@
 	where id = #{id} and pass =#{pass}
 </update>
 <update id="changePassP" parameterType="map">
-	update userperson set pass=#{pass} where id =#{id}
+	update userperson set pass=#{pass} where id =#{id} and kinds=#{kinds}
 </update>
 <update id="changePassG" parameterType="map">
-	update usergroup set pass=#{pass} where id =#{id}
+	update usergroup set pass=#{pass} where id =#{id} and kinds=#{kinds}
 </update>
 
 
