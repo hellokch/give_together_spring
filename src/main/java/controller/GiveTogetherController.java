@@ -26,9 +26,6 @@ import model.Usergroup;
 import model.Userperson;
 
 
-
-
-
 @Controller
 @RequestMapping("/giveTogether/")
 public class GiveTogetherController {
@@ -182,15 +179,6 @@ public class GiveTogetherController {
 	}
 	
 	
-	
-	@RequestMapping("userPersonInfo")
-	public String userPersonInfo(){
-		String login = (String) session.getAttribute("id");
-		Userperson per = userdao.selectOneP(login);
-		m.addAttribute("per", per);
-		return "/mypage/userPersonInfo";
-	}
-	
 	@RequestMapping("loginPro")
 	public String loginPro(String id, String pass, String kinds) {
 		String msg="아이디 혹은 회원 분류를 확인하세요";
@@ -239,77 +227,6 @@ public class GiveTogetherController {
 		return "/alert";
 	}
 	
-	@RequestMapping("userPersonUpdateForm")
-	public String userPersonUpdateForm() {
-		String login = (String) session.getAttribute("id");
-		Userperson per = userdao.selectOneP(login);
-		m.addAttribute("per",per);
-		return "/mypage/userPersonUpdateForm";
-	}
-	
-	@RequestMapping("userPersonUpdatePassCheck")
-	public String userPersonUpdatePassCheck() {
-		return "/mypage/userPersonUpdatePassCheck";
-	}
-	
-	@RequestMapping("userPersonUpdatePassCheckPro")
-	public String userPersonUpdatePassCheckPro(String pass) {
-		String login = (String) session.getAttribute("id");
-		Userperson per = userdao.selectOneP(login);
-		String msg="비밀번호가 일치합니다.";
-		String url="/giveTogether/userPersonInfo";
-		if(pass.equals(per.getPass())) {
-			url = "/giveTogether/userPersonUpdateForm";
-		}else {
-			msg = "비밀번호가 틀렸습니다.";
-			url = "/giveTogether/userPersonUpdatePassCheck";
-		}
-		m.addAttribute("msg", msg);
-		m.addAttribute("url", url);
-		return "/alert";
-	}
-	
-	@RequestMapping("userPersonUpdatePro")
-	public String userPersonUpdatePro(Userperson person)throws Exception {
-		String login = (String) session.getAttribute("id");
-		person.setId(login);
-		String msg="회원 자료가 없습니다.";
-		String url="/member/loginForm";
-		Userperson olduser = userdao.selectOneP(login);
-		if(olduser != null ) {
-			int num = userdao.updateUserPerson(person);
-			if(num > 0) {
-				msg = person.getName()+"님의 정보가 수정되었습니다.";
-				url = "/giveTogether/userPersonInfo";
-			}else {
-				msg = "정보 수정에 실패했습니다.";
-				url = "/giveTogether/userPersonUpdateForm";
-			}
-			
-		}
-		m.addAttribute("msg", msg);
-		m.addAttribute("url", url);
-		return "/alert";
-	}
-	
-	@RequestMapping("userPassChgPassCheckPro")
-	public String userPassChgPassCheckPro(String pass) {
-		String login = (String) session.getAttribute("id");
-		Userperson per = userdao.selectOneP(login);
-		String msg="비밀번호가 일치합니다.";
-		String url="/giveTogether/userPersonInfo";
-		if(pass.equals(per.getPass())) {
-			url = "/giveTogether/userPassChg";
-		}else {
-			msg = "비밀번호가 틀렸습니다.";
-			url = "/giveTogether/userPassChgPassCheck";
-		}
-		m.addAttribute("msg", msg);
-		m.addAttribute("url", url);
-		return "/alert";
-	}
-
-	
 	@RequestMapping("volunteerPro")
 	public String volunteerPro(@RequestParam("uploadfile") MultipartFile multipartfile, Board board) {
 		
@@ -357,54 +274,6 @@ public class GiveTogetherController {
 		return "/alert";
 	}
 	
-	@RequestMapping("userPassChgPassCheck")
-	public String userPassChgPassCheck(){
-		return "/mypage/userPassChgPassCheck";
-	}
-	
-	@RequestMapping("userPassChg")
-	public String userPassChg(){
-		return "/mypage/userPassChg";
-	}
-	
-	@RequestMapping("userPassChgPro")
-	public String userPassChgPro(String passchg1, String passchg2)throws Exception{
-		String login = (String) session.getAttribute("id");
-		String login1 = (String) session.getAttribute("kinds");
-		
-		String msg=" ";
-		String url=" ";
-		
-		if (login1.equals("1")) {
-			Userperson per = userdao.selectOneP(login);
-			if (passchg1.equals(passchg2)) {
-				int num = userdao.changePassP(per,passchg1);
-				if(num>0) {
-					msg =per.getName() + "님의 비밀번호가 변경되었습니다.";
-					url = "/giveTogether/userPersonInfo";
-				}
-			}else {
-				msg="두 비밀번호가 다릅니다.";
-				url="/giveTogether/userPassChg";
-			}
-			
-		}else {
-			Usergroup gro = userdao.selectOneG(login);
-			if (passchg1.equals(passchg2)) {
-				int num = userdao.changePassG(gro,passchg1);
-				if(num>0) {
-					msg =gro.getName() + "님의 비밀번호가 변경되었습니다.";
-					url = "/giveTogether/userPersonInfo";
-				}
-			}else {
-				msg="두 비밀번호가 다릅니다.";
-				url="/giveTogether/userPassChg";
-			}
-		}
-		m.addAttribute("msg", msg);
-		m.addAttribute("url", url);
-		return "/alert";
-	}
 	
 
 }

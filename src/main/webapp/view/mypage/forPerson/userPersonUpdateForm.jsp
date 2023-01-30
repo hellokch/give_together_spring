@@ -79,7 +79,7 @@ a{
 }
 </style>
 <br>
-<form name="f" method="post" action="${pageContext.request.contextPath}/giveTogether/userPersonUpdatePro">
+<form name="f" method="post" action="${pageContext.request.contextPath}/mypage/userPersonUpdatePro">
 <div>
 <ul class="list-group" style = "max-width : 50rem; margin : 0 auto; list-style : none;">
 
