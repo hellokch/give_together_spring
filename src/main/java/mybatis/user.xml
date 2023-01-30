@@ -7,7 +7,7 @@
 	(#{id}, #{kinds}, #{pass}, #{tel}, #{name}, #{email}, #{location}, #{location1}, #{nickname}, #{gender})
 </insert>
 <insert id ="insertUsergroup" parameterType="usergroup">
-	insert into userperson values
+	insert into usergroup values
 	(#{id}, #{kinds}, #{pass}, #{tel}, #{name}, #{email}, #{location}, #{location1}, #{p_name}, #{intro} ,#{picture})
 </insert>
 <select id="selectOneP" resultType="userperson" parameterType="String">
