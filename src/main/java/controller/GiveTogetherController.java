@@ -124,7 +124,6 @@ public class GiveTogetherController {
 }
 	
 	@RequestMapping("picturePro")
-	//<input class="w3-input" type="file" name="picture">
 	public String picturePro(@RequestParam("picture") MultipartFile multipartFile) {
 		String path = 
 					request.getServletContext().getRealPath("/")+"view/user/picture";
@@ -147,7 +146,7 @@ public class GiveTogetherController {
 		System.out.println(filename);
 		m.addAttribute("filename", filename);	
 		return "/user/picturePro";
-}
+	}
 	
 	
 	

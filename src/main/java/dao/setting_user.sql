@@ -12,6 +12,7 @@ nickname varchar(50),
 gender number
 );
 
+drop table usergroup;
 create table usergroup(
 id varchar(20) primary key,
 kinds varchar(1),
