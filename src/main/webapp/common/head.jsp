@@ -51,7 +51,7 @@ li{
 	        </c:if>
 	     <c:if test="${sessionScope.id != null and sessionScope.kinds eq '2'}">
 	        <li class="nav-item">
-	         <a class="nav-link active" href="${pageContext.request.contextPath}/giveTogether/userPersonInfo">&nbsp;&nbsp;&nbsp;마이페이지(단체)</a>
+	         <a class="nav-link active" href="${pageContext.request.contextPath}/mypage/userGroupInfo">&nbsp;&nbsp;&nbsp;마이페이지(단체)</a>
 	        </li>
 	        </c:if>
 	        

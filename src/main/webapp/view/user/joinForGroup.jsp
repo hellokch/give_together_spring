@@ -125,11 +125,11 @@ a{
 	</div>
     <div style = "width : 15rem; flex-direction: column;">
    <label class="col-form-label col-form-label-sm mt-4" for="InputP.NAME">단체명</label>
-   <input type="text" class="form-control form-control-sm" style = "max-width : 15em;" id="InputP.NAME" placeholder="단체명을 입력하세요." name="p_name">
+   <input type="text" class="form-control form-control-sm" style = "max-width : 15em;" id="InputP.NAME" placeholder="단체명을 입력하세요." name="name">
   
     
    <label class="col-form-label col-form-label-sm mt-4" for="InputNAME">대표자명</label>
-   <input type="text" class="form-control form-control-sm" style = "max-width : 15em;" id="InputNAME" placeholder="성함을 입력하세요." name="name">
+   <input type="text" class="form-control form-control-sm" style = "max-width : 15em;" id="InputNAME" placeholder="성함을 입력하세요." name="p_name">
   
    <label class="col-form-label col-form-label-sm mt-4" for="InputTEL">연락처</label>
     <input type="text" class="form-control form-control-sm" style = "max-width : 15em;" id="InputTEL" placeholder="-없이 입력하세요." name="tel">

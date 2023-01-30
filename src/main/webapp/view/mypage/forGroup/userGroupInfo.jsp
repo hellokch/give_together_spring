@@ -9,66 +9,50 @@
 <body>
 <link rel="stylesheet" href = "${pageContext.request.contextPath}/resource/css/bootstrap.min.css">
 <style>
-.wrap{
-	width : 45rem;
-}
-.bnt-group{
-	width : 30rem;
-	display: inline-flex;
-	justify-content: space-evenly;
-	margin : 0 auto;
-}
 th{
-	text-align : center;
-	
+	class:"table-primary";
 }
 </style>
 
-<div class = "wrap">
-<ul class="list-group" style = "max-width : 50rem; margin : 0 auto; list-style : none;">
-<li class="list-group-item d-flex justify-content-center align-items-center">
-		<h3 class="form-label mt-4">내 정보</h3>		
-	</li>
+
 <table class="table table-hover">
-  <tbody> 
-    <tr >
-      <th scope="row" class="table-primary" class = "table-success">아이디</th>
-      
-      <td class="table-secondary">${per.id}</td>
-    </tr>
-    <tr >
-      <th scope="row" class="table-primary" >이름</th>      
-      <td class="table-secondary">${per.name}</td>
-    </tr>
-    <tr >
-      <th scope="row" class="table-primary">별명</th>      
-      <td class="table-secondary">${per.nickname}</td>
-    </tr>
-	<tr >
-      <th scope="row" class="table-primary">성별</th>      
-      <td class="table-secondary">${per.gender == 1 ? "남자" : "여자"}</td>
-    </tr>
-    <tr >
-      <th scope="row" class="table-primary">전화번호</th>      
-      <td class="table-secondary">${per.tel}</td>
-    </tr>
-        <tr >
-      <th scope="row" class="table-primary">이메일</th>      
-      <td class="table-secondary">${per.email}</td>
-    </tr>
-        <tr >
-      <th scope="row" class="table-primary">주소</th>      
-      <td class="table-secondary">${per.location}</td>
-    </tr>    
-    <tr >
-      <th scope="row" class="table-primary">상세주소</th>      
-      <td class="table-secondary">${per.location1}</td>
-    </tr>
-    <tr >
-    </tr>
-  </tbody>
+<tr>
+<td rowspan=5 width="200px"><img src="${pageContext.request.contextPath}/view/uesr/picture/${member.picture}" width="150" height="200" id="picture"></td>
+<th class="table-primary"  width="200px">아이디</th>
+<td>${gro.id} </td>
+</tr>
+<tr>
+<th class="table-primary" >단체명</th>
+<td>${gro.name}</td>
+</tr>
+<tr>
+<th class="table-primary" >대표자명</th>
+<td>${gro.p_name}</td>
+</tr>
+<tr>
+<th class="table-primary" >연락처</th>
+<td>${gro.tel }</td>
+</tr>
+<tr>
+<th class="table-primary" >이메일</th>
+<td>${gro.email }</td>
+</tr>
+<tr>
+<th class="table-primary" >주소</th>
+<td colspan = 3>${gro.location }</td>
+</tr>
+<tr>
+<th class="table-primary" >상세주소</th>
+<td colspan = 3>${gro.location1 }</td>
+</tr>
+<tr>
+<th class="table-primary"  colspan=4>단체 소개</th>
+</tr>
+<tr>
+<td rowspan =2 colspan=4>${gro.intro}</td>
+</tr>
 </table>
-</ul>
-</div>
+
+
 </body>
 </html>

@@ -202,7 +202,13 @@ public class MypageController {
 		return "/alert";
 	}
 
-	
+	@RequestMapping("userGroupInfo")
+	public String userGroupInfo(){
+		String login = (String) session.getAttribute("id");
+		Usergroup gro = userdao.selectOneG(login);
+		m.addAttribute("gro", gro);
+		return "/mypage/forGroup/userGroupInfo";
+	}
 	
 
 }
