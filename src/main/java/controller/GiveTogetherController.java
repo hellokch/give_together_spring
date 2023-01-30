@@ -110,8 +110,8 @@ public class GiveTogetherController {
 			msg = "회원가입에 실패 했습니다.";
 			url = "/giveTogether/joinForGroup";			
 		}
-		request.setAttribute("msg", msg);
-		request.setAttribute("url", url);
+		m.addAttribute("msg", msg);
+		m.addAttribute("url", url);
 		return "/alert";
 	}
 	
@@ -173,8 +173,8 @@ public class GiveTogetherController {
 			msg = "회원가입에 실패 했습니다.";
 			url = "/giveTogether/joinForPerson";			
 		}
-		request.setAttribute("msg", msg);
-		request.setAttribute("url", url);
+		m.addAttribute("msg", msg);
+		m.addAttribute("url", url);
 		return "/alert";
 	}
 	
