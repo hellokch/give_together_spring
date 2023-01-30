@@ -1,3 +1,4 @@
+drop giveboard
 create table giveboard(
 index_num number primary key,
 id varchar(20),
@@ -23,6 +24,5 @@ v_type varchar(20),
 field varchar(50),
 boardid varchar(1),
 );
-
 
 create sequence giveboardseq;

@@ -97,22 +97,10 @@ public class GiveTogetherController {
 	
 	
 	@RequestMapping("joinUserGroupPro")
-	public String joinUserGroupPro()throws Exception {
+	public String joinUserGroupPro(Usergroup group)throws Exception {
 		
 		System.out.println("joinUserGroupPro");	
 		
-		Usergroup group = new Usergroup();
-		group.setId(request.getParameter("id"));
-		group.setKinds(request.getParameter("kinds"));
-		group.setPass(request.getParameter("pass"));
-		group.setTel(request.getParameter("tel"));
-		group.setName(request.getParameter("name"));
-		group.setEmail(request.getParameter("email"));
-		group.setLocation(request.getParameter("location"));
-		group.setLocation1(request.getParameter("location1"));
-		group.setP_name(request.getParameter("p_name"));
-		group.setIntro(request.getParameter("intro"));
-		group.setPicture(request.getParameter("picture"));
 		
 		int count = userdao.insertUsergroup(group);
 		String msg="";
@@ -172,20 +160,10 @@ public class GiveTogetherController {
 	}
 	
 	@RequestMapping("joinUserPersonPro")
-	public String joinUserPersonPro()throws Exception {
+	public String joinUserPersonPro(Userperson person)throws Exception {
 		System.out.println("joinUserPersonPro");
 		
-		Userperson person = new Userperson();
-		person.setId(request.getParameter("id"));
-		person.setKinds(request.getParameter("kinds"));
-		person.setPass(request.getParameter("pass"));
-		person.setTel(request.getParameter("tel"));
-		person.setName(request.getParameter("name"));
-		person.setEmail(request.getParameter("email"));
-		person.setLocation(request.getParameter("location"));
-		person.setLocation1(request.getParameter("location1"));
-		person.setNickname(request.getParameter("nickname"));
-		person.setGender(Integer.parseInt(request.getParameter("gender")));
+		
 		
 		int count = userdao.insertUserperson(person);
 		String msg="";

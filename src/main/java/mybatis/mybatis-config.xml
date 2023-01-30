@@ -11,7 +11,7 @@
 
 	<mappers>
 		<mapper resource="mybatis/user.xml"/>
-		<!-- <mapper resource="mybatis/board.xml"/> -->
+		<mapper resource="mybatis/board.xml"/>
 	</mappers>
 
 </configuration>
