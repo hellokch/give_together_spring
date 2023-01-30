@@ -158,5 +158,51 @@ public class MypageController {
 		return "/alert";
 	}
 	
+	@RequestMapping("userDelete")
+	public String userDelete(){
+		return "/mypage/userDelete";
+	}
+	
+	@RequestMapping("userDeletePro")
+	public String userDeletePro(String pass){
+		String login = (String) session.getAttribute("id");
+		String login1 = (String) session.getAttribute("kinds");
+		String msg="비밀번호가 틀렸습니다.";
+		String url="/mypage/memberDelete";		
+		if(login1.equals("1")) {
+			Userperson per = userdao.selectOneP(login);
+			if(pass.equals(per.getPass())) {
+				int num = userdao.deleteP(login);
+				if(num>0) {
+					msg = per.getName() + "님이 탈퇴처리 되었습니다.";
+					session.invalidate();
+					url="/giveTogether/main";
+				}else {
+					msg="회원탈퇴가 실패 했습니다.";
+					url="/mypage/userDelete";
+				}				
+			}			
+		}
+		if(login1.equals("2")) {
+			Usergroup gro = userdao.selectOneG(login);
+			if(pass.equals(gro.getPass())) {
+				int num = userdao.deleteG(login);
+				if(num>0) {
+					msg = gro.getName() + "님이 탈퇴처리 되었습니다.";
+					session.invalidate();
+					url="/giveTogether/main";
+				}else {
+					msg="회원탈퇴가 실패 했습니다.";
+					url="/mypage/userDelete";
+				}				
+			}			
+		}
+		m.addAttribute("msg", msg);
+		m.addAttribute("url", url);
+		return "/alert";
+	}
+
+	
+	
 
 }

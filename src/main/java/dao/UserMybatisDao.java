@@ -68,19 +68,14 @@ public class UserMybatisDao {
 		return num;
 	}
 	
-/*
-  private Map map = new HashMap();
-	private Map map1 = new HashMap();
-	public List<Board> giveBoard() {
-		System.out.println("To 11111");
-		SqlSession session = MybatisConnection.getConnection();
-		System.out.println("To 222222");
-		map.clear();
-		List<Board> list= session.selectList (ns + "giveBoardList", map);
-		System.out.println("To 333333");
-		MybatisConnection.close(session);
-		System.out.println("To 444444");
-		return list;
-		
-	}*/
+	public int deleteP(String id) {
+		int num = session.update(ns + "deleteP", id);
+		return num;
+	}
+	public int deleteG(String id) {
+		int num = session.update(ns + "deleteP", id);
+		return num;
+	}
+	
+	
 }

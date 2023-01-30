@@ -29,6 +29,12 @@
 	update usergroup set pass=#{pass} where id =#{id} and kinds=#{kinds}
 </update>
 
+<delete id="deleteP" parameterType="String">
+	delete from userperson where id =#{id}	
+</delete>
+<delete id="deleteG" parameterType="String">
+	delete from usergroup where id =#{id}	
+</delete>
 
 </mapper>
 
