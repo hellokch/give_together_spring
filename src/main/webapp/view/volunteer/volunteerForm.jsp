@@ -67,10 +67,13 @@
     </script>
 <br>
 <div class="w3-container">
-<form class="w3-container w3-card-4" action = "${pageContext.request.contextPath}/giveTogether/volunteerPro" method="post">
+<form class="w3-container w3-card-4" enctype = "multipart/form-data" action = "${pageContext.request.contextPath}/volunteer/volunteerPro" method="post">
 <h3   class="w3-center">봉사활동 등록</h3>
 <br>
 
+<input type = "hidden" name = "id" value = ""/>
+<input type = "hidden" name = "p_type" value = "1"/>
+<input type = "hidden" name = "reword" value = ""/>
 <p>      
 <label class="w3-text-grey">제목</label>
 <input class="w3-input w3-border" type="text"  name = "title">
@@ -78,14 +81,14 @@
 <label class="w3-text-grey">시작 기간:</label>
 <div class="container">
 	<div class="input-group date">
-    	<input type="text" class="form-control" name = "start"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+    	<input type="text" class="form-control" name = "v_start"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 	</div>
 </div>
 </p><p>      
 <label class="w3-text-grey">종료 기간:</label>
 <div class="container">
 	<div class="input-group date">
-    	<input type="text" class="form-control" name = "end"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+    	<input type="text" class="form-control" name = "v_end"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 	</div>
 </div>
 </p><p>      
@@ -153,14 +156,23 @@
 		<option value  = "23">23:00</option>
 	</select>
 </p><p>      
+<label class="w3-text-grey">활동 장소</label>
+<input class="w3-input w3-border" type="text"  name = "location">
+</p><p>      
 <label class="w3-text-grey">봉사자 유형</label>
 	<input type="checkbox"  name = "v_type" value = "청소년">청소년 &nbsp;&nbsp;
 	<input type="checkbox"  name = "v_type" value = "성인">성인 &nbsp;&nbsp;
 </p><p>      
 <label class="w3-text-grey">봉사 분야</label>
 <input class="w3-input w3-border" type="text"  name = "field">
-</p>
-<p>      
+</p><p>      
+<label class="w3-text-grey">모집 종료일:</label>
+<div class="container">
+	<div class="input-group date">
+    	<input type="text" class="form-control" name = "end_date"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+	</div>
+</div>
+</p><p>      
 <label class="w3-text-grey">모집 내용:</label>
 <textarea class="w3-input w3-border" style="resize:none" name = "context" ></textarea>
 </p><p>      
