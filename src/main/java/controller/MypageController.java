@@ -16,7 +16,7 @@ import model.Userperson;
 
 
 @Controller
-@RequestMapping("/mypage/*")
+@RequestMapping("/mypage/")
 public class MypageController {
 	@Autowired
 	UserMybatisDao userdao;
