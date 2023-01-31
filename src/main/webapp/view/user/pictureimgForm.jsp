@@ -9,8 +9,7 @@
 <body>
 <link rel="stylesheet" href = "${pageContext.request.contextPath}/resource/css/bootstrap.min.css">
 <h3>업로드</h3>
-<form class="w3-container" method="post"
-action="${pageContext.request.contextPath}/giveTogether/picturePro" enctype="multipart/form-data">
+<form method="post" action="${pageContext.request.contextPath}/giveTogether/picturePro" enctype="multipart/form-data">
 <input class="btn btn-primary btn-sm" type="file" name="picture">
 <input class="btn btn-primary btn-sm" type="submit" name="사진등록">
 </form>

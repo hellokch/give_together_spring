@@ -88,7 +88,7 @@ a{
 <%-- 경로 예시로 잡아둔것 수정예정 --%>
 
 <br>
-<form action="${pageContext.request.contextPath}/giveTogether/joinUserGroupPro" method="post" >
+<form name ="f" action="${pageContext.request.contextPath}/giveTogether/joinUserGroupPro" method="post" >
 <div>
 <ul class="list-group" style = "max-width : 50rem; margin : 0 auto; list-style : none;">
    <br>
