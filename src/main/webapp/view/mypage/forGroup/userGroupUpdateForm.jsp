@@ -109,7 +109,7 @@ a{
     <div style = "width : 15rem; flex-direction: column;">
     <div>
     <input type="hidden"  name="picture" value="${member.picture}">
-	<img src="${pageContext.request.contextPath}/view/uesr/picture/${member.picture}" width="150" height="200" id="picture">
+	<img src="${pageContext.request.contextPath}/view/user/picture/${member.picture}" width="150" height="200" id="picture">
 	</div>
 	<div style = "margin-top : 1rem">
 	<a href="javascript:win_upload()">

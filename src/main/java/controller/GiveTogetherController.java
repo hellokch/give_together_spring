@@ -125,8 +125,7 @@ public class GiveTogetherController {
 	
 	@RequestMapping("picturePro")
 	public String picturePro(@RequestParam("picture") MultipartFile multipartFile) {
-		String path = 
-					request.getServletContext().getRealPath("/")+"view/user/picture/";
+		String path = request.getServletContext().getRealPath("/")+"view/user/picture/";
 		System.out.println(path);
 		String filename=null;
 		
@@ -134,15 +133,16 @@ public class GiveTogetherController {
 		if (!multipartFile.isEmpty()) {
 			File file = new File(path, multipartFile.getOriginalFilename());
 			filename = multipartFile.getOriginalFilename();						
-		try {
-		   multipartFile.transferTo(file);
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}				}
+			try {
+			   multipartFile.transferTo(file);
+			} catch (IllegalStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}				
+		}
 		System.out.println(filename);
 		m.addAttribute("filename", filename);	
 		return "/user/picturePro";

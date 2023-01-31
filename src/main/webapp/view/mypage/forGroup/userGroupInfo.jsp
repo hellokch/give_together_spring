@@ -17,7 +17,7 @@ th{
 <div class="list-group" style = "padding : 2rem;">
 <table class="table table-hover">
 <tr>
-<td rowspan=5 width="200px"><img src="${pageContext.request.contextPath}/view/uesr/picture/${gro.picture}" width="150" height="200" id="picture"></td>
+<td rowspan=5 width="200px"><img src="${pageContext.request.contextPath}/view/user/picture/${gro.picture}" width="150" height="200" id="picture"></td>
 <th class="table-primary"  width="200px">아이디</th>
 <td>${gro.id} </td>
 </tr>
