@@ -32,7 +32,7 @@ li{
           <a class="nav-link active" href="${pageContext.request.contextPath}/giveTogether/funding">&nbsp;&nbsp;&nbsp;펀딩	</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="${pageContext.request.contextPath}/giveTogether/volunteer">&nbsp;&nbsp;&nbsp;봉사</a>
+          <a class="nav-link active" href="${pageContext.request.contextPath}/volunteer/volunteerList">&nbsp;&nbsp;&nbsp;봉사</a>
         </li>
        <li class="nav-item">
           <a class="nav-link active" href="${pageContext.request.contextPath}/giveTogether/community">&nbsp;&nbsp;&nbsp;소식</a>

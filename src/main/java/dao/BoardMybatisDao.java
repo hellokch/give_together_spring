@@ -27,16 +27,13 @@ public class BoardMybatisDao {
 		return num;
 	}
 	
-	public int boardCount(String boardid) {
-		SqlSession session = MybatisConnection.getConnection();
-		int boardCount = session.selectOne(ns+"boardCount", boardid);
-		MybatisConnection.close(session);
+	public int boardCount(String p_type) {
+		int boardCount = session.selectOne(ns+"boardCount", p_type);
 		
 		return boardCount;
-		
 	}
 	
-	public List<Board> boardList(String boardid, int pageInt, int limit) {
+	public List<Board> boardList(String p_type, int pageInt, int limit) {
 		/*
 		 * 1 page : 1~3
 		 * 2 page : 4~6
@@ -47,13 +44,11 @@ public class BoardMybatisDao {
 		 * 
 		 */
 		map.clear();
-		map.put("boardid", boardid);
+		map.put("p_type", p_type);
 		map.put("start", ((pageInt - 1) * limit) + 1);
 		map.put("end", (pageInt*limit));
 		
-		SqlSession session = MybatisConnection.getConnection();
 		List<Board> list = session.selectList(ns+"boardList", map);
-		MybatisConnection.close(session);
 		
 		return list;
 		

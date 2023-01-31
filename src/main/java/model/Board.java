@@ -3,7 +3,7 @@ package model;
 import java.util.Date;
 
 public class Board {
-	int index;
+	int index_num;
 	String id;
 	Date not_date;
 	Date mod_date;
@@ -38,11 +38,11 @@ public class Board {
 	public void setStart_t(String start_t) {
 		this.start_t = start_t;
 	}
-	public int getIndex() {
-		return index;
+	public int getIndex_num() {
+		return index_num;
 	}
-	public void setIndex(int index) {
-		this.index = index;
+	public void setIndex_num(int index) {
+		this.index_num = index;
 	}
 	public String getId() {
 		return id;
@@ -160,7 +160,7 @@ public class Board {
 	}
 	@Override
 	public String toString() {
-		return "Board [index=" + index + ", id=" + id + ", not_date=" + not_date + ", mod_date=" + mod_date + ", title="
+		return "Board [index=" + index_num + ", id=" + id + ", not_date=" + not_date + ", mod_date=" + mod_date + ", title="
 				+ title + ", context=" + context + ", p_type=" + p_type + ", end_date=" + end_date + ", picture="
 				+ picture + ", goal=" + goal + ", raised=" + raised + ", reword=" + reword + ", location=" + location
 				+ ", act_time=" + act_time + ", day=" + day + ", v_start=" + v_start + ", v_end=" + v_end + ", v_type="
