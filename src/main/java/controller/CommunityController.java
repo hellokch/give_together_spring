@@ -21,7 +21,7 @@ import dao.BoardMybatisDao;
 import model.Board;
 
 @Controller
-@RequestMapping("/community/")
+@RequestMapping("/community/*")
 public class CommunityController {
 	
 	@Autowired
@@ -45,6 +45,12 @@ public class CommunityController {
 		return "/community/boardForm"; 						
 	}
 	
+	
+	@RequestMapping("community")
+	public String community(){
+		System.out.println("To communityPage");
+		return "/communityPage";
+	}
 	/*	
 	@PostMapping("boardPro")
 	public String boardPro(@RequestParam("file2") MultipartFile multipartFile, Board board) {

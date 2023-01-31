@@ -35,7 +35,7 @@ li{
           <a class="nav-link active" href="${pageContext.request.contextPath}/volunteer/volunteerList">&nbsp;&nbsp;&nbsp;봉사</a>
         </li>
        <li class="nav-item">
-          <a class="nav-link active" href="${pageContext.request.contextPath}/giveTogether/community">&nbsp;&nbsp;&nbsp;소식</a>
+          <a class="nav-link active" href="${pageContext.request.contextPath}/community/community">&nbsp;&nbsp;&nbsp;소식</a>
         </li>
         
         <c:if test="${sessionScope.id == null }">

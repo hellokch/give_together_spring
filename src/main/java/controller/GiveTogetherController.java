@@ -74,6 +74,7 @@ public class GiveTogetherController {
 		return "/volunteer/volunteerForm";
 	}
 	
+	
 	@RequestMapping("loginForm")
 	public String loginForm(){
 		System.out.println("To loginForm");
