@@ -82,8 +82,8 @@
         <br>
         <a href="${pageContext.request.contextPath}/mypage/userGroupInfo" class="list-group-item list-group-item-action">단체정보</a><br>
         <a href="${pageContext.request.contextPath}/mypage/userGroupUpdatePassCheck" class="list-group-item list-group-item-action">단체정보수정</a><br>
-        <a href="#" class="list-group-item list-group-item-action">비밀번호변경</a><br>
-        <a href="#" class="list-group-item list-group-item-action">회원탈퇴</a><br>
+        <a href="${pageContext.request.contextPath}/mypage/userPassChgPassCheck" class="list-group-item list-group-item-action">비밀번호변경</a><br>
+        <a href="${pageContext.request.contextPath}/mypage/userDelete" class="list-group-item list-group-item-action">회원탈퇴</a><br>
       </div>
     </div>
   </div>

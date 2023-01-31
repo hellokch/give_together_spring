@@ -73,7 +73,7 @@ public class UserMybatisDao {
 		return num;
 	}
 	public int deleteG(String id) {
-		int num = session.update(ns + "deleteP", id);
+		int num = session.update(ns + "deleteG", id);
 		return num;
 	}
 	

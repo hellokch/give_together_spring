@@ -146,7 +146,7 @@ public class MypageController {
 				int num = userdao.changePassG(login, passchg1, login1);
 				if(num>0) {
 					msg =gro.getName() + "님의 비밀번호가 변경되었습니다.";
-					url = "/mypage/userPersonInfo";
+					url = "/mypage/userGroupInfo";
 				}
 			}else {
 				msg="두 비밀번호가 다릅니다.";
@@ -168,7 +168,7 @@ public class MypageController {
 		String login = (String) session.getAttribute("id");
 		String login1 = (String) session.getAttribute("kinds");
 		String msg="비밀번호가 틀렸습니다.";
-		String url="/mypage/memberDelete";		
+		String url="/mypage/userDelete";		
 		if(login1.equals("1")) {
 			Userperson per = userdao.selectOneP(login);
 			if(pass.equals(per.getPass())) {
@@ -182,8 +182,7 @@ public class MypageController {
 					url="/mypage/userDelete";
 				}				
 			}			
-		}
-		if(login1.equals("2")) {
+		}else {
 			Usergroup gro = userdao.selectOneG(login);
 			if(pass.equals(gro.getPass())) {
 				int num = userdao.deleteG(login);
@@ -196,7 +195,9 @@ public class MypageController {
 					url="/mypage/userDelete";
 				}				
 			}			
+			
 		}
+		/* if(login1.equals("2")) { } */
 		m.addAttribute("msg", msg);
 		m.addAttribute("url", url);
 		return "/alert";
