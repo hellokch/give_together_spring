@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile; 
 
 import dao.BoardMybatisDao;
-import model.Board; 
+import dao.UserMybatisDao;
+import model.Board;
+import model.Usergroup; 
 
 @Controller
 @RequestMapping("/donation/")
@@ -25,6 +27,9 @@ public class DonationController {
 	
 	@Autowired
 	BoardMybatisDao bd;
+	
+	@Autowired
+	UserMybatisDao userdao;
 	
 	Model m;
 	HttpSession session;
@@ -37,13 +42,11 @@ public class DonationController {
 		session = request.getSession();
 	}
 	
-	@PostMapping("donationPro")
 	
-	public String boardPro (@RequestParam("file2") MultipartFile multipartFile, Board board) {
-		//저장 path 확인
+	@PostMapping("donationPro")	
+	public String boardPro (@RequestParam("uploadfile") MultipartFile multipartFile, Board board) {
 		String path = request.getServletContext().getRealPath("/") + "view/donation/img/";
 		String filename = "";
-
 		if (!multipartFile.isEmpty()) {
 			File file = new File(path, multipartFile.getOriginalFilename());
 			filename = multipartFile.getOriginalFilename();
@@ -57,31 +60,18 @@ public class DonationController {
 				e.printStackTrace();
 			}
 		}
-	board.setPicture(filename);
-		
-		
+		board.setPicture(filename);
 		String msg = "게시물 등록 실패";
-		String url = "/giveTogether/main";
-		
-		
-		String boardid = (String) session.getAttribute("boardid");
-		if(boardid == null) boardid = "1";
-		board.setBoardid(boardid);
-		
-			
-				System.out.println(board);
-			int num = bd.insertBoard(board);
-			if (num>0) {
-				msg = "게시물 등록 성공";  
-				url="/board/boardList";
-			}
-			
-		
-	m.addAttribute("msg", msg);
-	m.addAttribute("url", url);
-	
-		return "/alert";	
-		
+		String url = "/donation/donationForm";		
+		System.out.println(board);
+		int num = bd.insertBoard(board);
+		if (num>0) {
+			msg = "게시물 등록 성공";  
+			url="/donation/donation";
+		}		
+		m.addAttribute("msg", msg);
+		m.addAttribute("url", url);
+		return "/alert";
 	}
 	
 	@RequestMapping("donation")
@@ -166,12 +156,20 @@ public class DonationController {
 		return "/donation/donationList";	
 	}
 	
+	
 	@RequestMapping("donationForm")
 	public String donationForm () {
-		
+		String login = (String) session.getAttribute("id");
+		Usergroup gro = userdao.selectOneG(login);
+		m.addAttribute("gro",gro);
 		return "/donation/donationForm";
 	}
 	
+	@RequestMapping("donationFormPro")
+	public String donationFormPro () {
+		
+		return "/donation/donation";
+	}
 	
 	
 }
