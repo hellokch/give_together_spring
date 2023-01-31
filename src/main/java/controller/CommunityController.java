@@ -93,6 +93,9 @@ public class CommunityController {
 	}
 	
 	*/
+	/*
+	 * 
+	 */
 	
 	
 	@RequestMapping("boardList")

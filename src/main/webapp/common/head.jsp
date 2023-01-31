@@ -12,8 +12,7 @@
 <style>
 li{
 	font-size : 1.1rem;
-}
-</style>
+} 
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style = "background-color : sky" >
