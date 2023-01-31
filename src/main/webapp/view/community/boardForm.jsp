@@ -13,16 +13,16 @@
 
 <form class="w3-container w3-card-4" enctype="multipart/form-data"
 	action="${pageContext.request.contextPath}/community/boardPro" method="post">
-<h3   class="w3-center">게시판 입력(boardPro)</h3>
+<h3   class="w3-center">게시판 글쓰기</h3>
 <br>
 <p>      
 <label class="w3-text-grey">작성자</label>
 <input class="w3-input w3-border" type="text"  name="name" >
 </p><p>      
-<label class="w3-text-grey">비밀번호</label>
+<label class="w3-text-grey">비밀번호(익명게시판?)</label>
 <input class="w3-input w3-border" type="text" name="pass" >
 </p><p>      
-<label class="w3-text-grey">제목</label>
+<label class="w3-text-grey">글 제목</label>
 <input class="w3-input w3-border" type="text" name="subject" >
 </p><p>      
 <label class="w3-text-grey">내용</label>
