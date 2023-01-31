@@ -4,7 +4,6 @@
 	<mapping path="/giveTogether/*" decorator="/layout/layout.jsp"/>
 	<mapping path="/board/*" decorator="/layout/layout.jsp"/>
 	<mapping path="/mypage/*" decorator = "/layout/side.jsp"/>
-	<mapping path="/community/*" decorator = "/layout/side.jsp"/>
 	
 	<mapping path="*/pictureimgForm" exclude="true"/>
 	<mapping path="*/picturePro" exclude="true"/>
