@@ -21,7 +21,7 @@
 
 </style>
 <br>
-<form name="f" method="post" action="${pageContext.request.contextPath}/mypage/userPersonUpdatePassCheckPro">
+<form name="f" method="post" action="${pageContext.request.contextPath}/mypage/userGroupUpdatePassCheckPro">
 <div>
 <ul class="list-group" style = "max-width : 50rem; margin : 0 auto; list-style : none;">
 

@@ -77,5 +77,10 @@ public class UserMybatisDao {
 		return num;
 	}
 	
+	public int updateUserGroup(Usergroup group) {
+		int num = session.update(ns + "updateUserGroup",group);
+		return num;
+	}
+	
 	
 }

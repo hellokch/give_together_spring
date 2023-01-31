@@ -75,7 +75,7 @@ public class MypageController {
 		String login = (String) session.getAttribute("id");
 		person.setId(login);
 		String msg="회원 자료가 없습니다.";
-		String url="/member/loginForm";
+		String url="/user/loginForm";
 		Userperson olduser = userdao.selectOneP(login);
 		if(olduser != null ) {
 			int num = userdao.updateUserPerson(person);
@@ -210,5 +210,59 @@ public class MypageController {
 		return "/mypage/forGroup/userGroupInfo";
 	}
 	
+	@RequestMapping("userGroupUpdatePassCheck")
+	public String userGroupUpdatePassCheck() {
+		return "/mypage/forGroup/userGroupUpdatePassCheck";
+	}
+
+	
+	@RequestMapping("userGroupUpdatePassCheckPro")
+	public String userGroupUpdatePassCheckPro(String pass) {
+		String login = (String) session.getAttribute("id");
+		Usergroup gro = userdao.selectOneG(login);
+		String msg="비밀번호가 일치합니다.";
+		String url="/mypage/userGroupInfo";
+		if(pass.equals(gro.getPass())) {
+			url = "/mypage/userGroupUpdateForm";
+		}else {
+			msg = "비밀번호가 틀렸습니다.";
+			url = "/mypage/userGroupUpdatePassCheck";
+		}
+		m.addAttribute("msg", msg);
+		m.addAttribute("url", url);
+		return "/alert";
+	}
+	
+	@RequestMapping("userGroupUpdateForm")
+	public String userGroupUpdateForm() {
+		String login = (String) session.getAttribute("id");
+		Usergroup gro = userdao.selectOneG(login);
+		m.addAttribute("gro",gro);
+		return "/mypage/forGroup/userGroupUpdateForm";
+	}
+	
+	@RequestMapping("userGroupUpdatePro")
+	public String userGroupUpdatePro(Usergroup group) {
+		String login = (String) session.getAttribute("id");
+		group.setId(login);
+		String msg="회원 자료가 없습니다.";
+		String url="/user/loginForm";
+		Usergroup olduser = userdao.selectOneG(login);
+		if(olduser != null ) {
+			int num = userdao.updateUserGroup(group);
+			if(num > 0) {
+				msg = group.getName()+"님의 정보가 수정되었습니다.";
+				url = "/mypage/userGroupInfo";
+			}else {
+				msg = "정보 수정에 실패했습니다.";
+				url = "/mypage/userGroupUpdateForm";
+			}
+			
+		}
+		m.addAttribute("msg", msg);
+		m.addAttribute("url", url);
+		return "/alert";
+	}
+
 
 }
