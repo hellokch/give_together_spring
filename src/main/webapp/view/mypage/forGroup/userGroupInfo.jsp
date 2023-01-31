@@ -14,7 +14,7 @@ th{
 }
 </style>
 
-
+<div class="list-group" style = "padding : 2rem;">
 <table class="table table-hover">
 <tr>
 <td rowspan=5 width="200px"><img src="${pageContext.request.contextPath}/view/uesr/picture/${member.picture}" width="150" height="200" id="picture"></td>
@@ -52,7 +52,7 @@ th{
 <td rowspan =2 colspan=4>${gro.intro}</td>
 </tr>
 </table>
-
+</div>
 
 </body>
 </html>

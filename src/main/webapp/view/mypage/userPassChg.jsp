@@ -18,9 +18,7 @@
 .wrap{
 	display: inline-flex;
 }
-a{
 
-}
 </style>
 <br>
 <form name="f" method="post" action="${pageContext.request.contextPath}/mypage/userPassChgPro">

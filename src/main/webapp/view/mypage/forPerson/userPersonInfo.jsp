@@ -25,7 +25,7 @@ th{
 </style>
 
 <div class = "wrap">
-<ul class="list-group" style = "max-width : 50rem; margin : 0 auto; list-style : none;">
+<ul class="list-group" style = "max-width : 50rem; margin : 0 auto; list-style : none; padding : 2rem;">
 <li class="list-group-item d-flex justify-content-center align-items-center">
 		<h3 class="form-label mt-4">내 정보</h3>		
 	</li>

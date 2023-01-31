@@ -9,24 +9,26 @@
 <title>타이틀  : <sitemesh:write property='title'/></title>
 <%@ include file = "/common/head.jsp" %>
 </head>
-<body>
-
 <style>
 .container{
 	display: flex;
-	width : 90rem;
-	justify-content: flex-start;
+	justify-content: center;
 }
 .sidemenu{
-	width : 20rem;
+	width : 15rem;
 	margin-top : 5rem;
+	
 }
 .mainBody{
-	width : 80rem;
+	width : 60rem;
 	margin-top : 3rem;
 	margin-left : 1rem;
+	margin-right :15rem;
 }
 </style>
+<body>
+
+
 
 <div class="container">
 <div class = 'sidemenu'>
@@ -36,12 +38,19 @@
 	<div class = 'mainBody'>
 		<sitemesh:write property = 'body' />
 	</div>
-	
+
+</div>
+
+
+
+
+
+
+
 	<div>
 		<!-- footer -->
 		<sitemesh:write property = 'footer'/>
 		<!-- footer -->
 	</div>
-</div>
 </body>
 </html>
