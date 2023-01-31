@@ -126,7 +126,7 @@ public class GiveTogetherController {
 	@RequestMapping("picturePro")
 	public String picturePro(@RequestParam("picture") MultipartFile multipartFile) {
 		String path = 
-					request.getServletContext().getRealPath("/")+"view/user/picture";
+					request.getServletContext().getRealPath("/")+"view/user/picture/";
 		System.out.println(path);
 		String filename=null;
 		
