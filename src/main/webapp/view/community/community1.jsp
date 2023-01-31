@@ -17,7 +17,7 @@
 			</c:if>
 	
 	<a class="23-button w3-right w3-grey"
-			href="${pageContext.request.contextPath}/board/boardForm">게시판 입력</a>
+			href="${pageContext.request.contextPath}/community/boardForm">게시판 입력</a>
 		<table
 			class="w3-table-all w3-bordered w3-striped w3-border test w3-hoverable"
 			style="color: #000">
