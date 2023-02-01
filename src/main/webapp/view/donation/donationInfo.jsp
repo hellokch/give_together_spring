@@ -8,9 +8,7 @@
 </head><body>
 	<table class="w3-table-all">
 	
-	<!-- 
-		String groupid = (String) session.getAttribute("groupid");	
-	 -->			
+		
 				
 				
 	<!-- userperson -->			
