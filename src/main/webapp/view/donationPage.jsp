@@ -25,7 +25,11 @@ a{
 	padding-top : 1rem;
 
 }
-
+.img{	
+	width : 250px;
+	height : 250px;
+	margin-left : 1rem;
+}
 .picarea{
 	min-width : 250px;
 	min-height : 250px;
@@ -56,18 +60,11 @@ a{
    <li>	</li>
 </ul>
 <br>
-	<a href="${pageContext.request.contextPath}/donation/donationForm">
-	<button type="button" class="btn" style="margin-left : 55rem">글쓰기(단체)</button>
-	</a>
+<c:if test="${sessionScope.id != null and sessionScope.kinds eq '2'}">
+	<a href ="${pageContext.request.contextPath}/donation/donationForm" type="button" class="btn" style="margin-left : 55rem">글쓰기(단체)</a>
+</c:if>
 
-	<!-- 조건이 날짜가 지나지 않은것,지난것
-	     시작~끝 갯수(보드카운트)
-	     시작 ?필요함? 1~3 1~6 1~9
-	     시작은 1고정
-	     
-	     1~(i*3)
-	 -->      
-	     
+
 
 <c:forEach var="card" items="${list}" varStatus="status">
   <c:if test="${status.index % 3 == 0}">
@@ -75,13 +72,15 @@ a{
   </c:if>
   <div class="col-sm-4">
     <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-      <div class="picarea" style = "color:black">사진영역</div>
+      <div class="picarea" style = "color:black">
+      <img class = "img" src="${pageContext.request.contextPath}/view/donation/img/${card.picture}">
+      </div>
       <div class="card-body">
-        <p class="card-text">${card.context}번째 글</p>
+        <p class="card-text">${card.title}</p>
         <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="progress-bar" role="progressbar" style="width: ${card.raised/card.goal*100};" aria-valuenow="${card.raised/card.goal*100}" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        <p class="card-text">-----------------------</p>
+        <p class="card-text">${card.context}</p>
       </div>
     </div>
   </div>
