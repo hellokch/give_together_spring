@@ -81,4 +81,16 @@ public class BoardMybatisDao {
 		MybatisConnection.close(session);
 		return result;
 	}
+	
+	public List<Board> boardmain(String p_type, int nowpage, int end) {
+		
+		map.clear();
+		map.put("p_type", p_type);
+		map.put("nowpage", 1);
+		map.put("end", end);
+		System.out.println(map);
+		List<Board> list = session.selectList(ns+ "boardmain", map);
+		return list;
+		
+	}
 }

@@ -74,29 +74,31 @@ public class DonationController {
 		return "/alert";
 	}
 	
-	@RequestMapping("donation11")
-	public String donation11()  {
-		int limit = 3;
+	
+	//
+	
+	@RequestMapping("donation")
+	public String donationmain(@RequestParam(value="last", required = false, defaultValue = "1") int last)  {
+		String p_type=(String) session.getAttribute("p_type");
+		String c_type="2";
+		int nowpage = 1;
 		
-		int pageInt = 1;
+		System.out.println(last);
+		if (last!=0) nowpage=last; 
 		
+		int end = nowpage *3;
 		
-		String p_type = (String) session.getAttribute("p_type");
-		int boardCount = bd.boardCount(p_type);
+		int boardCount = bd.boardCount(c_type);
+		List<Board> list = bd.boardmain(c_type,nowpage,end);
 		
-		if(request.getParameter("p_type")!=null) {
-			session.setAttribute("pageNum", "1");
-			session.setAttribute("p_type", request.getParameter("p_type"));
-		}
-		if(request.getParameter("pageNum") != null) {
-			session.setAttribute("pageNum", request.getParameter("pageNum"));
-		}
-		List<Board> list = bd.boardList(p_type, boardCount, limit);
-		
+		if (end>boardCount)  end=boardCount;
+
+		m.addAttribute("list",list);
+		m.addAttribute("end",end);
+		m.addAttribute("boardCount",boardCount);
+	
 		return "/donationPage";
 	}
-	
-
 	
 	@RequestMapping("donationForm")
 	public String donationForm () {
@@ -106,11 +108,11 @@ public class DonationController {
 		return "/donation/donationForm";
 	}
 	
-	@RequestMapping("donation")
-	public String donation () {
-		
-		return "/donationPage";
-	}
+	/*
+	 * @RequestMapping("donation") public String donation () {
+	 * 
+	 * return "/donationPage"; }
+	 */
 	
 	
 }
