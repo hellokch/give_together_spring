@@ -60,16 +60,14 @@ public class CommunityController {
 		m.addAttribute("per",per);
 		return "/community/boardForm"; 						
 	}
-			
-	
+				
 	
 	
 	
 	
 	@RequestMapping("communityPro")
 	public String communityPro(@RequestParam("uploadfile") MultipartFile multipartfile, Board board) {
-		
-		System.out.println("request ok");
+				
 		
 		String path = request.getServletContext().getRealPath("/") + "view/community/img/";
 		String filename = null;
@@ -95,8 +93,9 @@ public class CommunityController {
 		String url = "/giveTogether/main";
 		
 		System.out.println(board);
-		board.setP_type("1");
+	//	board.setP_type("1"); p_type 체크
 		
+
 		board.setAct_time(board.getStart_t() + ":00~" + board.getEnd_t() + ":00");
 		board.setBoardid("1");
 		
