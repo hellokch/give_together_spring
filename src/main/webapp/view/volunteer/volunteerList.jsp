@@ -14,8 +14,10 @@
 	<c:if test="${boardCount == 0}">
 		<p>등록된 게시물이 없습니다.</p>
 	</c:if>
+	<c:if test="${sessionScope.id != null and sessionScope.kinds eq '2'}">
 	<a class="w3-button w3-right w3-grey"
 		href="${pageContext.request.contextPath}/volunteer/volunteerForm">게시판 입력</a>
+	</c:if>
 		<table
 			class="w3-table-all w3-bordered w3-striped w3-border test w3-hoverable"
 			style="color: #000">
@@ -32,7 +34,7 @@
 				<tr>
 					<td>${b.index_num}</td>
 					<td>${b.id}</td>
-					<td>${b.title}</td>
+					<td><a href="${pageContext.request.contextPath}/volunteer/volunteerInfo?num=${b.index_num}">${b.title}</td>
 					<td>${b.not_date}</td>
 				</tr>
 				</c:forEach>
@@ -44,10 +46,10 @@
 		<c:if test="${startPage <= bottomLine}">
 		<a href="#" class = "w3-button w3-disabled">[이전]</a></c:if>
 		<c:if test="${startPage > bottomLine}">
-		<a href="${pageContext.request.contextPath}/board/boardList?pageNum=${startPage-1}" class = "w3-button">[이전]</a></c:if>
+		<a href="${pageContext.request.contextPath}/volunteer/volunteerList?pageNum=${startPage-1}" class = "w3-button">[이전]</a></c:if>
 		
 		<c:forEach var = "p" begin = "${startPage}" end = "${endPage}">
-		<a href = "${pageContext.request.contextPath}/board/boardList?pageNum=${p}" class = "w3-button
+		<a href = "${pageContext.request.contextPath}/volunteer/volunteerList?pageNum=${p}" class = "w3-button
 		<c:if test="${p==pageInt}"> w3-red </c:if>">
 		${p}</a> &nbsp;
 		</c:forEach>
@@ -55,7 +57,7 @@
 		<c:if test="${endPage >= maxPage}">
 		<a href="#" class = "w3-button w3-disabled">[다음]</a></c:if>
 		<c:if test="${endPage < maxPage}">
-		<a href="${pageContext.request.contextPath}/board/boardList?pageNum=${endPage+1}" class = "w3-button">[다음]</a></c:if>
+		<a href="${pageContext.request.contextPath}/volunteer/volunteerList?pageNum=${endPage+1}" class = "w3-button">[다음]</a></c:if>
 		
 		</div>
 	</div>

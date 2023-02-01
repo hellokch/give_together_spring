@@ -15,14 +15,15 @@
 	</select>
 	
 	<select id="boardList" parameterType="map" resultType="board">
-		select * from giveboard
-		where p_type = #{p_type} and
-		index_num between #{start} and #{end}
-		order by index_num desc
+	
+		select * from(
+		select rownum rnum, a.* from
+		(select * from giveboard where p_type = #{p_type} order by index_num desc) a)
+		where rnum between #{start} and #{end}
 	</select>
 	
 	<select id="boardOne" parameterType="int" resultType="board">
-		select * from giveboard where num = #{num}
+		select * from giveboard where index_num = #{index_num}
 	</select>
 	
 	<insert id="insertReply" parameterType="board">
