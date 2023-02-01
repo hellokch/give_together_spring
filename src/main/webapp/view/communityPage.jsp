@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-커뮤니티 게시판
+커뮤니티 페이지입니다.
 </body>
 </html>
