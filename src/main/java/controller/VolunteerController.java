@@ -21,6 +21,7 @@ import model.Board;
 @Controller
 @RequestMapping("/volunteer/")
 public class VolunteerController {
+	
 	@Autowired
 	BoardMybatisDao bd;
 	
@@ -41,6 +42,8 @@ public class VolunteerController {
 		
 		System.out.println("request ok");
 		
+		
+		String login = (String) session.getAttribute("id");
 		String path = request.getServletContext().getRealPath("/") + "view/volunteer/img/";
 		String filename = null;
 		
@@ -62,7 +65,7 @@ public class VolunteerController {
 		
 		
 		String msg = "게시글 등록 실패";
-		String url = "/giveTogether/main";
+		String url = "/volunteer/volunteerList";
 		
 		System.out.println(board);
 		board.setP_type("1");
@@ -75,7 +78,7 @@ public class VolunteerController {
 		int num = bd.insertBoard(board);
 		if(num > 0) {
 			msg = "게시물 등록 성공";
-			url = "/giveTogether/main";
+			url = "/volunteer/volunteerList";
 		}
 		
 		System.out.println(board);
@@ -89,7 +92,7 @@ public class VolunteerController {
 	@RequestMapping("volunteerList")
 	public String volunteers() {
 		//100개 order by로 최근 num desc
-		int limit = 5; //한 page당 게시물 개수
+		int limit = 2; //한 page당 게시물 개수
 		String p_type = "1";
 		
 		if(request.getParameter("pageNum") != null) {
@@ -125,8 +128,9 @@ public class VolunteerController {
 		int maxPage = (boardCount/limit) + (boardCount%limit == 0 ? 0 : 1);
 		if (maxPage < endPage) endPage = maxPage;
 		
-		System.out.println("pageInt = " + pageInt + "/limit = " + limit);
 		List<Board> list = bd.boardList(p_type, pageInt, limit);
+		
+		System.out.println("startPage = " + startPage);
 		
 		m.addAttribute("boardCount", boardCount);
 		m.addAttribute("boardName", boardName);
@@ -150,4 +154,11 @@ public class VolunteerController {
 		return "/volunteer/volunteerForm";
 	}
 
+	@RequestMapping("volunteerInfo")
+	public String volunteerInfo(int num) {
+		Board board = bd.boardOne(num);
+		m.addAttribute("board", board);
+		
+		return "/volunteer/volunteerInfo";
+	}
 }

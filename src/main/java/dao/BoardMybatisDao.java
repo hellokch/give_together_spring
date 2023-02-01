@@ -46,10 +46,8 @@ public class BoardMybatisDao {
 		
 	}
 	
-	public Board boardOne(int num) {
-		SqlSession session = MybatisConnection.getConnection();
-		Board board = session.selectOne(ns+"boardOne", num);
-		MybatisConnection.close(session);
+	public Board boardOne(int index_num) {
+		Board board = session.selectOne(ns+"boardOne", index_num);
 		
 		return board;
 	}
