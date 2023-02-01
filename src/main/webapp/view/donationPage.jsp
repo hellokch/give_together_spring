@@ -60,11 +60,16 @@ a{
 	<button type="button" class="btn" style="margin-left : 55rem">글쓰기(단체)</button>
 	</a>
 
-
-	      
+	<!-- 조건이 날짜가 지나지 않은것,지난것
+	     시작~끝 갯수(보드카운트)
+	     시작 ?필요함? 1~3 1~6 1~9
+	     시작은 1고정
 	     
-<c:set var="cards" value="[1, 2, 3, 4, 5, 6]" />
-<c:forEach var="card" items="${cards}" varStatus="status">
+	     1~(i*3)
+	 -->      
+	     
+
+<c:forEach var="card" items="${list}" varStatus="status">
   <c:if test="${status.index % 3 == 0}">
     <div class="row">
   </c:if>
@@ -72,7 +77,7 @@ a{
     <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
       <div class="picarea" style = "color:black">사진영역</div>
       <div class="card-body">
-        <p class="card-text">${card}번째 글</p>
+        <p class="card-text">${card.context}번째 글</p>
         <div class="progress">
           <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
@@ -88,7 +93,8 @@ a{
 
 
 
-<button type="button" class="btn" style = "width : 68rem">더보기</button>
+<button type="button" class="btn" style = "width : 68rem" 
+onclick="location.href='${pageContext.request.contextPath}/donation/donation?last=${end+1}'">더보기</button>
 
 </div>
   

@@ -26,7 +26,7 @@ li{
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="${pageContext.request.contextPath}/giveTogether/donation">&nbsp;&nbsp;&nbsp;기부	</a>
+          <a class="nav-link active" href="${pageContext.request.contextPath}/donation/donation">&nbsp;&nbsp;&nbsp;기부	</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="${pageContext.request.contextPath}/giveTogether/funding">&nbsp;&nbsp;&nbsp;펀딩	</a>

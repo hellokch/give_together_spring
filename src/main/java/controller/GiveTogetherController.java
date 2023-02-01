@@ -52,15 +52,8 @@ public class GiveTogetherController {
 		return "/mainPage";
 	}
 	
-	@RequestMapping("donation")
-	public String donation()  throws Exception {
-		System.out.println("To donationPage");
-		/*
-		List<Board> list=userdao.giveBoard();
-		System.out.println("@@@"+list);
-		*/
-		return "/donationPage";
-	}
+
+	
 	
 	@RequestMapping("funding")
 	public String funding(){
