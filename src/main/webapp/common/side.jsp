@@ -107,7 +107,7 @@
   <div class="accordion-item bg-light">
     <h2 class="accordion-header" id="headingThree">
       <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-       <strong> 또 뭐가 있을까</strong>
+       <strong> 또뭐가있을까</strong>
       </button>
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse bg-light" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
