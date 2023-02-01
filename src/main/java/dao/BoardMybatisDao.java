@@ -34,15 +34,7 @@ public class BoardMybatisDao {
 	}
 	
 	public List<Board> boardList(String p_type, int pageInt, int limit) {
-		/*
-		 * 1 page : 1~3
-		 * 2 page : 4~6
-		 * 3 page : 7~9
-		 * 
-		 * n page : ((page - 1) *limit) + 1 ~ page * limit
-		 * 
-		 * 
-		 */
+		
 		map.clear();
 		map.put("p_type", p_type);
 		map.put("start", ((pageInt - 1) * limit) + 1);

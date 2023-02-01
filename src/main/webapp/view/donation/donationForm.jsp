@@ -105,12 +105,7 @@ style = "padding : 2rem">
         output.value = formatValue.concat('(원)');
       }
     })
-    
-    function toNum(){
-    	const A = document.querySelector('#number');
-    	numA = number(A);
-    	input.value = numA;
-    }
+
     </script>
 
 </body>
