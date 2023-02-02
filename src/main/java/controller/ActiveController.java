@@ -40,6 +40,7 @@ public class ActiveController {
 
 	@RequestMapping("payment")
 	public String payment(){
+		request.getSession();
 		return "/activity/payment";
 	}
 

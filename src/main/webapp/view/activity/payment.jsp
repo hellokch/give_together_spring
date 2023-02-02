@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${p_type} <br>
-	${id} <br>
-	${title} <br>
+	${id} <br> 세션에서 받아오기
+	${kinds }<br> 세션에서 받아오기
+	${p_type} <br> 보드정보
+	${title} <br> 보드정보
 	<div>
 	
 	기부 페이지에서 온 경우(p_type 확인)
