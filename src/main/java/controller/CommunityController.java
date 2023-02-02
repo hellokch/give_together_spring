@@ -66,7 +66,7 @@ public class CommunityController {
 	
 	
 	@RequestMapping("communityPro")
-	public String communityPro(@RequestParam(value ="File1", required=false) MultipartFile multipartfile, Board board) {
+	public String communityPro(@RequestParam(value ="file1", required=false) MultipartFile multipartfile, Board board) {
 				
 		String login = (String) session.getAttribute("id");
 		String path = request.getServletContext().getRealPath("/") + "view/community/img/";
