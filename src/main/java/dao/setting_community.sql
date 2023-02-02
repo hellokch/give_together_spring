@@ -12,6 +12,6 @@ picture varchar(200),
 boardid varchar(1),
 File1 varchar(50)
 );
-
+--file commit--
 
 create sequence communityboardseq;

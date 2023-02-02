@@ -14,10 +14,10 @@ public class CommunityBoard {
 	String picture;
 	String boardid;
 	String File1;
-// none
+// file commit
 	public String getId() {
 		return id;
-	}
+		}
 	public void setId(String id) {
 		this.id = id;
 	}
