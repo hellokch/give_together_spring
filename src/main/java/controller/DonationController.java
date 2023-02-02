@@ -109,6 +109,12 @@ public class DonationController {
 		return "/donation/donationForm";
 	}
 	
+	@RequestMapping("donationInfo")
+	public String donationInfo(int num){
+		Board board = bd.boardOne(num);
+		m.addAttribute("board",board);
+		return "/donation/donationInfo";
+	}
 	
 	
 }

@@ -60,6 +60,8 @@ a{
    <li>	</li>
 </ul>
 <br>
+
+
 <c:if test="${sessionScope.id != null and sessionScope.kinds eq '2'}">
 	<a href ="${pageContext.request.contextPath}/donation/donationForm" type="button" class="btn" style="margin-left : 55rem">글쓰기(단체)</a>
 </c:if>
@@ -71,6 +73,7 @@ a{
     <div class="row">
   </c:if>
   <div class="col-sm-4">
+  <a href="${pageContext.request.contextPath}/donation/donationInfo?index=${card.index}">
     <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
       <div class="picarea" style = "color:black">
       <img class = "img" src="${pageContext.request.contextPath}/view/donation/img/${card.picture}">
@@ -81,8 +84,10 @@ a{
           <div class="progress-bar" role="progressbar" style="width: ${card.raised/card.goal*100};" aria-valuenow="${card.raised/card.goal*100}" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
         <p class="card-text">${card.context}</p>
+        ${card}
       </div>
     </div>
+  </a>
   </div>
   <c:if test="${status.index % 3 == 2}">
     </div>
