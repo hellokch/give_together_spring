@@ -88,5 +88,7 @@ onclick="document.location.href='<%=request.getContextPath()%>/donation/donation
 			
 			
 	</table>
+	
+			<a href ="${pageContext.request.contextPath}/act/payment" type="button" class="btn">기부하기</a>
 </body>
 </html>
