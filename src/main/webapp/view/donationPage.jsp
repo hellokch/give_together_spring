@@ -73,7 +73,7 @@ a{
     <div class="row">
   </c:if>
   <div class="col-sm-4">
-  <a href="${pageContext.request.contextPath}/donation/donationInfo?index=${card.index}">
+  <a href="${pageContext.request.contextPath}/donation/donationInfo?num=${card.index_num}">
     <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
       <div class="picarea" style = "color:black">
       <img class = "img" src="${pageContext.request.contextPath}/view/donation/img/${card.picture}">
