@@ -12,7 +12,7 @@
 
 
 <form class="w3-container w3-card-4" enctype="multipart/form-data"
-	action="${pageContext.request.contextPath}/community/boardPro" method="post">
+	action="${pageContext.request.contextPath}/community/communityPro" method="post">
 <h3   class="w3-center">게시글 작성</h3>
 <br>
 
@@ -21,9 +21,6 @@
 <p>      
 <label class="w3-text-grey">작성자</label>
 <input class="w3-input w3-border" type="text"  name="name" >
-</p><p>      
-<label class="w3-text-grey">게시글 비밀번호(수정시 필요)</label>
-<input class="w3-input w3-border" type="text" name="pass" >
 </p><p>      
 <label class="w3-text-grey">글 제목</label>
 <input class="w3-input w3-border" type="text" name="title" >

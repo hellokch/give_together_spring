@@ -66,9 +66,9 @@ public class CommunityController {
 	
 	
 	@RequestMapping("communityPro")
-	public String communityPro(@RequestParam("uploadfile") MultipartFile multipartfile, Board board) {
+	public String communityPro(@RequestParam(value ="File1", required=false) MultipartFile multipartfile, Board board) {
 				
-		
+		String login = (String) session.getAttribute("id");
 		String path = request.getServletContext().getRealPath("/") + "view/community/img/";
 		String filename = null;
 		
@@ -93,11 +93,8 @@ public class CommunityController {
 		String url = "/giveTogether/main";
 		
 		System.out.println(board);
-	//	board.setP_type("1"); p_type 체크
+				
 		
-
-		board.setAct_time(board.getStart_t() + ":00~" + board.getEnd_t() + ":00");
-		board.setBoardid("1");
 		
 		System.out.println(board);
 		
