@@ -96,10 +96,11 @@ a{
 </c:forEach>
 
 
-
-
+<c:if test="${boardCount != end}">
 <button type="button" class="btn" style = "width : 68rem" 
-onclick="location.href='${pageContext.request.contextPath}/donation/donation?last=${nowpage+1}'">더보기</button>
+onclick="location.href='${pageContext.request.contextPath}/donation/donation?last=${nowpage+3}'">더보기</button>
+</c:if>
+
 
 </div>
   

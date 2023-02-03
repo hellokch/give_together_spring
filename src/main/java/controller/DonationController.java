@@ -95,6 +95,7 @@ public class DonationController {
 		if (end>boardCount)  end=boardCount;
 
 		m.addAttribute("list",list);
+		m.addAttribute("nowpage",nowpage);
 		m.addAttribute("end",end);
 		m.addAttribute("boardCount",boardCount);
 	
