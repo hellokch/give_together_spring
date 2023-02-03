@@ -6,22 +6,29 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<body>
+<link rel="stylesheet" href = "${pageContext.request.contextPath}/resource/css/bootstrap.min.css">
 <style>
 .container {
-	display: inline-flex;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
 	margin : 0 auto;
 	/* background-color : blue; */
 	width : 80rem;
-	justify-content: center;
 	padding : 1rem;
-	text-align : center;
 }
-.contents{
-	max-width : 50rem;
+
+.item1{
+	width : 60rem;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
 	/* background-color : green; */
+	resize: both;
 }
-.right-side{
-	max-width : 18rem;
+.item2{
+	width : 20%;
 	/* background-color : yellow; */
 	justify-content : center;
 }
@@ -33,17 +40,22 @@
 	display: inline-flex;
 }
 </style>
-<body>
-<link rel="stylesheet" href = "${pageContext.request.contextPath}/resource/css/bootstrap.min.css">
-<div class = "container"><div class="contents">
-<h1>${board.title}</h1>	
-<img src = "${pageContext.request.contextPath}/view/donation/img/${board.picture}" />	
-<p>${board.context}</p></div><div class = "right-side">	
+
+<div class = "container">
+<div class="item1">
+<h1>${board.title}</h1>	<br>
+<div class="wrap">
+<img style = "margin : 2rem; width : 40rem" src = "${pageContext.request.contextPath}/view/donation/img/${board.picture}" /><br>	
+</div>
+<p >${board.context}</p><br>
+
+</div>
+<div class = "item2">
 <div class="card bg-secondary mb-3" align="left">
  <div class="card-body" style = "padding : 2.3rem">
  <h4 class="card-title" style="margin-left : 1rem;"> ${board.raised/board.goal} % </h4>
  <div class="progress">
- <span class="progress-bar" role="progressbar" style="width: 35%; " aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></span></div>
+ <span class="progress-bar" role="progressbar" style="width: ${card.raised/card.goal*100};" aria-valuenow="${card.raised/card.goal*100}" aria-valuemin="0" aria-valuemax="100"></span></div>
 <label>${board.not_date}&nbsp;~ <br>
 &nbsp;&nbsp;&nbsp;${board.end_date}</label>
 <br><br>
@@ -59,91 +71,21 @@
 <img style = "width : 50px; height : 50px; " src = "${pageContext.request.contextPath}/view/user/picture/${boardwriter.picture}" /></div>
 <h4 class="card-title" style="margin-left : 2rem;"> ${boardwriter.name} </h4></div>
 <br>
-<strong><p class="card-text">대표자 : ${boardwriter.p_name}</p></strong>
-<p class="card-text">${boardwriter.intro}</p>		
+<strong><p class="card-text" style = "margin-top : 1rem;">대표자 : ${boardwriter.p_name}</p></strong>
+<p class="card-text">단체 소개 : <br> ${boardwriter.intro}</p>		
   </div>
 </div>
 	</div>
 </div>
-	
-	
-	
-	
-	
-	
-	<table class="w3-table-all">
-		<tr>
-			<td>글번호${board.index_num}</td>
-			<td></td>
-			<td>카테고리${board.p_type}</td>
-			<td></td>
-		</tr>		
-		<tr>
-			<td>작성자${board.id}</td>
-			<td></td>
-			<td>작성일${board.not_date}</td>
-			<td></td>
-		</tr>		
-		<tr>
-			<td>모금액${board.raised}</td>
-			<td></td>
-			<td>종류날짜${board.end_date}</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>목표 모금액${board.goal}</td>
-			<td></td>
-			
-		</tr>
-		<tr>
-			<td>img</td>
-			<td colspan="3">
-			<img src = "${pageContext.request.contextPath}/view/donation/img/${board.picture}" />
-			</td>
-		</tr>	
-		<tr>
-			<td>글제목${board.title}</td>
-			<td colspan="3"></td>
-		</tr>		
-		<tr>
-			<td>글내용${board.context}</td>
-			<td colspan="3"></td>
-		</tr>		
-		<tr>
-		
-		<tr>
-			<td>회원분류${boardwriter.kinds}</td>
-			<td></td>
-			<td>id${boardwriter.id}</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>이름${boardwriter.name}</td>
-			<td></td>
-			<td>소개${boardwriter.intro}</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>대표자명${boardwriter.p_name}</td>
-			<td></td>
-			
-		</tr>
-					
-			<td colspan="4"  class="w3-center">
-			
-			<input type="button" value="글수정" 	
+
+<input type="button" value="글수정" 	
 onclick="document.location.href='<%=request.getContextPath()%>/donation/boardUpdateForm?num=${board.index_num}'"/>
-			<input type="button" value="글삭제" 	
+<input type="button" value="글삭제" 	
 onclick="document.location.href='<%=request.getContextPath()%>/donation/boardDeleteForm?num=${board.index_num}'"/>
-		<input type="button" value="목록" 	
+<input type="button" value="목록" 	
 onclick="document.location.href='<%=request.getContextPath()%>/donation/donationmain'"/>
 		
-			</td>
-			
-			
-			
-	</table>
-	
-			<a href ="${pageContext.request.contextPath}/act/payment" type="button" class="btn">기부하기</a>
+		
+		
 </body>
 </html>
