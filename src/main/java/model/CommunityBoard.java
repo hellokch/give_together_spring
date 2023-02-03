@@ -13,7 +13,7 @@ public class CommunityBoard {
 	String is_notice;
 	String picture;
 	String boardid;
-	String File1;
+	String file1;
 // file commit
 	public String getId() {
 		return id;
@@ -64,10 +64,10 @@ public class CommunityBoard {
 		this.boardid = boardid;
 	}
 	public String getFile1() {
-	return File1;
+	return file1;
 	}
 	public void setFile1(String file1) {
-	this.File1 = file1; 
+	this.file1 = file1; 
 	}
 	public Date getNot_date() {
 	return not_date;
@@ -86,6 +86,6 @@ public class CommunityBoard {
 	public String toString() {
 		return "CommunityBoard [index=" + index + ", id=" + id + ", title=" + title + ", context=" + context + ", name="
 				+ name + ", content=" + content + ", not_date=" + not_date + ", is_notice=" + is_notice + ", picture="
-				+ picture + ", boardid=" + boardid + ", File1=" + File1 + "]";
+				+ picture + ", boardid=" + boardid + ", File1=" + file1 + "]";
 	  }
 }
