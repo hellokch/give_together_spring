@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,10 +33,12 @@
 			<td colspan="3">${board.context}</td>
 		</tr>		<tr>
 			<td colspan="4"  class="w3-center">
+			<c:if test = "${id == board.id}">
 			<input type="button" value="글수정" 	
 onclick="document.location.href='<%=request.getContextPath()%>/volunteer/volunteerUpdateForm?num=${board.index_num}'"/>
 			<input type="button" value="글삭제" 	
-onclick="document.location.href='<%=request.getContextPath()%>/board/volunteerDeleteForm?num=${board.index_num}'"/>
+onclick="document.location.href='<%=request.getContextPath()%>/volunteer/volunteerDeletePro?num=${board.index_num}'"/>
+			</c:if>
 		<input type="button" value="목록" 	
 onclick="document.location.href='<%=request.getContextPath()%>/volunteer/volunteerList'"/>
 		
