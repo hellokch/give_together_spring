@@ -34,7 +34,7 @@
 			</td>
 		</tr>		<tr>
 			<td colspan="4"  class="w3-center">
-			<c:if test = "${id == board.id}">
+			<c:if test = "${id == board.id && board.id != null}">
 			<input type="button" value="글수정" 	
 onclick="document.location.href='<%=request.getContextPath()%>/volunteer/volunteerUpdateForm?num=${board.index_num}'"/>
 			<input type="button" value="글삭제" 	

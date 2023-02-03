@@ -164,7 +164,7 @@ public class VolunteerController {
 		System.out.println("id = " + id + ", kinds = " + kinds);
 		
 		Board board = bd.boardOne(num);
-
+		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		m.addAttribute("v_start",simpleDateFormat.format(board.getV_start()));
 		m.addAttribute("v_end",simpleDateFormat.format(board.getV_end()));

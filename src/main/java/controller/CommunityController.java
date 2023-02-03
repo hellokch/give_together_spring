@@ -134,16 +134,24 @@ public class CommunityController {
 		
 		return "/alert";
 	}		
-	
 	@RequestMapping("boardInfo")
-    public String boardInfo(int num){
-        Board board = bd.boardOne(num);
-        String writer = board.getId();
-        Usergroup boardwriter = userdao.selectOneG(writer);
-        m.addAttribute("boardwriter",boardwriter);
-        m.addAttribute("board",board);
-        return "/community/boardInfo";
-    }
+	public String boardInfo(int num){
+		Board board = bd.boardOne(num);
+		String writer = board.getId();
+		Usergroup boardwriter = userdao.selectOneG(writer);
+		m.addAttribute("boardwriter",boardwriter);
+		m.addAttribute("board",board);
+		return "/community/boardInfo";
+	}
+	@RequestMapping("boardDeleteForm")
+	public String boardDeleteForm(int num) {
+		
+		request.setAttribute("num", num);
+		
+		return "/community/boardDeleteForm";
+	}
+	
+	
 	
 	@RequestMapping("boardUpdateForm")
 	public String boardUpdateForm(int num) {							
