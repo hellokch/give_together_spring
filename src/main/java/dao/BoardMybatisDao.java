@@ -70,13 +70,8 @@ public class BoardMybatisDao {
 		return num;
 	}
 	
-	public int boardDelete(int num, String pass) {
-		SqlSession session = MybatisConnection.getConnection();
-		map.clear();
-		map.put("num", num);
-		map.put("pass", pass);
-		int result = session.delete(ns+"deleteBoard", map);
-		MybatisConnection.close(session);
+	public int boardDelete(int num) {
+		int result = session.delete(ns+"deleteBoard", num);
 		return result;
 	}
 	
@@ -90,5 +85,10 @@ public class BoardMybatisDao {
 		List<Board> list = session.selectList(ns+ "boardmain", map);
 		return list;
 		
+	}
+	
+	public int boardUpdate(Board board) {
+		int num = session.update(ns+"volunteerUpdate", board);
+		return num;
 	}
 }

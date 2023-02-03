@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,24 +19,27 @@
 		</tr>		<tr>
 		</tr>		<tr>
 			<td>활동 날짜</td>
-			<td>${board.v_start} ~ ${board.v_end} ${board.day} ${board.act_time}</td>
+			<td>${v_start} ~ ${v_end} ${board.day} ${board.act_time}</td>
 		</tr>		<tr>
 			<td>모집 종료일</td>
-			<td>${board.end_date}</td>
+			<td>${end_date}</td>
 		</tr>		<tr>
-			<td>img</td>
-			<td colspan="3">
-			<img src="${pageContext.request.contextPath}/view/board/img/${board.picture}"/>
+			<td>설명</td>
+			<td colspan="3">${board.context}</td>
 			</td>
 		</tr>	<tr>
-			<td>글내용</td>
-			<td colspan="3">${board.context}</td>
+			<td>관련 이미지</td>
+			<td colspan="3">
+			<img src="${pageContext.request.contextPath}/view/volunteer/img/${board.picture}"/>
+			</td>
 		</tr>		<tr>
 			<td colspan="4"  class="w3-center">
+			<c:if test = "${id == board.id}">
 			<input type="button" value="글수정" 	
 onclick="document.location.href='<%=request.getContextPath()%>/volunteer/volunteerUpdateForm?num=${board.index_num}'"/>
 			<input type="button" value="글삭제" 	
-onclick="document.location.href='<%=request.getContextPath()%>/board/volunteerDeleteForm?num=${board.index_num}'"/>
+onclick="document.location.href='<%=request.getContextPath()%>/volunteer/volunteerDeletePro?num=${board.index_num}'"/>
+			</c:if>
 		<input type="button" value="목록" 	
 onclick="document.location.href='<%=request.getContextPath()%>/volunteer/volunteerList'"/>
 		

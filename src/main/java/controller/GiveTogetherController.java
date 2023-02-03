@@ -49,6 +49,8 @@ public class GiveTogetherController {
 	@RequestMapping("main")
 	public String main(){
 		System.out.println("request ok");
+		
+		
 		return "/mainPage";
 	}
 	

@@ -37,9 +37,8 @@
 		where ref = #{ref} and refstep > #{refstep}
 	</update>
 	
-	<delete id="deleteBoard" parameterType="map">
-		delete from giveboard where num = #{num}
-		and pass = #{pass}
+	<delete id="deleteBoard" parameterType="int">
+		delete from giveboard where index_num = #{num}
 	</delete>
 	
 	<select id="boardmain" parameterType="map" resultType="board">
@@ -52,5 +51,12 @@
 		
 		
 	</select>
+	
+	<update id="volunteerUpdate" parameterType="board">
+		update giveboard set title = #{title}, context = #{context},
+		end_date = #{end_date}, picture = #{picture}, v_type = #{v_type}, field = #{field},
+		location = #{location}, act_time = #{act_time}, day = #{day}, v_start = #{v_start}, v_end = #{v_end}
+		where index_num = #{index_num}
+	</update>
 	
 </mapper>
