@@ -78,7 +78,7 @@
 <h4 class="card-title" style="margin-left : 2rem; margin-top : 0.5rem;"> ${boardwriter.name} </h4></div>
 <br>
 <strong><p class="card-text" style = "margin-top : 1.5rem;">대표자 : ${boardwriter.p_name}</p></strong>
-<p class="card-text">단체 소개 : <br> ${boardwriter.intro}</p>		
+<p class="card-text">단체 소개 : <br> ${boardwriter.intro} </p>		
   </div>
 </div>
 	</div>
