@@ -18,7 +18,7 @@ a{
 	text-decoration : none;
 }
 .container{
-	background-color : lightgreen; 
+	
 	max-width : 70rem;	
 	margin-top : 1rem;
 	margin-bottom : 1rem;
@@ -74,18 +74,19 @@ a{
   </c:if>
   <div class="col-sm-4">
   <a href="${pageContext.request.contextPath}/donation/donationInfo?num=${card.index_num}">
-    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+    <div class="card d-flex bg-secondary mb-3" style="max-width: 18rem;">
       <div class="picarea" style = "color:black">
-      <img class = "img" src="${pageContext.request.contextPath}/view/donation/img/${card.picture}">
+      <img class = "img" src="${pageContext.request.contextPath}/view/donation/img/${card.picture}" alt="등록된 사진이 없습니다.">
       </div>
       <div class="card-body">
-        <p class="card-text">${card.title}</p>
+       <p class="card-text"> <strong>${card.title}</strong></p>
         <div class="progress">
           <div class="progress-bar" role="progressbar" style="width: ${card.raised/card.goal*100};" aria-valuenow="${card.raised/card.goal*100}" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-        <p class="card-text">${card.context}</p>
-        ${card}
       </div>
+      <div class="row" style="justify-content: space-between;">
+     <div class="text-success" style="max-width: 40%"><strong>${card.raised/card.goal*100} % </strong></div>
+          <div class ="text" style="max-width: 40%;" align="right">${card.raised}</div>
+        </div></div>
     </div>
   </a>
   </div>
@@ -98,7 +99,7 @@ a{
 
 
 <button type="button" class="btn" style = "width : 68rem" 
-onclick="location.href='${pageContext.request.contextPath}/donation/donation?last=${end+1}'">더보기</button>
+onclick="location.href='${pageContext.request.contextPath}/donation/donation?last=${nowpage+1}'">더보기</button>
 
 </div>
   

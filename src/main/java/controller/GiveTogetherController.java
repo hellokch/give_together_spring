@@ -48,7 +48,13 @@ public class GiveTogetherController {
 	
 	@RequestMapping("main")
 	public String main(){
-		System.out.println("request ok");
+		
+		String p_type="2";
+		int nowpage = 1;
+		int end = nowpage *4;
+		List<Board> listdona = bd.boardmain(p_type,nowpage,end);
+		
+		m.addAttribute("listdona",listdona);
 		
 		
 		return "/mainPage";

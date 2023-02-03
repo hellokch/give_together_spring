@@ -87,7 +87,7 @@ public class DonationController {
 		System.out.println(last);
 		if (last!=0) nowpage=last; 
 		
-		int end = nowpage *3;
+		int end = nowpage +2;
 		
 		int boardCount = bd.boardCount(c_type);
 		List<Board> list = bd.boardmain(c_type,nowpage,end);
