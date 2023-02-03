@@ -161,7 +161,7 @@ public class CommunityController {
 		}
 	
 	@RequestMapping("boardUpdatePro")
-	public String boardUpdatePro(@RequestParam("file") MultipartFile multipartfile, Board board) {
+	public String boardUpdatePro(@RequestParam("f") MultipartFile multipartfile, Board board) {
 		
 		Board dbboard = bd.boardOne(board.getIndex_num());
 		
@@ -200,11 +200,36 @@ public class CommunityController {
 	}
 	
 	
+	@RequestMapping("boardDeletePro")
+    public String boardDeletePro(int num) {
+
+        String msg = "비밀번호가 다릅니다.";
+        String url = "/board/boardDeleteForm?num=" + num;
+
+        System.out.println(num);
+
+        Board board = bd.boardOne(num);
+
+        if(bd.boardDelete(num) > 0) {
+            msg = "삭제되었습니다.";
+            url = "/community/community";
+        }
+        else {
+
+            msg = "board delete error";
+            url = "/community/boardInfo";
+        }
+        m.addAttribute("msg", msg);
+        m.addAttribute("url", url);
+
+        return "/alert";
+    }
+
+
+}
 	
 	
 	
-	
-}	
 
 
 
