@@ -55,64 +55,52 @@ a{
    <li>	</li>
 </ul>
 <br>
-
+<c:if test="${sessionScope.id != null and sessionScope.kinds eq '1'}">
 <a href="${pageContext.request.contextPath}/community/boardForm">
 	<button type="button" class="btn" style="margin-left : 55rem">글작성</button>
 </a>
-		<table
-			class="w3-table-all w3-bordered w3-striped w3-border test w3-hoverable"
-			style="color: #000">
-			<tbody>
-				<tr class="w3-grey">
-				    <th>번호</th>
-					<th>이름</th>
-					<th>제목</th>
-					<th>내용</th>
-					<th>파일</th>
-					<th>입력일</th>
-					<th>조회수</th>
-				</tr>
-			</tbody>
-			<tbody>
-<c:forEach var="b" items="${list}">
-					<tr>
-					    <td>${b.num}</td> <td>		    
-					    			    
-						${b.ref},${b.reflevel},${b.refstep},${b.name}</td>
-						<td><a href="${pageContext.request.contextPath}/community/boardInfo?num=${b.num}">${b.subject}</a></td>
-						<td>${b.content}</td>
-						<td>${b.file1}</td>
-						<td>${b.regdate}</td>
-						<td>${b.readcnt}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-		<br>
-		<div class="w3-bar w3-center w3-small">
-		
-		<c:if test="${startPage <= bottomLine}">
-		<a href="#"  class="w3-button  w3-disabled ">[이전]</a> </c:if>
-		<c:if test="${startPage > bottomLine}">
-		<a href="${pageContext.request.contextPath}/board/boardList?pageNum=${startPage-1}"  
-		class="w3-button  ">[이전]</a> </c:if>
-		
-		<c:forEach   var="p"    begin="${startPage}"   end="${endPage}">
-		 <a href="${pageContext.request.contextPath}/community/boardList?pageNum=${p}" 
-		 class="w3-button <c:if test="${p==pageInt}"> w3-red </c:if>  ">
-		 ${p} </a> &nbsp;		
-		</c:forEach>
-		
-		
-		<c:if test="${endPage >= maxPage}">
-		<a href="#"  class="w3-button  w3-disabled ">[다음]</a></c:if>
-		<c:if test="${endPage < maxPage}">
-		<a href="${pageContext.request.contextPath}/community/boardList?pageNum=${endPage+1}"  
-		class="w3-button ">[다음]</a> </c:if>
-		
-		</div>
-		
-		
-	</div>
+</c:if>
+
+
+
+<c:forEach var="card" items="${list}" varStatus="status">
+  <c:if test="${status.index % 3 == 0}">
+    <div class="row">
+  </c:if>
+  <div class="col-sm-4">
+  <a href="${pageContext.request.contextPath}/community/boardInfo?num=${card.index_num}">
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+      <div class="picarea" style = "color:black">
+      <img class = "img" src="${pageContext.request.contextPath}/view/community/img/${card.picture}">
+      </div>
+      <div class="card-body">
+        <p class="card-text">${card.title}</p>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: ${card.raised/card.goal*100};" aria-valuenow="${card.raised/card.goal*100}" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <p class="card-text">${card.context}</p>
+        ${card}
+      </div>
+    </div>
+  </a>
+  </div>
+  <c:if test="${status.index % 3 == 2}">
+    </div>
+  </c:if>
+</c:forEach>
+
+
+
+
+<button type="button" class="btn" style = "width : 68rem" 
+onclick="location.href='${pageContext.request.contextPath}/community/community?last=${end+1}'">더보기</button>
+
+</div>
+  
+  
+  
+
+
+
 </body>
 </html>
