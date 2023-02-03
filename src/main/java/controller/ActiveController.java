@@ -45,16 +45,6 @@ public class ActiveController {
 	@RequestMapping("payment")
 	public String payment(int num){
 		Board board = bd.boardOne(num);
-		String login = (String) session.getAttribute("id");
-		String login1 = (String) session.getAttribute("kinds");
-		
-		if(login1 == "1") {
-			Userperson userinfo = userdao.selectOneP(login);
-			m.addAttribute("userinfo", userinfo);
-		}else {
-			Usergroup userinfo = userdao.selectOneG(login);
-			m.addAttribute("userinfo", userinfo);
-		}
 		m.addAttribute("board",board);
 		return "/activity/payment";
 	}
