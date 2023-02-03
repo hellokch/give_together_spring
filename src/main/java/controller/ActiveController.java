@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import dao.ActMybatisDao;
 import dao.BoardMybatisDao;
 import dao.UserMybatisDao;
+import model.Board;
+import model.Usergroup;
+import model.Userperson;
+import model.act;
 
 
 
@@ -39,10 +43,23 @@ public class ActiveController {
 	}
 
 	@RequestMapping("payment")
-	public String payment(){
-		request.getSession();
+	public String payment(int num){
+		Board board = bd.boardOne(num);
+		String login = (String) session.getAttribute("id");
+		String login1 = (String) session.getAttribute("kinds");
+		
+		if(login1 == "1") {
+			Userperson userinfo = userdao.selectOneP(login);
+			m.addAttribute("userinfo", userinfo);
+		}else {
+			Usergroup userinfo = userdao.selectOneG(login);
+			m.addAttribute("userinfo", userinfo);
+		}
+		m.addAttribute("board",board);
 		return "/activity/payment";
 	}
-
+	
+	
+	
 
 }

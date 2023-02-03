@@ -69,8 +69,11 @@
 <strong><p class="card-text">목표액 : <fmt:formatNumber value="${board.goal}" type="currency"/> 원</p></strong>
 </div>
 </div>
-<button onclick = "location.href ='${pageContext.request.contextPath}/act/payment?num='" type="button" class="btn" type="button" class="btn btn-primary" style = "width : 17rem; margin : 0.5rem;">기부하기</button>
+<a href = "${pageContext.request.contextPath}/act/payment?num=${board.index_num}"> 
+<button type="button" class="btn" type="button" class="btn btn-primary" style = "width : 17rem; margin : 0.5rem;">기부하기</button></a>
+
 <div class="card bg-secondary mb-3">
+<br> board.index_num : ${board.index_num}
 <div class="card-body" style = "padding : 2.3rem">
 <div class="wrap" >
 <div id="logo" style = "width : 50px; height : 50px; "> 
