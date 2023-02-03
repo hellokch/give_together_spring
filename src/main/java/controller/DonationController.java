@@ -109,6 +109,15 @@ public class DonationController {
 		return "/donation/donationForm";
 	}
 	
+	@RequestMapping("donationInfo")
+	public String donationInfo(int num){
+		Board board = bd.boardOne(num);
+		String writer = board.getId();
+		Usergroup boardwriter = userdao.selectOneG(writer);
+		m.addAttribute("boardwriter",boardwriter);
+		m.addAttribute("board",board);
+		return "/donation/donationInfo";
+	}
 	
 	
 }

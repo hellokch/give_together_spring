@@ -23,7 +23,7 @@ import model.Board;
 import model.Usergroup;
 
 @Controller
-@RequestMapping("/community/*")
+@RequestMapping("/community/")
 public class CommunityController {
 	
 	@Autowired
