@@ -30,7 +30,7 @@
 </p>
 <p>      
 <label class="w3-text-grey">첨부 파일 </label>
-<input class="w3-input w3-border" type="file" name="file1">
+<input class="w3-input w3-border" type="file" name="uploadfile">
 </p>
 
   <p  class="w3-center"><button type="submit" class="w3-btn w3-padding w3-teal" 

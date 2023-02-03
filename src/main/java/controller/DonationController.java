@@ -120,5 +120,83 @@ public class DonationController {
 		return "/donation/donationInfo";
 	}
 	
+	@RequestMapping("boardDeleteForm")
+	public String boardDeleteForm (int num) {
+		
+		
+		m.addAttribute("num", num);
+		return "/donation/boardDeleteForm";
+	}
 	
+	@RequestMapping("boardDeletePro")
+	public String boardDeletePro (int num, String pass) {
+		
+		Board board=bd.boardOne(num);
+		String msg = "비밀번호가 틀렸습니다";
+		String url = "/donation/boardDeleteForm?num="+num;
+		if(bd.boardDelete(num) > 0) {
+			msg = "삭제되었습니다.";
+			url = "/donation/donationList";
+		}
+		else {
+
+			msg = "board delete error";
+			url = "/donation/donationList";
+		}
+		
+		m.addAttribute("msg", msg);
+		m.addAttribute("url", url);
+		return "/alert";
+	}
+	
+	
+	@RequestMapping("boardUpdateForm")
+	public String boardUpdateForm (int num) {
+		Board board=bd.boardOne(num);
+		m.addAttribute("board", board);
+		return "/donation/boardUpdateForm";
+	}
+	
+	@PostMapping("boardUpdatePro")
+	public String boardUpdatePro (@RequestParam("f") MultipartFile multipartFile, Board board) {
+		
+		Board dbboard = bd.boardOne(board.getIndex_num());
+		
+		String path = request.getServletContext().getRealPath("/") + "view/donation/img/";
+		
+
+		if (!multipartFile.isEmpty()) {
+			File file = new File(path, multipartFile.getOriginalFilename());
+			String filename = multipartFile.getOriginalFilename();
+			board.setPicture(filename);
+			
+			try {
+				multipartFile.transferTo(file);
+			} catch (IllegalStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			board.setPicture(dbboard.getPicture());
+		}
+	
+	String msg = "비밀번호가 틀렸습니다";
+	String url = "/donation/boardUpdateForm?num="+board.getIndex_num();
+	
+		
+		if (bd.boardUpdate(board)>0) {
+			msg = "수정 완료";
+			url = "/donation/donationInfo?num="+board.getIndex_num();
+		} else {
+			msg = "수정 실패";
+		}
+	
+		m.addAttribute("msg", msg);
+		m.addAttribute("url", url);
+		
+		return "/alert";
+	}
 }
