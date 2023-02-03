@@ -161,56 +161,7 @@ a{
   </div>
 </div>
 
-<div class="container">
-	<a href="${pageContext.request.contextPath}/giveTogether/volunteer">
-	<h1>봉사활동</h1>
-	</a>
-  <div class="row">
 
-<div class="card bg-secondary mb-3" style="max-width: 18rem;">
-  <div class="picarea" style = "color:black">사진영역</div>
-  <div class="card-body">
-    <p class="card-text">sample text sample text sample text sample text sample text sample text sample text sample text </p>
-   
-	<p class="card-text">-----------------------</p>
-  </div>
-</div>
-
-
-
-
-<div class="card bg-secondary mb-3" style="max-width: 18rem;">
-  <div class="picarea" style = "color:black">사진영역</div>
-  <div class="card-body">
-    <p class="card-text">sample text sample text sample text sample text sample text sample text sample text sample text </p>
-   
-	<p class="card-text">-----------------------</p>
-  </div>
-</div>
-
-
-
-<div class="card bg-secondary mb-3" style="max-width: 18rem;">
-  <div class="picarea" style = "color:black" >사진영역</div>
-  <div class="card-body">
-    <p class="card-text">sample text sample text sample text sample text sample text sample text sample text sample text </p>
-
-	<p class="card-text">-----------------------</p>
-  </div>
-</div>
-
-
-
-<div class="card bg-secondary mb-3" style="max-width: 18rem;">
-  <div class="picarea" style = "color:black">사진영역</div>
-  <div class="card-body">
-    <p class="card-text">sample text sample text sample text sample text sample text sample text sample text sample text </p>
-	<p class="card-text">-----------------------</p>
-  </div>
-</div>
-
-  </div>
-</div>
 
 
 
