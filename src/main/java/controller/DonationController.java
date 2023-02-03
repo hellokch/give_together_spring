@@ -74,11 +74,12 @@ public class DonationController {
 		return "/alert";
 	}
 	
-	
-	//
-	
+		
 	@RequestMapping("donation")
 	public String donationmain(@RequestParam(value="last", required = false, defaultValue = "1") int last)  {
+		String id = (String) session.getAttribute("id");
+		String kinds = (String) session.getAttribute("kinds");
+		
 		String p_type=(String) session.getAttribute("p_type");
 		String c_type="2";
 		int nowpage = 1;
@@ -108,11 +109,15 @@ public class DonationController {
 		return "/donation/donationForm";
 	}
 	
-	/*
-	 * @RequestMapping("donation") public String donation () {
-	 * 
-	 * return "/donationPage"; }
-	 */
+	@RequestMapping("donationInfo")
+	public String donationInfo(int num){
+		Board board = bd.boardOne(num);
+		String writer = board.getId();
+		Usergroup boardwriter = userdao.selectOneG(writer);
+		m.addAttribute("boardwriter",boardwriter);
+		m.addAttribute("board",board);
+		return "/donation/donationInfo";
+	}
 	
 	
 }

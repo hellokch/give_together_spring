@@ -8,6 +8,7 @@
 <title>소식 게시판</title>
 </head>
 <body>
+
 <link rel="stylesheet" href = "${pageContext.request.contextPath}/resource/css/bootstrap.min.css">
 <style>
 div{
@@ -21,7 +22,7 @@ a{
 	background-color : lightgreen; 
 	max-width : 70rem;	
 	margin-top : 1rem;
-	margin-bottom : 1rem;
+	margin-bottom : 1rem; 
 	padding-top : 1rem;
 
 }
@@ -54,11 +55,50 @@ a{
    <li>	</li>
 </ul>
 <br>
-
+<c:if test="${sessionScope.id != null and sessionScope.kinds eq '1'}">
 <a href="${pageContext.request.contextPath}/community/boardForm">
 	<button type="button" class="btn" style="margin-left : 55rem">글작성</button>
-	</a>
+</a>
+</c:if>
 
+
+
+<c:forEach var="card" items="${list}" varStatus="status">
+  <c:if test="${status.index % 3 == 0}">
+    <div class="row">
+  </c:if>
+  <div class="col-sm-4">
+  <a href="${pageContext.request.contextPath}/community/boardInfo?num=${card.index_num}">
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+      <div class="picarea" style = "color:black">
+      <img class = "img" src="${pageContext.request.contextPath}/view/community/img/${card.picture}">
+      </div>
+      <div class="card-body">
+        <p class="card-text">${card.title}</p>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: ${card.raised/card.goal*100};" aria-valuenow="${card.raised/card.goal*100}" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <p class="card-text">${card.context}</p>
+        ${card}
+      </div>
+    </div>
+  </a>
+  </div>
+  <c:if test="${status.index % 3 == 2}">
+    </div>
+  </c:if>
+</c:forEach>
+
+
+
+
+<button type="button" class="btn" style = "width : 68rem" 
+onclick="location.href='${pageContext.request.contextPath}/community/community?last=${end+1}'">더보기</button>
+
+</div>
+  
+  
+  
 
 
 

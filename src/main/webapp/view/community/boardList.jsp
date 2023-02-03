@@ -11,12 +11,12 @@
 	<hr>
 	<div class="w3-container">
 	<h3 class="23-center">${boardName}[${boardid}]</h3>
-		<c:if test="${boardCount == 0 }">
-		
+	
+		<c:if test="${boardCount == 0 }">		
 			<p>등록된 게시물이 없습니다</p>
 			</c:if>
 	
-	<a class="23-button w3-right w3-grey"
+	<a class="w3-button w3-right w3-grey"
 			href="${pageContext.request.contextPath}/board/boardForm">게시판 입력</a>
 		<table
 			class="w3-table-all w3-bordered w3-striped w3-border test w3-hoverable"
