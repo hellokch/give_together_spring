@@ -21,6 +21,7 @@ import dao.BoardMybatisDao;
 import dao.UserMybatisDao;
 import model.Board;
 import model.Usergroup;
+import model.Userperson;
 
 @Controller
 @RequestMapping("/community/")
@@ -46,8 +47,29 @@ public class CommunityController {
 		}
 	
 	@RequestMapping("community")
-	public String community(){
-		System.out.println("To communityPage");
+	public String communitymin(@RequestParam(value="last", required = false, defaultValue = "3")int last){
+		String id = (String) session.getAttribute("id");
+		String kinds = (String) session.getAttribute("kinds");
+		String p_type=(String) session.getAttribute("p_type");
+		String c_type="3";
+		int nowpage = 1;
+		
+		System.out.println(last);
+		if (last!=0) nowpage=last; 
+		
+		int end = nowpage *3;
+		
+		int boardCount = bd.boardCount(c_type);
+		List<Board> list = bd.boardmain(c_type,nowpage,end);
+		
+		if (end>boardCount)  end=boardCount;
+
+		m.addAttribute("list",list);
+		m.addAttribute("end",end);
+		m.addAttribute("boardCount",boardCount);
+	
+		
+		
 		return "/communityPage";
 	}
 	
@@ -56,7 +78,7 @@ public class CommunityController {
 	@RequestMapping("boardForm")
 	public String boardForm() {			
 		String login = (String) session.getAttribute("id");
-		Usergroup per = userdao.selectOneG(login);
+		Userperson per = userdao.selectOneP(login);
 		m.addAttribute("per",per);
 		return "/community/boardForm"; 						
 	}
@@ -65,18 +87,18 @@ public class CommunityController {
 	
 	
 	
-	@RequestMapping("communityPro")
-	public String communityPro(@RequestParam(value ="File1", required=false) MultipartFile multipartfile, Board board) {
+	@PostMapping("communityPro")
+	public String communityPro(@RequestParam("uploadfile") MultipartFile multipartFile, Board board) {
 				
 		String login = (String) session.getAttribute("id");
 		String path = request.getServletContext().getRealPath("/") + "view/community/img/";
 		String filename = null;
 		
-		if(!multipartfile.isEmpty()) {
-			File file = new File(path, multipartfile.getOriginalFilename());
-			filename = multipartfile.getOriginalFilename();
+		if(!multipartFile.isEmpty()) {
+			File file = new File(path, multipartFile.getOriginalFilename());
+			filename = multipartFile.getOriginalFilename();
 			try {
-				multipartfile.transferTo(file);
+				multipartFile.transferTo(file);
 			} catch (IllegalStateException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -93,15 +115,16 @@ public class CommunityController {
 		String url = "/giveTogether/main";
 		
 		System.out.println(board);
-				
+		board.setP_type("3");	
 		
 		
+					
 		System.out.println(board);
 		
 		int num = bd.insertBoard(board);
 		if(num > 0) {
 			msg = "게시물 등록 성공";
-			url = "/giveTogether/main";
+			url = "/community/community";
 		}
 		
 		System.out.println(board);
@@ -111,7 +134,40 @@ public class CommunityController {
 		
 		return "/alert";
 	}		
+	@RequestMapping("boardInfo")
+	public String boardInfo(int num){
+		Board board = bd.boardOne(num);
+		String writer = board.getId();
+		Usergroup boardwriter = userdao.selectOneG(writer);
+		m.addAttribute("boardwriter",boardwriter);
+		m.addAttribute("board",board);
+		return "/community/boardInfo";
+	}
+	@RequestMapping("boardDeleteForm")
+	public String boardDeleteForm(int num) {
+		
+		request.setAttribute("num", num);
+		
+		return "/community/boardDeleteForm";
+	}
 	
+	@RequestMapping("boardDeletePro")
+	public String boardDeletePro(int num,String pass) {
+
+		Board board = bd.boardOne(num);
+		String msg = "비밀번호가 틀렸습니다";
+		String url = "/community/boardDeleteForm?num="+num;
+		if (board.getPass().equals(pass)) {
+			if (bd.boardDelete(num , pass)>0) {
+			msg = "삭제 되었습니다";
+			url = "/community/boardList";
+			}
+		}
+		 
+		m.addAttribute("msg", msg);	
+		m.addAttribute("url", url);
+		 return "/alert";
+	}
 	
 }	
 
