@@ -63,23 +63,25 @@ a{
 
 
 
-<c:forEach var="card" items="${list}" varStatus="status">
+<c:forEach var="com" items="${list}" varStatus="status">
   <c:if test="${status.index % 3 == 0}">
     <div class="row">
   </c:if>
   <div class="col-sm-4">
-  <a href="${pageContext.request.contextPath}/community/boardInfo?num=${card.index_num}">
-    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-      <div class="picarea" style = "color:black">
-      <img class = "img" src="${pageContext.request.contextPath}/view/community/img/${card.picture}">
+  <a href="${pageContext.request.contextPath}/community/boardInfo?num=${com.index_num}">
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+      <div class="picarea" style = "color:black" >
+      <img class = "img" src="${pageContext.request.contextPath}/view/community/img/${com.picture}" style="max-width: 19.5rem;" >
       </div>
       <div class="card-body">
-        <p class="card-text">${card.title}</p>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: ${card.raised/card.goal*100};" aria-valuenow="${card.raised/card.goal*100}" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-        <p class="card-text">${card.context}</p>
-        ${card}
+        <p class="card-text">제목 :${com.title}      작성자: ${com.id} </p>
+      
+        <p class="card-text">내용 : ${com.context}</p>
+        
+        
+        <p class="card-text">작성일 :</p> 
+        <p class="card-text"> ${com.not_date}</p>
+       
       </div>
     </div>
   </a>

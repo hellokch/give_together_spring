@@ -19,9 +19,6 @@
 <input type = "hidden" name = "id" value = "${per.id}"/>
 
 <p>      
-<label class="w3-text-grey">작성자</label>
-<input class="w3-input w3-border" type="text"  name="name" >
-</p><p>      
 <label class="w3-text-grey">글 제목</label>
 <input class="w3-input w3-border" type="text" name="title" >
 </p><p>      
