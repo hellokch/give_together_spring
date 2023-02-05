@@ -10,6 +10,7 @@
 	 	<typeAlias type="model.Usergroup" alias="usergroup"/> 
 		<typeAlias type="model.Userperson" alias="userperson"/>
 		<typeAlias type="model.Board" alias = "board"/>
+		<typeAlias type="model.act" alias = "act"/>
 	</typeAliases>
 
 	<mappers>

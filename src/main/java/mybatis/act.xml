@@ -2,10 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="act">
-<!-- <insert id ="insertact" parameterType="act">
-	insert into act values
+
+<insert id ="insertact" parameterType="act">
+	insert into active values
 	(#{id}, #{kinds}, #{act_number}, #{act_type}, #{act_mile}, #{act_pay}, #{act_date})
-</insert> -->
+</insert>
 
 
 </mapper>
