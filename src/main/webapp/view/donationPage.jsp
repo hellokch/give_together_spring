@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,11 +82,11 @@ a{
       <div class="card-body">
        <p class="card-text"> <strong>${card.title}</strong></p>
         <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: ${card.raised/card.goal*100};" aria-valuenow="${card.raised/card.goal*100}" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="progress-bar" role="progressbar" style="width: ${card.raised/card.goal*100}%;" aria-valuenow="${card.raised/card.goal*100}" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
       <div class="row" style="justify-content: space-between;">
-     <div class="text-success" style="max-width: 40%"><strong>${card.raised/card.goal*100} % </strong></div>
-          <div class ="text" style="max-width: 40%;" align="right">${card.raised}</div>
+     <div class="text-success" style="max-width: 30%"><strong><fmt:formatNumber type="percent" value=" ${card.raised/card.goal}" pattern="0.0%"/> </strong></div>
+          <div class ="text" style="max-width: 70%;" align="right"><fmt:formatNumber value="${card.raised}" type="currency"/></div>
         </div></div>
     </div>
   </a>

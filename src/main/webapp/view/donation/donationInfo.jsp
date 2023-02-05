@@ -54,9 +54,9 @@
 <div class = "item2">
 <div class="card bg-secondary mb-3" align="left">
  <div class="card-body" style = "padding : 2.3rem">
- <h4 class="card-title" style="margin-left : 1rem;"> ${board.raised/board.goal} % </h4>
+ <h4 class="card-title" style="margin-left : 1rem;"><fmt:formatNumber type="percent" value=" ${board.raised/board.goal}" pattern="0.0%"/></h4>
  <div class="progress">
- <span class="progress-bar" role="progressbar" style="width: ${card.raised/card.goal*100};" aria-valuenow="${card.raised/card.goal*100}" aria-valuemin="0" aria-valuemax="100"></span></div>
+ <span class="progress-bar" role="progressbar" style="width: ${board.raised/board.goal*100}%;" aria-valuenow="${board.raised/board.goal*100}%" aria-valuemin="0" aria-valuemax="100"></span></div>
 <label>
 <fmt:formatDate pattern="yyyy.MM.dd" value="${board.not_date}"/>
 &nbsp;~ <br>

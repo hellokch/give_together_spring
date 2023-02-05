@@ -55,7 +55,13 @@ public class ActiveController {
 		int count = actdao.insertact(active);
 		String msg="";
 		String url="";
+		Board board = bd.boardOne(act_number);
+		int raise = board.getRaised();
+		
+		
 		if(count>0) {
+			int n_raise = raise + act_pay;
+			actdao.raiseUpdate(n_raise, act_number);
 			msg = "결제가 완료 되었습니다.";
 			url = "/donation/donationInfo?num=" + act_number;
 		}else {
@@ -66,6 +72,7 @@ public class ActiveController {
 		m.addAttribute("url", url);
 		return "/alert";
 	}
+	
 	
 
 }

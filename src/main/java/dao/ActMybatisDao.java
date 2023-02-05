@@ -23,6 +23,12 @@ public class ActMybatisDao {
 		return num;
 		
 	}
-	
+	public int raiseUpdate(int raised, int index_num) {
+		map.clear();
+		map.put("index_num", index_num);
+		map.put("raised", raised);
+		int num = session.update(as + "raiseUpdate", map);
+		return num;
+	}
 	
 }
