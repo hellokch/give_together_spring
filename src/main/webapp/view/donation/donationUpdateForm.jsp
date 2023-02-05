@@ -73,7 +73,7 @@ style = "padding : 2rem">
 <textarea class="w3-input w3-border" style="height : 30rem;" name = "context" ></textarea>
     
 <label class="w3-text-grey">파일 </label>
-<input class="w3-input w3-border" type = "file" name = "uploadfile" >
+<input class="w3-input w3-border" type = "file" name = "f" >
 
 <div class = "list-group" style = "width : 20rem; padding : 2rem; margin-left : 2rem" align="left">
 <label class="w3-text-grey">기부 종료 날짜:</label>
