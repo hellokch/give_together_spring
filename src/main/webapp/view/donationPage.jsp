@@ -63,7 +63,7 @@ a{
 
 
 <c:if test="${sessionScope.id != null and sessionScope.kinds eq '2'}">
-	<a href ="${pageContext.request.contextPath}/donation/donationForm" type="button" class="btn" style="margin-left : 55rem">글쓰기(단체)</a>
+	<a href ="${pageContext.request.contextPath}/donation/donationInfo" type="button" class="btn" style="margin-left : 55rem">글쓰기(단체)</a>
 </c:if>
 
 
