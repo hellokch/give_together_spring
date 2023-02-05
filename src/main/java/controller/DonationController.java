@@ -125,7 +125,7 @@ public class DonationController {
 		
 		
 		m.addAttribute("num", num);
-		return "/donation/boardDeleteForm";
+		return "/donation/donationDeleteForm";
 	}
 	
 	@RequestMapping("boardDeletePro")
