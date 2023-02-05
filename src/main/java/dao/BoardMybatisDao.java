@@ -91,4 +91,12 @@ public class BoardMybatisDao {
 		int num = session.update(ns+"volunteerUpdate", board);
 		return num;
 	}
+	
+	public int raiseUpdate(int raise, int index_num) {
+		map.clear();
+		map.put("index_num", index_num);
+		map.put("raise", raise);
+		int num = session.update(ns + "raiseUpdate", map);
+		return num;
+	}
 }

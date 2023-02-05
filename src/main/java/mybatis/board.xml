@@ -59,4 +59,9 @@
 		where index_num = #{index_num}
 	</update>
 	
+	<update id="raiseUpdate" parameterType="map">
+		update giveboard set raised =  #{raised}
+
+		where index_num = #{index_num}
+	</update>
 </mapper>

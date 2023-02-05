@@ -50,6 +50,22 @@ public class ActiveController {
 	}
 	
 	
+	@RequestMapping("paymentPro")
+	public String paymentPro(act active, int act_number, int act_pay)throws Exception {
+		int count = actdao.insertact(active);
+		String msg="";
+		String url="";
+		if(count>0) {
+			msg = "결제가 완료 되었습니다.";
+			url = "/donation/donationInfo?num=" + act_number;
+		}else {
+			msg = "결제에 실패 했습니다.";
+			url = "/act/payment";			
+		}
+		m.addAttribute("msg", msg);
+		m.addAttribute("url", url);
+		return "/alert";
+	}
 	
 
 }

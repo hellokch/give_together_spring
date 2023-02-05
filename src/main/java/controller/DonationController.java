@@ -75,7 +75,7 @@ public class DonationController {
 	}
 	
 		
-	@RequestMapping("donationList")
+	@RequestMapping("donation")
 	public String donationmain(@RequestParam(value="last", required = false, defaultValue = "1") int last)  {
 		String id = (String) session.getAttribute("id");
 		String kinds = (String) session.getAttribute("kinds");
@@ -114,8 +114,8 @@ public class DonationController {
 	public String donationInfo(int num){
 		Board board = bd.boardOne(num);
 		String writer = board.getId();
-//		Usergroup boardwriter = userdao.selectOneG(writer);
-//		m.addAttribute("boardwriter",boardwriter);
+		Usergroup boardwriter = userdao.selectOneG(writer);
+		m.addAttribute("boardwriter",boardwriter);
 		m.addAttribute("board",board);
 		return "/donation/donationInfo";
 	}

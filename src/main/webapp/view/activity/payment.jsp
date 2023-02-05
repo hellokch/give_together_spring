@@ -24,31 +24,31 @@
 	<div class = "list-group location-center" style = "width : 20rem; padding : 2rem; margin-left : 2rem" align="left">
 	
 	결제 정보<br>
-	<form>
+	<form name="act" method="post" action="${pageContext.request.contextPath}/act/paymentPro">
 	<input type="text" name="id" value ="${id}" style="display:none;">
 	<input type="text" name="kinds" value ="${kinds}" style="display:none;">
 	<input type="number" name="act_number" value ="${board.index_num}" style="display:none;">
 	<input type="text" name="act_type" value ="${board.p_type}" style="display:none;">
 	
-  <input class="form-check-input" type="radio" name="won" id="5000원" value="5000">
+  <input class="form-check-input" type="radio" name="radio" id="5000원" value=5000>
   <label class="form-check-label" for="5000원">5,000원</label>
   <br>
-  <input class="form-check-input" type="radio" name="won" id="10000원" value="10000">
+  <input class="form-check-input" type="radio" name="radio" id="10000원" value=10000>
   <label class="form-check-label" for="10000원">10,000원</label>
   <br>
-  <input class="form-check-input" type="radio" name="won" id="30000원" value="30000">
+  <input class="form-check-input" type="radio" name="radio" id="30000원" value=30000>
   <label class="form-check-label" for="30000원">30,000원</label>
   <br>
-  <input class="form-check-input" type="radio" name="won" id="50000원" value="50000">
+  <input class="form-check-input" type="radio" name="radio" id="50000원" value=50000>
   <label class="form-check-label" for="50000원">50,000원</label>
   <br>
-  <input class="form-check-input" type="radio" name="won" id="직접입력">
+  <input class="form-check-input" type="radio" name="radio" id="직접입력">
   <label class="form-check-label" for="직접입력">직접입력</label>
   <br>
-  <input class="form-check-input" style = "width : 20rem;" type="number" name="act_pay" id="numinput" style="display:none;">
+ <input class="form-check-input" type="number" style = "width : 20rem; display: none;" name="act_pay" id="numinput" >
   <br>
-  <input class="form-check-input" style = "width : 20rem;" type="text" id="numoutput" readonly><br>
-	<button type="button" class="btn btn-primary btn-sm">결제하기</button>
+  <input class="form-check-input" type="number" style = "width : 20rem; display: none;" name="act_mile">
+  <button type="submit" class="btn btn-primary btn-sm">결제하기</button>
 </form>
 	
 	</div>
@@ -70,37 +70,25 @@
 	
 	
 <script>
-  const radioBtns = document.querySelectorAll('input[type="radio"]');
-  const numInput = document.querySelector('#numinput');
-  const numOutput = document.querySelector('#numoutput');
+const radioButtons = document.querySelectorAll('input[type="radio"]');
+const numInput = document.querySelector('#numinput');
+const mileInput = document.querySelector('input[name="act_mile"]');
 
-  function formatAsKoreanCurrency(value) {
-    value = Number(value.replaceAll(',', ''));
-    if (isNaN(value)) {
-      numInput.value = 0;
-      return '0(원)';
+radioButtons.forEach(radioButton => {
+  radioButton.addEventListener('click', function() {
+    if (this.id === "직접입력") {
+      numInput.style.display = "block";
+      numInput.value = "";
     } else {
-      const formatValue = value.toLocaleString('ko-KR');
-      return formatValue.concat('(원)');
+      numInput.style.display = "none";
+      mileInput.value = this.value;
     }
-  }
-
-  radioBtns.forEach((btn) => {
-    btn.addEventListener('change', (e) => {
-      if (btn.id === '직접입력') {
-        numInput.style.display = 'inline';
-        numInput.value = '';
-        numOutput.value = '';
-      } else {
-        numInput.style.display = 'none';
-        numOutput.value = formatAsKoreanCurrency(btn.value);
-      }
-    });
   });
+});
 
-  numInput.addEventListener('input', (e) => {
-    numOutput.value = formatAsKoreanCurrency(numInput.value);
-  });
+numInput.addEventListener('input', function() {
+  mileInput.value = this.value;
+});
 </script>
 
 
