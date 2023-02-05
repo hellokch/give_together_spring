@@ -42,7 +42,7 @@
   <input class="form-check-input" type="radio" name="radio" id="50000원" value=50000>
   <label class="form-check-label" for="50000원">50,000원</label>
   <br>
-  <input class="form-check-input" type="radio" name="radio" id="직접입력">
+ <input class="form-check-input" type="radio" name="radio" id="직접입력" value =0>
   <label class="form-check-label" for="직접입력">직접입력</label>
   <br>
  <input class="form-check-input" type="number" style = "width : 20rem; display: none;" name="act_pay" id="numinput" >
@@ -73,21 +73,24 @@
 const radioButtons = document.querySelectorAll('input[type="radio"]');
 const numInput = document.querySelector('#numinput');
 const mileInput = document.querySelector('input[name="act_mile"]');
+const payInput = document.querySelector('input[name="act_pay"]');
 
 radioButtons.forEach(radioButton => {
-  radioButton.addEventListener('click', function() {
-    if (this.id === "직접입력") {
-      numInput.style.display = "block";
-      numInput.value = "";
-    } else {
-      numInput.style.display = "none";
-      mileInput.value = this.value;
-    }
-  });
+radioButton.addEventListener('click', function() {
+if (this.id === "직접입력") {
+numInput.style.display = "block";
+payInput.value = "";
+} else {
+numInput.style.display = "none";
+payInput.value = this.value;
+mileInput.value = this.value;
+}
+});
 });
 
 numInput.addEventListener('input', function() {
-  mileInput.value = this.value;
+payInput.value = this.value;
+mileInput.value = this.value;
 });
 </script>
 
