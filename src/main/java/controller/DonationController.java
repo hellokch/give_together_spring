@@ -75,7 +75,7 @@ public class DonationController {
 	}
 	
 		
-	@RequestMapping("donation")
+	@RequestMapping("donationList")
 	public String donationmain(@RequestParam(value="last", required = false, defaultValue = "1") int last)  {
 		String id = (String) session.getAttribute("id");
 		String kinds = (String) session.getAttribute("kinds");
@@ -114,8 +114,8 @@ public class DonationController {
 	public String donationInfo(int num){
 		Board board = bd.boardOne(num);
 		String writer = board.getId();
-		Usergroup boardwriter = userdao.selectOneG(writer);
-		m.addAttribute("boardwriter",boardwriter);
+//		Usergroup boardwriter = userdao.selectOneG(writer);
+//		m.addAttribute("boardwriter",boardwriter);
 		m.addAttribute("board",board);
 		return "/donation/donationInfo";
 	}
@@ -154,7 +154,7 @@ public class DonationController {
 	public String boardUpdateForm (int num) {
 		Board board=bd.boardOne(num);
 		m.addAttribute("board", board);
-		return "/donation/boardUpdateForm";
+		return "/donation/donationUpdateForm";
 	}
 	
 	@PostMapping("boardUpdatePro")
@@ -184,7 +184,7 @@ public class DonationController {
 		}
 	
 	String msg = "비밀번호가 틀렸습니다";
-	String url = "/donation/boardUpdateForm?num="+board.getIndex_num();
+	String url = "/donation/donationUpdateForm?num="+board.getIndex_num();
 	
 		
 		if (bd.boardUpdate(board)>0) {
