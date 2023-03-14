@@ -29,9 +29,6 @@ li{
           <a class="nav-link active" href="${pageContext.request.contextPath}/donation/donation">&nbsp;&nbsp;&nbsp;기부	</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="${pageContext.request.contextPath}/giveTogether/funding">&nbsp;&nbsp;&nbsp;펀딩	</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link active" href="${pageContext.request.contextPath}/volunteer/volunteerList">&nbsp;&nbsp;&nbsp;봉사</a>
         </li>
        <li class="nav-item">

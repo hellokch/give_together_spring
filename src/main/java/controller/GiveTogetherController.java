@@ -106,7 +106,7 @@ public class GiveTogetherController {
 		String url="";
 		
 		if(count>0) {
-			msg = group.getP_name() + "님의 가입이 완료되었습니다.";
+			msg = group.getName() + "님의 가입이 완료되었습니다.";
 			url = "/giveTogether/loginForm";
 		}else {
 			msg = "회원가입에 실패 했습니다.";

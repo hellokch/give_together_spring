@@ -45,22 +45,6 @@ a{
 
 <div class="container">
 
-<ul class="nav nav-pills" style = "justify-content : space-around;">
-  <li>	</li>
-  <li>	</li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">진행중인 기부</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">지난 기부</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">_공란_</a>
-  </li>
-   <li>	</li>
-   <li>	</li>
-</ul>
-<br>
 
 
 <c:if test="${sessionScope.id != null and sessionScope.kinds eq '2'}">

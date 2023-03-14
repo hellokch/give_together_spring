@@ -34,34 +34,6 @@
   </div>
   
   
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-		<strong>내 활동 관리</strong>      
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse bg-light" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
-      <div class="accordion-body">
-      <br>
-        <a href="#" class="list-group-item list-group-item-action">기부활동기록</a><br>
-        <a href="#" class="list-group-item list-group-item-action">펀딩활동기록</a><br>
-        <a href="#" class="list-group-item list-group-item-action">봉사활동기록</a><br>
-        <a href="#" class="list-group-item list-group-item-action">give level</a><br>
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item bg-light">
-    <h2 class="accordion-header" id="headingThree">
-      <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-       <strong> 또 뭐가 있을까</strong>
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse bg-light" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
-      <div class="accordion-body">
-        여기에 text 들어가요~~
-      </div>
-    </div>
-  </div>
 </div>
 </c:if>
 
@@ -89,33 +61,7 @@
   </div>
   
   
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-		<strong>내 활동 관리</strong>      
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse bg-light" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
-      <div class="accordion-body">
-      <br>
-        <a href="#" class="list-group-item list-group-item-action">기부기록</a><br>
-        <a href="#" class="list-group-item list-group-item-action">펀딩기록</a><br>
-        <a href="#" class="list-group-item list-group-item-action">봉사기록</a><br>
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item bg-light">
-    <h2 class="accordion-header" id="headingThree">
-      <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-       <strong> 또뭐가있을까</strong>
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse bg-light" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
-      <div class="accordion-body">
-        여기에 text 들어가요~~
-      </div>
-    </div>
-  </div>
+
 </div></c:if>
 
 

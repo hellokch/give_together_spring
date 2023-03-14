@@ -47,7 +47,7 @@ a{
 
 <div class="container">
 	<a href="${pageContext.request.contextPath}/donation/donation">
-	<h1 >기부 영역</h1>
+	<h1 >기부</h1>
 	</a>
   <div class="row">
 
@@ -75,66 +75,6 @@ a{
 
 
 
-
-<div class="container">
-	<a href="${pageContext.request.contextPath}/giveTogether/funding">
-	<h1>펀딩</h1>
-	</a>
-  <div class="row">
-
-<div class="card bg-secondary mb-3" style="max-width: 18rem;">
-  <div class="picarea" style = "color:black">사진영역</div>
-  <div class="card-body">
-    <p class="card-text">sample text sample text sample text sample text sample text sample text sample text sample text </p>
-    <div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-	<p class="card-text">-----------------------</p>
-  </div>
-</div>
-
-
-
-
-<div class="card bg-secondary mb-3" style="max-width: 18rem;">
-  <div class="picarea" style = "color:black">사진영역</div>
-  <div class="card-body">
-    <p class="card-text">sample text sample text sample text sample text sample text sample text sample text sample text </p>
-    <div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-	<p class="card-text">-----------------------</p>
-  </div>
-</div>
-
-
-
-<div class="card bg-secondary mb-3" style="max-width: 18rem;">
-  <div class="picarea" style = "color:black" >사진영역</div>
-  <div class="card-body">
-    <p class="card-text">sample text sample text sample text sample text sample text sample text sample text sample text </p>
-    <div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-	<p class="card-text">-----------------------</p>
-  </div>
-</div>
-
-
-
-<div class="card bg-secondary mb-3" style="max-width: 18rem;">
-  <div class="picarea" style = "color:black">사진영역</div>
-  <div class="card-body">
-    <p class="card-text">sample text sample text sample text sample text sample text sample text sample text sample text </p>
-    <div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-	<p class="card-text">-----------------------</p>
-  </div>
-</div>
-
-  </div>
-</div>
 
 
 
