@@ -26,4 +26,3 @@ p_name varchar(20),
 intro varchar(1000),
 picture varchar(500)
 );
-

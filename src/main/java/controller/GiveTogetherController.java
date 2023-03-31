@@ -2,13 +2,9 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -160,9 +156,7 @@ public class GiveTogetherController {
 	@RequestMapping("joinUserPersonPro")
 	public String joinUserPersonPro(Userperson person)throws Exception {
 		System.out.println("joinUserPersonPro");
-		
-		
-		
+
 		int count = userdao.insertUserperson(person);
 		String msg="";
 		String url="";

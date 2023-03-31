@@ -9,8 +9,6 @@
 
 </head>
 
-
-
 <body>
 <script>
     function sample6_execDaumPostcode() {

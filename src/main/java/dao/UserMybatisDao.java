@@ -1,17 +1,12 @@
 package dao;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
-
-import model.Board;
 import model.Usergroup;
 import model.Userperson;
 
@@ -19,15 +14,11 @@ import model.Userperson;
 public class UserMybatisDao {
 	@Autowired
 	SqlSessionTemplate session;
-	
 	private static final String ns = "user.";
-	
-
 	
 	public int insertUserperson(Userperson person) {
 		int num = session.insert(ns + "insertUserperson", person);
-		return num;
-				
+		return num;			
 	}
 	
 	public int insertUsergroup(Usergroup group) {
