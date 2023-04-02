@@ -34,11 +34,17 @@ public class MypageController {
 	
 	@RequestMapping("userPersonInfo")
 	public String userPersonInfo(){
+		
 		String login = (String) session.getAttribute("id");
+		
 		Userperson per = userdao.selectOneP(login);
+		
 		m.addAttribute("per", per);
+		
 		return "/mypage/forPerson/userPersonInfo";
+		
 	}
+	
 	@RequestMapping("userPersonUpdateForm")
 	public String userPersonUpdateForm() {
 		String login = (String) session.getAttribute("id");
@@ -72,11 +78,14 @@ public class MypageController {
 	
 	@RequestMapping("userPersonUpdatePro")
 	public String userPersonUpdatePro(Userperson person)throws Exception {
+		
 		String login = (String) session.getAttribute("id");
 		person.setId(login);
+		Userperson olduser = userdao.selectOneP(login);
+		
 		String msg="회원 자료가 없습니다.";
 		String url="/user/loginForm";
-		Userperson olduser = userdao.selectOneP(login);
+		
 		if(olduser != null ) {
 			int num = userdao.updateUserPerson(person);
 			if(num > 0) {
@@ -88,10 +97,13 @@ public class MypageController {
 			}
 			
 		}
+		
 		m.addAttribute("msg", msg);
 		m.addAttribute("url", url);
 		return "/alert";
 	}
+	
+	
 	
 	@RequestMapping("userPassChgPassCheckPro")
 	public String userPassChgPassCheckPro(String pass) {

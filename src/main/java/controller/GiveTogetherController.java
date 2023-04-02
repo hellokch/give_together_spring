@@ -153,6 +153,7 @@ public class GiveTogetherController {
 		return "/user/joinForPerson";
 	}
 	
+	
 	@RequestMapping("joinUserPersonPro")
 	public String joinUserPersonPro(Userperson person)throws Exception {
 		System.out.println("joinUserPersonPro");

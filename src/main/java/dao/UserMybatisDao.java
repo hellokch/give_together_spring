@@ -27,8 +27,11 @@ public class UserMybatisDao {
 		
 		return num;	
 	}	
+	
 	public Userperson  selectOneP(String id) {
+		
 		Userperson person = session.selectOne(ns + "selectOneP", id);
+		
 		return person;				
 	}
 

@@ -7,9 +7,11 @@
 	(#{id}, #{kinds}, #{pass}, #{tel}, #{name}, #{email},
 	 #{location}, #{location1}, #{nickname}, #{gender})
 </insert>
+
 <select id="selectOneP" resultType="userperson" parameterType="String">
 	select * from userperson where id=#{value}
 </select>
+
 <update id="updateUserPerson" parameterType="userperson">
 	update userperson set
 	 kinds=#{kinds}, tel=#{tel}, name=#{name}, email=#{email}, location=#{location}, location1=#{location1}, nickname=#{nickname}, gender=#{gender}
