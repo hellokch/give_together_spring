@@ -47,8 +47,7 @@ public class ActiveController {
 		Board board = bd.boardOne(num);
 		m.addAttribute("board",board);
 		return "/activity/payment";
-	}
-	
+	}	
 	
 	@RequestMapping("paymentPro")
 	public String paymentPro(act active, int act_number, int act_pay)throws Exception {
@@ -56,9 +55,7 @@ public class ActiveController {
 		String msg="";
 		String url="";
 		Board board = bd.boardOne(act_number);
-		int raise = board.getRaised();
-		
-		
+		int raise = board.getRaised();		
 		if(count>0) {
 			int n_raise = raise + act_pay;
 			actdao.raiseUpdate(n_raise, act_number);

@@ -1,4 +1,5 @@
 drop table giveboard;
+
 create table giveboard(
 index_num number primary key,
 id varchar(20),
