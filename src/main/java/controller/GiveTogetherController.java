@@ -148,6 +148,7 @@ public class GiveTogetherController {
 		return "/user/joinForPerson";
 	}
 	
+	
 	@RequestMapping("joinUserPersonPro")
 	public String joinUserPersonPro(Userperson person)throws Exception {
 		System.out.println("joinUserPersonPro");
@@ -185,10 +186,7 @@ public class GiveTogetherController {
 					url = "/giveTogether/main";	
 				}else {
 					msg = "비밀번호를 확인해 주세요.";
-				}
-							
-			}
-		}
+				}}}
 		if(kinds.equals("2")) {
 			Usergroup gro = userdao.selectOneG(id);
 			if(gro != null) {
@@ -199,15 +197,13 @@ public class GiveTogetherController {
 					url = "/giveTogether/main";	
 				}else {
 					msg = "비밀번호를 확인해 주세요.";
-				}
-			}
-		}
-		
+				}}}
 		//id가 어디에도 없음 : msg : id를 확인해주세요
 		m.addAttribute("msg", msg);
 		m.addAttribute("url", url);
-		return "/alert";
+		return "/alert"; 
 	}
+	
 	
 	@RequestMapping("logout")
 	public String logout() {

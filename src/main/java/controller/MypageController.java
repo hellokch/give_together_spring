@@ -34,15 +34,23 @@ public class MypageController {
 	
 	@RequestMapping("userPersonInfo")
 	public String userPersonInfo(){
+		
 		String login = (String) session.getAttribute("id");
+		
 		Userperson per = userdao.selectOneP(login);
+		
 		m.addAttribute("per", per);
+		
 		return "/mypage/forPerson/userPersonInfo";
+		
 	}
+	
 	@RequestMapping("userPersonUpdateForm")
 	public String userPersonUpdateForm() {
+		
 		String login = (String) session.getAttribute("id");
 		Userperson per = userdao.selectOneP(login);
+		
 		m.addAttribute("per",per);
 		return "/mypage/forPerson/userPersonUpdateForm";
 	}
@@ -55,16 +63,21 @@ public class MypageController {
 	
 	@RequestMapping("userPersonUpdatePassCheckPro")
 	public String userPersonUpdatePassCheckPro(String pass) {
+		
 		String login = (String) session.getAttribute("id");
 		Userperson per = userdao.selectOneP(login);
+		
 		String msg="비밀번호가 일치합니다.";
 		String url="/mypage/userPersonInfo";
+		
+		
 		if(pass.equals(per.getPass())) {
 			url = "/mypage/userPersonUpdateForm";
 		}else {
 			msg = "비밀번호가 틀렸습니다.";
 			url = "/mypage/userPersonUpdatePassCheck";
 		}
+		
 		m.addAttribute("msg", msg);
 		m.addAttribute("url", url);
 		return "/alert";
@@ -72,11 +85,14 @@ public class MypageController {
 	
 	@RequestMapping("userPersonUpdatePro")
 	public String userPersonUpdatePro(Userperson person)throws Exception {
+		
 		String login = (String) session.getAttribute("id");
 		person.setId(login);
+		Userperson olduser = userdao.selectOneP(login);
+		
 		String msg="회원 자료가 없습니다.";
 		String url="/user/loginForm";
-		Userperson olduser = userdao.selectOneP(login);
+		
 		if(olduser != null ) {
 			int num = userdao.updateUserPerson(person);
 			if(num > 0) {
@@ -88,10 +104,13 @@ public class MypageController {
 			}
 			
 		}
+		
 		m.addAttribute("msg", msg);
 		m.addAttribute("url", url);
 		return "/alert";
 	}
+	
+	
 	
 	@RequestMapping("userPassChgPassCheckPro")
 	public String userPassChgPassCheckPro(String pass) {
@@ -180,9 +199,7 @@ public class MypageController {
 				}else {
 					msg="회원탈퇴가 실패 했습니다.";
 					url="/mypage/userDelete";
-				}				
-			}			
-		}else {
+				}}}else {
 			Usergroup gro = userdao.selectOneG(login);
 			if(pass.equals(gro.getPass())) {
 				int num = userdao.deleteG(login);
@@ -193,11 +210,7 @@ public class MypageController {
 				}else {
 					msg="회원탈퇴가 실패 했습니다.";
 					url="/mypage/userDelete";
-				}				
-			}			
-			
-		}
-		/* if(login1.equals("2")) { } */
+				}}}
 		m.addAttribute("msg", msg);
 		m.addAttribute("url", url);
 		return "/alert";

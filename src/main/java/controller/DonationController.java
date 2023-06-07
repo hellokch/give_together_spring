@@ -45,8 +45,12 @@ public class DonationController {
 	
 	@PostMapping("donationPro")	
 	public String boardPro (@RequestParam("uploadfile") MultipartFile multipartFile, Board board) {
+		
 		String path = request.getServletContext().getRealPath("/") + "view/donation/img/";
 		String filename = "";
+		String msg = "게시물 등록 실패";
+		String url = "/donation/donationForm";		
+		
 		if (!multipartFile.isEmpty()) {
 			File file = new File(path, multipartFile.getOriginalFilename());
 			filename = multipartFile.getOriginalFilename();
@@ -61,9 +65,7 @@ public class DonationController {
 			}
 		}
 		board.setPicture(filename);
-		String msg = "게시물 등록 실패";
-		String url = "/donation/donationForm";		
-		System.out.println(board);
+		
 		int num = bd.insertBoard(board);
 		if (num>0) {
 			msg = "게시물 등록 성공";  
@@ -74,23 +76,22 @@ public class DonationController {
 		return "/alert";
 	}
 	
-		
+
+	
+	
+	
+	
 	@RequestMapping("donation")
 	public String donationmain(@RequestParam(value="last", required = false, defaultValue = "1") int last)  {
-		String id = (String) session.getAttribute("id");
-		String kinds = (String) session.getAttribute("kinds");
+
+		String p_type="2";
 		
-		String p_type=(String) session.getAttribute("p_type");
-		String c_type="2";
 		int nowpage = 1;
-		
-		System.out.println(last);
 		if (last!=0) nowpage=last; 
-		
 		int end = nowpage +2;
+		int boardCount = bd.boardCount(p_type);
 		
-		int boardCount = bd.boardCount(c_type);
-		List<Board> list = bd.boardmain(c_type,nowpage,end);
+		List<Board> list = bd.boardmain(p_type,nowpage,end);
 		
 		if (end>boardCount)  end=boardCount;
 
@@ -112,13 +113,28 @@ public class DonationController {
 	
 	@RequestMapping("donationInfo")
 	public String donationInfo(int num){
+		
 		Board board = bd.boardOne(num);
 		String writer = board.getId();
+		
 		Usergroup boardwriter = userdao.selectOneG(writer);
+		
 		m.addAttribute("boardwriter",boardwriter);
 		m.addAttribute("board",board);
+		
 		return "/donation/donationInfo";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@RequestMapping("boardDeleteForm")
 	public String boardDeleteForm (int num) {
@@ -159,11 +175,8 @@ public class DonationController {
 	
 	@PostMapping("boardUpdatePro")
 	public String boardUpdatePro (@RequestParam("f") MultipartFile multipartFile, Board board) {
-		
-		Board dbboard = bd.boardOne(board.getIndex_num());
-		
+		Board dbboard = bd.boardOne(board.getIndex_num());		
 		String path = request.getServletContext().getRealPath("/") + "view/donation/img/";
-		
 
 		if (!multipartFile.isEmpty()) {
 			File file = new File(path, multipartFile.getOriginalFilename());
@@ -184,8 +197,7 @@ public class DonationController {
 		}
 	
 	String msg = "비밀번호가 틀렸습니다";
-	String url = "/donation/donationUpdateForm?num="+board.getIndex_num();
-	
+	String url = "/donation/donationUpdateForm?num="+board.getIndex_num();	
 		
 		if (bd.boardUpdate(board)>0) {
 			msg = "수정 완료";

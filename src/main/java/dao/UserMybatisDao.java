@@ -25,8 +25,11 @@ public class UserMybatisDao {
 		int num = session.insert(ns + "insertUsergroup", group);
 		return num;	
 	}	
+	
 	public Userperson  selectOneP(String id) {
+		
 		Userperson person = session.selectOne(ns + "selectOneP", id);
+		
 		return person;				
 	}
 
@@ -36,7 +39,9 @@ public class UserMybatisDao {
 	}
 	
 	public int updateUserPerson(Userperson person) {
+		
 		int num = session.update(ns + "updateUserPerson",person);
+		
 		return num;
 	}
 	
@@ -58,11 +63,16 @@ public class UserMybatisDao {
 	}
 	
 	public int deleteP(String id) {
+		
 		int num = session.update(ns + "deleteP", id);
+		
 		return num;
 	}
+	
 	public int deleteG(String id) {
+		
 		int num = session.update(ns + "deleteG", id);
+		
 		return num;
 	}
 	

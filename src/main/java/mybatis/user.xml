@@ -7,19 +7,33 @@
 	(#{id}, #{kinds}, #{pass}, #{tel}, #{name}, #{email},
 	 #{location}, #{location1}, #{nickname}, #{gender})
 </insert>
+
 <select id="selectOneP" resultType="userperson" parameterType="String">
 	select * from userperson where id=#{value}
 </select>
+
+
 <update id="updateUserPerson" parameterType="userperson">
 	update userperson set
-	 kinds=#{kinds}, tel=#{tel}, name=#{name}, email=#{email}, location=#{location}, location1=#{location1}, nickname=#{nickname}, gender=#{gender}
+	
+	kinds=#{kinds}, tel=#{tel}, name=#{name}, 
+	email=#{email}, location=#{location}, location1=#{location1}, 
+	nickname=#{nickname}, gender=#{gender}
+	
 	where id = #{id} and pass =#{pass}
 </update>
+
+
 <update id="changePassP" parameterType="map">
 	update userperson set pass=#{pass} where id =#{id} and kinds=#{kinds}
 </update>
+
+
 <delete id="deleteP" parameterType="String">
 	delete from userperson where id =#{id}	
+</delete>
+<delete id="deleteG" parameterType="String">
+	delete from usergroup where id =#{id}	
 </delete>
 
 
@@ -40,12 +54,6 @@
 <update id="changePassG" parameterType="map">
 	update usergroup set pass=#{pass} where id =#{id} and kinds=#{kinds}
 </update>
-
-<delete id="deleteG" parameterType="String">
-	delete from usergroup where id =#{id}	
-</delete>
-
-
 
 
 

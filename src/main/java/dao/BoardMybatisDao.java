@@ -22,6 +22,7 @@ public class BoardMybatisDao {
 	private Map map = new HashMap();
 
 	public int insertBoard(Board board) {
+		
 		int num = session.insert(ns+"insertBoard", board);
 		
 		return num;
