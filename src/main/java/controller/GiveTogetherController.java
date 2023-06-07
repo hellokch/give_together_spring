@@ -94,9 +94,6 @@ public class GiveTogetherController {
 	@RequestMapping("joinUserGroupPro")
 	public String joinUserGroupPro(Usergroup group)throws Exception {
 		
-		System.out.println("joinUserGroupPro");	
-		
-		
 		int count = userdao.insertUsergroup(group);
 		String msg="";
 		String url="";
@@ -108,6 +105,7 @@ public class GiveTogetherController {
 			msg = "회원가입에 실패 했습니다.";
 			url = "/giveTogether/joinForGroup";			
 		}
+		
 		m.addAttribute("msg", msg);
 		m.addAttribute("url", url);
 		return "/alert";
@@ -115,11 +113,8 @@ public class GiveTogetherController {
 	
 	@RequestMapping("pictureimgForm")
 	public String pictureimgForm() {
-		/* 1) upload folder 만든다 /webapp/user/picture
-		 * 2) @RequestMapping("picturePro") 이미지를 폴더에 저장 한다.
-		 */
 		return "/user/pictureimgForm";
-}
+	}
 	
 	@RequestMapping("picturePro")
 	public String picturePro(@RequestParam("picture") MultipartFile multipartFile) {

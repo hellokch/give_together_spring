@@ -22,9 +22,7 @@ public class UserMybatisDao {
 	}
 	
 	public int insertUsergroup(Usergroup group) {
-		
 		int num = session.insert(ns + "insertUsergroup", group);
-		
 		return num;	
 	}	
 	public Userperson  selectOneP(String id) {
