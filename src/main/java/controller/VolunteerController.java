@@ -106,16 +106,7 @@ public class VolunteerController {
 		int pageInt = Integer.parseInt(pageNum);
 		int bottomLine = 3; //하단 페이지 넘기기 숫자
 		
-		/*
-		 *	pageInt
-		 *	1:	123 
-		 *	2:	123
-		 *	3:	123
-		 *	4:	456
-		 *	~
-		 *	7:
-		 */
-		
+
 		int startPage = (pageInt - 1) / bottomLine * bottomLine +1;
 		int endPage = startPage + bottomLine - 1;
 		
