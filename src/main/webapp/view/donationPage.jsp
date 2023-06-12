@@ -6,7 +6,7 @@
 
             <head>
                 <meta charset="UTF-8">
-                <title>Insert title here</title>
+                <title>기부 페이지 메인</title>
             </head>
 
             <body>
