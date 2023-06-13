@@ -44,9 +44,9 @@
 	<select id="boardmain" parameterType="map" resultType="board">
 		
 		select * from(
-	select rownum rnum, a.* from
-	(select * from giveboard where p_type = #{p_type} order by index_num desc) a)
-	where rnum between #{nowpage} and #{end}    
+		select rownum rnum, a.* from
+		(select * from giveboard where p_type = #{p_type} order by index_num desc) a)
+		where rnum between #{nowpage} and #{end}    
 
 	</select>
 	

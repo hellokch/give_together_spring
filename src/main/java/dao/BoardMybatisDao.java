@@ -49,7 +49,6 @@ public class BoardMybatisDao {
 	
 	public Board boardOne(int index_num) {
 		Board board = session.selectOne(ns+"boardOne", index_num);
-		
 		return board;
 	}
 	
